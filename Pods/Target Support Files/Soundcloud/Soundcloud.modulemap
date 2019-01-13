@@ -1,0 +1,6 @@
+framework module Soundcloud {
+  umbrella header "Soundcloud-umbrella.h"
+
+  export *
+  module * { export * }
+}

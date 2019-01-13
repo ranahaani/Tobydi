@@ -1,0 +1,2376 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		008D5DDE0942B5C3EC51E6D4557DFD64 /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621851B76BAEB29F60500987A8568ED /* Placeholder.swift */; };
+		03F52648C6725FA0EFC6EA1C34B65750 /* PlaylistRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C120ACCF21D487D990A3FBFC24403B /* PlaylistRequest.swift */; };
+		049BCC310C1FD6A67CEFACF87E19813B /* Soundcloud-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 906E69937D5D0AFF71021B29B93163BA /* Soundcloud-dummy.m */; };
+		0792F2469448A31E500B715DA2B03BAF /* STKLocalFileDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = BCB318E9EE219D52580C37C8A9244AA4 /* STKLocalFileDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07C0515BAB41A01EDFCB5164FB622170 /* ImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2053001A26F9FEBD696526D6CFE566DD /* ImageModifier.swift */; };
+		0BF29DB5DF7F1840FC7E9022F8D91C73 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D3FFE6451879099F4CC8CD6EE7ABE74 /* Foundation.framework */; };
+		125A9EACDBD8F30A00B359106324CA14 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4402B0ACFA5580463FA5C5CDCFA9AAB7 /* QuartzCore.framework */; };
+		12ECD44EDC1AE14462F05282C14F86DC /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A39FFA269054DD163C9F13E7BC04CD /* StringExtension.swift */; };
+		15EF7766A16671E0969AA642E7ECD79E /* ImageURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7369D23C3E039944484291B1506D0D8 /* ImageURLs.swift */; };
+		1638228A4508050EFBF2B5E3274D5AE8 /* STKAutoRecoveringHTTPDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A5783EF18A524E4A28E6382F4AD0D4 /* STKAutoRecoveringHTTPDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1657E430242BC0276A14C4E8B82E0B5B /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BFA8E69297A0368D36E8EF8A009C41 /* DataExtension.swift */; };
+		179B58CF1CA740089F57DEE9FD3BC9E7 /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6D3631085F8BD87031E6AC2814061B /* OnePasswordExtension.framework */; };
+		179FCD8BC40E115DFA9C05F603A878A9 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF7247952BBC69E2B0D2034DD6B7478 /* Resource.swift */; };
+		1CBFB41F35D64297B306EAD49DF4687D /* NSMutableArray+STKAudioPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 785C1B883875561B3ECC20638853A7D8 /* NSMutableArray+STKAudioPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1FF08A084BAA3EBB235208A4D33B2E3E /* OnePasswordExtensionResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ECCAD9059FF28AE09B909108A06BF4BC /* OnePasswordExtensionResources.bundle */; };
+		208F7DB0E1C22EE63B02CA3F4450E353 /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544CBC4B79843B4E89DBEE925B9CC35 /* String+Components.swift */; };
+		20FEB969513418DFAC5090C858D10516 /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90D64DEFCCD4A6994BF4A91328A81CA /* Kingfisher.swift */; };
+		213B013D7781F72A69510ED0F90BC18F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E7DA82D50F403ABFDE184E2AEAF2C /* Enums.swift */; };
+		29CC4FFA9059DC23CA56F5908E456E93 /* STKCoreFoundationDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 096EFB9AE65749AE9D081B71DDB3B60E /* STKCoreFoundationDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2B9D2A9F13DFC7BD6CA3793659844891 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C7D724858C656978F3E3E58A047ED7 /* SVProgressAnimatedView.m */; };
+		2D6FA77EE57BEA34571AA3F71FEFFA94 /* STKLocalFileDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 25ED79671FC1C730BAF4ECABD93C5806 /* STKLocalFileDataSource.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		2F84C0A84F2B5A0E9E3073417CA651C3 /* ImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344C1DE17C234EB761C833752821837D /* ImageTransition.swift */; };
+		2FB8C4D3042DF4A50C1FF99BD5D6A38F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D3FFE6451879099F4CC8CD6EE7ABE74 /* Foundation.framework */; };
+		31E118DC779815A64D6EC59ABAB28148 /* SVProgressAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = FDC6748365159BC52342E20D0BE1D271 /* SVProgressAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3233745597BB9B657F43000692E85C2D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE96994E248D8E695A9767A9A2C9CB /* User.swift */; };
+		33B8745B2A0A30DC6CEE97BA5A25DC83 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AA5B5D8AD5A2AD0235FF20EFAD2622 /* Comment.swift */; };
+		34AEF9EE16EAEAF7FA0E66A48982F0C8 /* UIButton+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85515C60EEABAC2C9347A203CB1C9808 /* UIButton+Kingfisher.swift */; };
+		3510DCF7310F35623CAF3227932DBF0F /* STKQueueEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D29764C0892BD5AA940378A742B790 /* STKQueueEntry.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		3554E5702FFEA0C2FC74B19EEC7D6325 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6735A7915E9A76F09A0C1D1E4854C1DF /* Indicator.swift */; };
+		39A622DEF1FEE36D66F56D0C058501A0 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF1113B4E8724A64C36FE5DB8A19C29 /* SVProgressHUD.m */; };
+		3DD120C9002F94A4CA978EE230AD71A1 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E126035579882949574950A45C8B67 /* DictionaryExtension.swift */; };
+		41D22E6F4C3E24D8FE690DE6D644AC3E /* ImagePrefetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC81F408E7D12F3354AA5225C73ED1E /* ImagePrefetcher.swift */; };
+		420A84B3ED1E2EF6A927F5A5BA21B434 /* AudioPlayerSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 59807BD5B725BAD44675CD66D1B3F7DC /* AudioPlayerSwift-dummy.m */; };
+		42A92DE8F969BEB3B2E30B15815AF947 /* STKDataSourceWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B9685B9AAA1BD3D43A202925AEB1E01 /* STKDataSourceWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		453378DA661AD7FCBA79D1BFA59302EB /* FormatIndicatedCacheSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6362E7A9A65F3958EE7CBF30942D8 /* FormatIndicatedCacheSerializer.swift */; };
+		4565031E0304574C7A466B62E73E7478 /* KeychainAccess-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CEF906233F3ED9EC75580EB1BFCBAB2A /* KeychainAccess-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		461F95CF5A8FA675456A208056425D22 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216E5F3FF286EAC65FC0B916997B4AAA /* MobileCoreServices.framework */; };
+		470B146A0944F683600B507BF3E53D05 /* STKHTTPDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C76E1DE13F0E2A9FFC3E33C0F886AB5 /* STKHTTPDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		479AD721BEFAE1A0DBB2869D5B3531C4 /* SoundcloudWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE302A4046BCBE8441A026404B6B4A /* SoundcloudWebViewController.swift */; };
+		483D9A7933DCAB91C940C8019CE665CD /* Pods-Tobydi-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 794463E9E40EDF78A9C59218A1A642E8 /* Pods-Tobydi-dummy.m */; };
+		49DD4B0572F35B0EEA391B20F5119067 /* AudioPlayerSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FF86CAD0B5BCB714A720E7DED263257 /* AudioPlayerSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DB4691650B1604DF7A2B3DED6C509B6 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B6E0612CB48AF1FD43420551278243 /* AudioPlayer.swift */; };
+		4E022BB6672EC9E67F00909F92EEB03E /* YoutubeDirectLinkExtractor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AFCDB47465DD2BC4D8C73DA58E3584 /* YoutubeDirectLinkExtractor-dummy.m */; };
+		51179C471EF8D4F3FD2860BF4C2BE5F7 /* STKDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8397823CEF74CF7D70C8058789C67601 /* STKDataSource.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		56BEC83974E0E941F93C3CF834B78BBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D3FFE6451879099F4CC8CD6EE7ABE74 /* Foundation.framework */; };
+		57E3243FB20DA49185B68650D0E32E52 /* STKQueueEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 0165154AF8BC1DCE9EDFB2DEB78B118C /* STKQueueEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5ADE222F5777D7B18300C4E57660E36E /* STKAudioPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = B666AE531FF73BF9FA8ADA99C7FA7FDF /* STKAudioPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B80C3E1A8127703BC49CFDED8824C21 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B3B9B9F9060F947CADF308C5ABEC0 /* SystemConfiguration.framework */; };
+		5EF50A06D7BC68ED7BD8C3148DB4C7C9 /* SearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D112CA5E6C95CAEBA30DEE1230DFB8 /* SearchQuery.swift */; };
+		5F045274224D4FFE7909E13EE267F083 /* 1Password.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8ED3F742BFB66812702EC6A52CF92C0B /* 1Password.xcassets */; };
+		63B6BA71AA6C4D89CD2CEE5B9FE165A0 /* SVProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 723C21E47DD4FD8B935A802BD3A08453 /* SVProgressHUD-dummy.m */; };
+		64A79D4FA9411BAE246BE8A63172F2D0 /* StreamingKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E93931D08DCBC233D977AE2531A3436F /* StreamingKit-dummy.m */; };
+		65DE5A6E3D05B4E4343524DEC09A42DB /* STKDataSourceWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A01A6FFED9D6EC62161FF5AC570936E /* STKDataSourceWrapper.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		665EC50E5613385813663D91638C917D /* SouncloudClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76D35E3D4CA28933763B72C5196B7E7 /* SouncloudClient.swift */; };
+		665F3F5B281E2FD85E9A4A4F406745F2 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F47626652BCCC86B9F61CBC394CE6D6 /* Request.swift */; };
+		66CCE448DAB752E36445FD69CD761C93 /* KingfisherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417F8A90ED413A4FC3BB05CDC3764CE /* KingfisherManager.swift */; };
+		68B65A696A201B7F7EF6110F9C057737 /* Pods-Tobydi-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 43DAEA46F2691CB38719E4E5CDC633E3 /* Pods-Tobydi-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6AA440C35FCF6A4649D25653BDA9CEAF /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27109C9402810ACB5675E031274F0C9 /* UserRequest.swift */; };
+		6C8FA9E18B18C7AFD02D1F263C4CFE9C /* Soundcloud-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA852D37AA7D507C2D42B67D4D3976B /* Soundcloud-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6F57F6515041B95A7E7BCDA5CFD42DA7 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1637587E9781495E9FC1E5179D6D8F6B /* SVRadialGradientLayer.m */; };
+		70FC375FAC15E89C55C88EF444211B38 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136B3596FAF626C0EFAA1D4EB3CBBEF2 /* URLExtension.swift */; };
+		713D38E5191D4551A8C80B4A73D9621C /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352EBCCE9455392EBAB1EF112347CDB7 /* KeychainAccess.framework */; };
+		719F7EEF3975C2491C60A8E3834B4CB9 /* Array+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640B8E01A4F9D9116F22D41BAB33D91F /* Array+SafeSubscript.swift */; };
+		74991D9F2A55044D75545D00A70C8CA9 /* Kingfisher.h in Headers */ = {isa = PBXBuildFile; fileRef = 399F150DEC2254FF735F0B99D731526A /* Kingfisher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		75A1E4900C0AA7CE6E2454C64AA169E2 /* ImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C702498CAE5F88AC72A031044C4F09 /* ImageView+Kingfisher.swift */; };
+		76029009EAEE9269AA6DDB51FB5DFF99 /* STKDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 99C738E92307075EAFDC388FBEB79254 /* STKDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		788B51CAA01A1BA1F596CAC1EBD602FC /* SVProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AAC246307D141B73D7BF85D3B52EB4E /* SVProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		78DB58EAB02A6B62FA65A97DEB0470AD /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F05D349898EA9F156623954060DF36ED /* SVIndefiniteAnimatedView.m */; };
+		7B7A1A019A78D874ACE2F76EB50EA1F4 /* NSMutableArray+STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4DAC26AEDCBC75D4A28BB21411A12A /* NSMutableArray+STKAudioPlayer.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		7FAE6CFB12090796446A93DFF777364D /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D89892A7D9C2CFC69E00D17D4E22DF /* CoreFoundation.framework */; };
+		7FD1C9171DE80CDCBE2C974D9EE0991A /* KeychainAccess-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 149C1611E43CF04977B71F7207BABC2B /* KeychainAccess-dummy.m */; };
+		80C433B4D3695F2D158DBCE57E434900 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14CC9057DDEC8BB1200C8E3E5AB77BAA /* CFNetwork.framework */; };
+		81C87DB91D3223092A5E59BB28D10128 /* YoutubeDirectLinkExtractor-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 680796E789B418D34C548770A948DAD3 /* YoutubeDirectLinkExtractor-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		833B4550B26D2A945E08C978BB7BD505 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156664DD2BC350703055B75E2BF92649 /* String+MD5.swift */; };
+		87CDC28BB108C8C51453D99500EAFF36 /* STKHTTPDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 880A1B56BABC2A853089FF90E28E93FC /* STKHTTPDataSource.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		886799B83E5BF677DEC19ADAD8DC5B9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D3FFE6451879099F4CC8CD6EE7ABE74 /* Foundation.framework */; };
+		88CE4EE02A104D4BD65DE024ACF209F7 /* KingfisherOptionsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F196F65DAC13FEC374900FA4C452B9 /* KingfisherOptionsInfo.swift */; };
+		8CFBA4BAC78D8583A637106F3C2CBE01 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2282588F5845174E9E6DA64C96F55830 /* AudioToolbox.framework */; };
+		8EC82A62E9AA72E326655ECF63761FA7 /* StreamingKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A1D586D563693B03591EE74E72A81266 /* StreamingKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9017F65EFD5605D7E9135696F9BF3765 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BADFC6268B62D5896EEA5BBE2BC40C /* Track.swift */; };
+		90523ACEFEF8D56C35F5CF41CB70EE58 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790AEEA4B8D1087A842DC86660A253E4 /* ImageCache.swift */; };
+		909BBB753B14CA3B4A7CE7565CCE4A9F /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA8291028F6F3DFC48A5D1B0B293F1 /* Activity.swift */; };
+		958462AC38FAFF17C83624BC2A463B89 /* 1PasswordExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C5D3393F9D618AC27D304FB28536C013 /* 1PasswordExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95AB33523EE2DA5C145714D7279E8D27 /* CacheSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD49744E7D9C3529D0FC787FAE1146B /* CacheSerializer.swift */; };
+		97EB2E795C2BE40106D734B5C0AEBDB3 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D0F6B740D6979AF3C5D47B8473E843 /* ImageDownloader.swift */; };
+		9865FEA848E97273D00CF534D681436C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D3FFE6451879099F4CC8CD6EE7ABE74 /* Foundation.framework */; };
+		991A4CEAD4629A35BE09A02F7262DC9D /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 348C0295103EE335BC8360EA391D9BF0 /* SVProgressHUD.bundle */; };
+		9B7D6308DCD7375236E1CDC4A6C2F1F7 /* STKAutoRecoveringHTTPDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C293DA5EB1247D07E9828F32EBD2A742 /* STKAutoRecoveringHTTPDataSource.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		9C0F66636462A6B93CE027ECF4DC21BC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14CC9057DDEC8BB1200C8E3E5AB77BAA /* CFNetwork.framework */; };
+		9C7EF9389D7763891999B1056D9504B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D3FFE6451879099F4CC8CD6EE7ABE74 /* Foundation.framework */; };
+		9EDFA1C34D4853B76A78B8E40B89C775 /* RequestModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1105D1779E4AB79F246A4EA423B82BDA /* RequestModifier.swift */; };
+		9FF6D1E82F1B44F07AA4CD19A04834C5 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7940D841BF0D26763F202F452858298E /* APIResponse.swift */; };
+		A48604A10A12DDF0C0A782ECBA59841A /* STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7762735A5A256F15083236DC8774769F /* STKAudioPlayer.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A7616F8EDD3CD4AF9C2E34E5A086FFC8 /* VideoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0184D72B9FF5942E1ACACA8AC3EFB69 /* VideoInfo.swift */; };
+		A8FC628BC39A85B021B33CD0EDF94E06 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F961589E18E9EE11576559DF980F30 /* Keychain.swift */; };
+		AE633B3532903E2EF04B5D7BA480C3C7 /* Kingfisher-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A757801E6D058493068DD486A02CE75E /* Kingfisher-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1D0744B9405A528508A49B4DE06A8DB /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDEBDB5C8901D86D00BF2BBB7B77BF2 /* Filter.swift */; };
+		B239F6D91EC58C8046497C0909CB2E78 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3774D341E526980534DE8CCA2F92ECE2 /* Box.swift */; };
+		B4A0F727E6D17EABFD5EDD409CDCFF78 /* SVRadialGradientLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = F5E8264C201F7881F4BB29D6F107D283 /* SVRadialGradientLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BBE6B85E960BF7927A44E2329DE05A5F /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE40B29092F6862981E1031ADD24BCA /* Image.swift */; };
+		C2024274C7A1C1D7C74FBB79B82D129F /* Soundcloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AE95CC6ECA33CB25973536EB9D28C0 /* Soundcloud.swift */; };
+		C33EEC056DF35E50ED7F5593CE2512F5 /* 1PasswordExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DD6D3E83BB2E28227CE34A52B02EE76 /* 1PasswordExtension-dummy.m */; };
+		C8FAA25D1DC70784DB1FBB85441C8231 /* YoutubeDirectLinkExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A9660D3F609C0E6052E76D1EB75A2 /* YoutubeDirectLinkExtractor.swift */; };
+		C9538BAC268AB8AAB4336A4E62B2EA1F /* Kingfisher-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C5994005A4BB7D90337AD6E25F4FD /* Kingfisher-dummy.m */; };
+		C9CE6B8807087030C3AAE03061DD0942 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE67B9D094F2DF9BE21929DF97166AA3 /* Errors.swift */; };
+		CDAA93721AA4019A45D57064D0BE1DF9 /* SVProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 904ED39845B57D55184A75CE36FF9CCA /* SVProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEAEE2AC6D326C073CE7513547FCE1A1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 734B29952D69857565D0464204313058 /* AVFoundation.framework */; };
+		D9D56555A9BF271C448AD83B8C7CE77B /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B69C22DC1109E4699267E3DA0FD05E /* Playlist.swift */; };
+		DAC3F0C65BA82526594477C6DDF06745 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D9E1ABAA9659F6BD49A2E1A7BCB8BB /* ImageProcessor.swift */; };
+		DF3477C5A7F55013DB28263894C637F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D3FFE6451879099F4CC8CD6EE7ABE74 /* Foundation.framework */; };
+		E1A49174A96377D96253D9F5A4F894F5 /* ExtractionSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA30F734EC910A0C47BF3E1FD0088D5 /* ExtractionSource.swift */; };
+		EA9BE16ECCC17CC9AD847C52D1B64671 /* AnimatedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491F25DC173BD7A70EA969FEDA3A6A8 /* AnimatedImageView.swift */; };
+		ED13CB243235167EF334F2662DCF10D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D3FFE6451879099F4CC8CD6EE7ABE74 /* Foundation.framework */; };
+		EE6DCF56C004C30A473DB353A9429294 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785E5C4524E8FF55EAABBFA92CCB391A /* UIKit.framework */; };
+		F25C88B4DEEF57CEEC0EBFD8D155715A /* SVIndefiniteAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 496136FC0DB392727ADAF5DDFE5D15AC /* SVIndefiniteAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2C15F8B02921123ADFFE909EB332017 /* OnePasswordExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5331FB32B77AB6A3F087DB817A48B7CB /* OnePasswordExtension.m */; };
+		F515C8607D1392718FB63DF1725E1A6B /* STKCoreFoundationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AA23AA85C5EA86956ECC6441472386A1 /* STKCoreFoundationDataSource.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		F667936752E8742E44668CC80FC31720 /* ThreadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A6551F94CA81B0F2E74D4C5117908C /* ThreadHelper.swift */; };
+		F7950C7B0F4A6B8F70434F730D118006 /* TrackRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13A1817F512DD39B4D653253CE0040 /* TrackRequest.swift */; };
+		FDB75FC7E23F86FAC704B38F45C1EF80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D3FFE6451879099F4CC8CD6EE7ABE74 /* Foundation.framework */; };
+		FDBCBC13476C9A4A7FCF7EA4EAC579F0 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACBDB03933CB050D3610CD17ADFBA80 /* App.swift */; };
+		FE6C4FDA0BF7A742805EF43035784E67 /* OnePasswordExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D1948A1C9801E79228BFA4840F6F24E /* OnePasswordExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		06DA3E2AF22A173DBF9AD31351718235 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A15CD3220CB655EF65975142EDBD8C6E;
+			remoteInfo = Kingfisher;
+		};
+		28C0C75553E6F55D52EE227225F98CB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E4F6D37469B6EB275969EC167E734FDF;
+			remoteInfo = StreamingKit;
+		};
+		47255B6D6003A0430DE502B8DACF5A17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF2B5DF0BB3EFE326920BE615A125D89;
+			remoteInfo = 1PasswordExtension;
+		};
+		74D8DE8D840CC737EC73D7CDCBCCDB18 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF2B5DF0BB3EFE326920BE615A125D89;
+			remoteInfo = 1PasswordExtension;
+		};
+		81A93D67B526BA6829603ED0F2CA63B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BBB839619539490383FA635C5D80CA91;
+			remoteInfo = SVProgressHUD;
+		};
+		8A93EA86EEDECE6E380AA8BA03BD58A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 617337684680CDF652ED8C024728B258;
+			remoteInfo = Soundcloud;
+		};
+		8D04AE0C7EA7880476465A2ADE407ACA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0109289AF996A75DFE4A9A51883579B5;
+			remoteInfo = YoutubeDirectLinkExtractor;
+		};
+		9AB817C99217D004BD23FAA516786720 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5A9B966F6E4405BD7641F8E416B22D4;
+			remoteInfo = "1PasswordExtension-OnePasswordExtensionResources";
+		};
+		C118F38BE341B823791ECAF082E3DD3E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 812CC73FB5D772CBB98DC327150D7416;
+			remoteInfo = AudioPlayerSwift;
+		};
+		CDFE1C11E3FAB0B65F291CD3CD093292 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1630C0AC0CCE2704C3F517D1DFD56586;
+			remoteInfo = KeychainAccess;
+		};
+		D2902683DBA81652AF743C56C7AB571D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1630C0AC0CCE2704C3F517D1DFD56586;
+			remoteInfo = KeychainAccess;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0165154AF8BC1DCE9EDFB2DEB78B118C /* STKQueueEntry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STKQueueEntry.h; path = StreamingKit/StreamingKit/STKQueueEntry.h; sourceTree = "<group>"; };
+		024174AE5947A516C987F6C17577DE2A /* ResourceBundle-OnePasswordExtensionResources-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-OnePasswordExtensionResources-Info.plist"; sourceTree = "<group>"; };
+		05D0DFAFC849910B027ADF75964B85E7 /* YoutubeDirectLinkExtractor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YoutubeDirectLinkExtractor.framework; path = YoutubeDirectLinkExtractor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		07C6362E7A9A65F3958EE7CBF30942D8 /* FormatIndicatedCacheSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormatIndicatedCacheSerializer.swift; path = Sources/FormatIndicatedCacheSerializer.swift; sourceTree = "<group>"; };
+		096EFB9AE65749AE9D081B71DDB3B60E /* STKCoreFoundationDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STKCoreFoundationDataSource.h; path = StreamingKit/StreamingKit/STKCoreFoundationDataSource.h; sourceTree = "<group>"; };
+		0A01A6FFED9D6EC62161FF5AC570936E /* STKDataSourceWrapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STKDataSourceWrapper.m; path = StreamingKit/StreamingKit/STKDataSourceWrapper.m; sourceTree = "<group>"; };
+		1077C22F17A3786644C611383F8B95BA /* SVProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVProgressHUD.xcconfig; sourceTree = "<group>"; };
+		1105D1779E4AB79F246A4EA423B82BDA /* RequestModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestModifier.swift; path = Sources/RequestModifier.swift; sourceTree = "<group>"; };
+		119F97192170679545C8409B73BE2C1F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		136B3596FAF626C0EFAA1D4EB3CBBEF2 /* URLExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLExtension.swift; path = sources/SoundcloudSDK/extension/URLExtension.swift; sourceTree = "<group>"; };
+		13BA8291028F6F3DFC48A5D1B0B293F1 /* Activity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Activity.swift; path = sources/SoundcloudSDK/model/Activity.swift; sourceTree = "<group>"; };
+		149C1611E43CF04977B71F7207BABC2B /* KeychainAccess-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KeychainAccess-dummy.m"; sourceTree = "<group>"; };
+		14CC9057DDEC8BB1200C8E3E5AB77BAA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		156664DD2BC350703055B75E2BF92649 /* String+MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+MD5.swift"; path = "Sources/String+MD5.swift"; sourceTree = "<group>"; };
+		1637587E9781495E9FC1E5179D6D8F6B /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVRadialGradientLayer.m; path = SVProgressHUD/SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		1F46773A514A6B499AE6D0C09545EBBB /* OnePasswordExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OnePasswordExtension.framework; path = 1PasswordExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		204431D3AB8EEE864ADDBC42B83C93EF /* Pods-Tobydi-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tobydi-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2053001A26F9FEBD696526D6CFE566DD /* ImageModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageModifier.swift; path = Sources/ImageModifier.swift; sourceTree = "<group>"; };
+		216E5F3FF286EAC65FC0B916997B4AAA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		22244284ECD6667FFE5A8F1FB727BF0A /* Soundcloud.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Soundcloud.modulemap; sourceTree = "<group>"; };
+		2282588F5845174E9E6DA64C96F55830 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		22AFCDB47465DD2BC4D8C73DA58E3584 /* YoutubeDirectLinkExtractor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YoutubeDirectLinkExtractor-dummy.m"; sourceTree = "<group>"; };
+		23EC05E0581F631F7445E4C812D7C780 /* StreamingKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = StreamingKit.modulemap; sourceTree = "<group>"; };
+		25201DA2F60C368C16BB507AF962C138 /* Pods_Tobydi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Tobydi.framework; path = "Pods-Tobydi.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		25ED79671FC1C730BAF4ECABD93C5806 /* STKLocalFileDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STKLocalFileDataSource.m; path = StreamingKit/StreamingKit/STKLocalFileDataSource.m; sourceTree = "<group>"; };
+		2ACBDB03933CB050D3610CD17ADFBA80 /* App.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = App.swift; path = sources/SoundcloudSDK/model/App.swift; sourceTree = "<group>"; };
+		2E49BCB68D581E1A69CED928DE9282EA /* StreamingKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "StreamingKit-prefix.pch"; sourceTree = "<group>"; };
+		344C1DE17C234EB761C833752821837D /* ImageTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageTransition.swift; path = Sources/ImageTransition.swift; sourceTree = "<group>"; };
+		348C0295103EE335BC8360EA391D9BF0 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		352EBCCE9455392EBAB1EF112347CDB7 /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3774D341E526980534DE8CCA2F92ECE2 /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Box.swift; path = Sources/Box.swift; sourceTree = "<group>"; };
+		399F150DEC2254FF735F0B99D731526A /* Kingfisher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Kingfisher.h; path = Sources/Kingfisher.h; sourceTree = "<group>"; };
+		3BF1113B4E8724A64C36FE5DB8A19C29 /* SVProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
+		3C76E1DE13F0E2A9FFC3E33C0F886AB5 /* STKHTTPDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STKHTTPDataSource.h; path = StreamingKit/StreamingKit/STKHTTPDataSource.h; sourceTree = "<group>"; };
+		3CE40B29092F6862981E1031ADD24BCA /* Image.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Image.swift; path = Sources/Image.swift; sourceTree = "<group>"; };
+		3DC4F85C64EC7488B9D5D17AE0BAAD5A /* AudioPlayerSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AudioPlayerSwift-prefix.pch"; sourceTree = "<group>"; };
+		41AF38F3312B09925BD4CF8E1AAB1437 /* StreamingKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = StreamingKit.xcconfig; sourceTree = "<group>"; };
+		43DAEA46F2691CB38719E4E5CDC633E3 /* Pods-Tobydi-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tobydi-umbrella.h"; sourceTree = "<group>"; };
+		4402B0ACFA5580463FA5C5CDCFA9AAB7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		44B7A02BB71B2F65557DD855D01DC5EF /* Pods-Tobydi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tobydi.release.xcconfig"; sourceTree = "<group>"; };
+		496136FC0DB392727ADAF5DDFE5D15AC /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		4D1948A1C9801E79228BFA4840F6F24E /* OnePasswordExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = OnePasswordExtension.h; sourceTree = "<group>"; };
+		4E6D553ACA13B4187949A7B62780F2DF /* Kingfisher.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Kingfisher.modulemap; sourceTree = "<group>"; };
+		51C7D724858C656978F3E3E58A047ED7 /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressAnimatedView.m; path = SVProgressHUD/SVProgressAnimatedView.m; sourceTree = "<group>"; };
+		52BFA8E69297A0368D36E8EF8A009C41 /* DataExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataExtension.swift; path = sources/SoundcloudSDK/extension/DataExtension.swift; sourceTree = "<group>"; };
+		5331FB32B77AB6A3F087DB817A48B7CB /* OnePasswordExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = OnePasswordExtension.m; sourceTree = "<group>"; };
+		536F9D929EDDF04560BB4DD698320CAB /* Soundcloud.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Soundcloud.xcconfig; sourceTree = "<group>"; };
+		538B7EE08FAA90164C7826DBDAFC4D7E /* SVProgressHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SVProgressHUD.modulemap; sourceTree = "<group>"; };
+		5491F25DC173BD7A70EA969FEDA3A6A8 /* AnimatedImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatedImageView.swift; path = Sources/AnimatedImageView.swift; sourceTree = "<group>"; };
+		56D0F6B740D6979AF3C5D47B8473E843 /* ImageDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDownloader.swift; path = Sources/ImageDownloader.swift; sourceTree = "<group>"; };
+		58F196F65DAC13FEC374900FA4C452B9 /* KingfisherOptionsInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherOptionsInfo.swift; path = Sources/KingfisherOptionsInfo.swift; sourceTree = "<group>"; };
+		59807BD5B725BAD44675CD66D1B3F7DC /* AudioPlayerSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AudioPlayerSwift-dummy.m"; sourceTree = "<group>"; };
+		5DEE858B6AED43A776C3E5243D4E8C9F /* Kingfisher.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kingfisher.xcconfig; sourceTree = "<group>"; };
+		60A39FFA269054DD163C9F13E7BC04CD /* StringExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = sources/SoundcloudSDK/extension/StringExtension.swift; sourceTree = "<group>"; };
+		60CB012C3B3CB6B1EBD4C3808D37A197 /* Pods-Tobydi-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tobydi-acknowledgements.plist"; sourceTree = "<group>"; };
+		61B6E0612CB48AF1FD43420551278243 /* AudioPlayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AudioPlayer.swift; path = Sources/AudioPlayer.swift; sourceTree = "<group>"; };
+		63C120ACCF21D487D990A3FBFC24403B /* PlaylistRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PlaylistRequest.swift; path = sources/SoundcloudSDK/request/PlaylistRequest.swift; sourceTree = "<group>"; };
+		640B8E01A4F9D9116F22D41BAB33D91F /* Array+SafeSubscript.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+SafeSubscript.swift"; path = "Sources/Extensions/Array+SafeSubscript.swift"; sourceTree = "<group>"; };
+		6735A7915E9A76F09A0C1D1E4854C1DF /* Indicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Indicator.swift; path = Sources/Indicator.swift; sourceTree = "<group>"; };
+		680796E789B418D34C548770A948DAD3 /* YoutubeDirectLinkExtractor-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YoutubeDirectLinkExtractor-umbrella.h"; sourceTree = "<group>"; };
+		6BDDFF51D503C4CABA1767B72C054164 /* 1PasswordExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "1PasswordExtension-prefix.pch"; sourceTree = "<group>"; };
+		6BEA4CA62BEFC431EB659B63DB165AAC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6CD49744E7D9C3529D0FC787FAE1146B /* CacheSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CacheSerializer.swift; path = Sources/CacheSerializer.swift; sourceTree = "<group>"; };
+		6DD6D3E83BB2E28227CE34A52B02EE76 /* 1PasswordExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "1PasswordExtension-dummy.m"; sourceTree = "<group>"; };
+		6EA3281B2D1E3103BB73FA58B3EF5CDA /* Kingfisher-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kingfisher-prefix.pch"; sourceTree = "<group>"; };
+		7202B35B8314B969A98B7591C419A5AF /* KeychainAccess.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KeychainAccess.xcconfig; sourceTree = "<group>"; };
+		723C21E47DD4FD8B935A802BD3A08453 /* SVProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SVProgressHUD-dummy.m"; sourceTree = "<group>"; };
+		734B29952D69857565D0464204313058 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		74BADFC6268B62D5896EEA5BBE2BC40C /* Track.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Track.swift; path = sources/SoundcloudSDK/model/Track.swift; sourceTree = "<group>"; };
+		74D89892A7D9C2CFC69E00D17D4E22DF /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		7762735A5A256F15083236DC8774769F /* STKAudioPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STKAudioPlayer.m; path = StreamingKit/StreamingKit/STKAudioPlayer.m; sourceTree = "<group>"; };
+		779E1E9CD5B4F91C64CF45B5B6EFA48D /* YoutubeDirectLinkExtractor.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YoutubeDirectLinkExtractor.xcconfig; sourceTree = "<group>"; };
+		785C1B883875561B3ECC20638853A7D8 /* NSMutableArray+STKAudioPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+STKAudioPlayer.h"; path = "StreamingKit/StreamingKit/NSMutableArray+STKAudioPlayer.h"; sourceTree = "<group>"; };
+		785E5C4524E8FF55EAABBFA92CCB391A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		790AEEA4B8D1087A842DC86660A253E4 /* ImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageCache.swift; path = Sources/ImageCache.swift; sourceTree = "<group>"; };
+		7940D841BF0D26763F202F452858298E /* APIResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = APIResponse.swift; path = sources/SoundcloudSDK/model/APIResponse.swift; sourceTree = "<group>"; };
+		794463E9E40EDF78A9C59218A1A642E8 /* Pods-Tobydi-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tobydi-dummy.m"; sourceTree = "<group>"; };
+		79660E12058FF6360DFF4D55F0FA8D70 /* Pods-Tobydi.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Tobydi.modulemap"; sourceTree = "<group>"; };
+		7AA852D37AA7D507C2D42B67D4D3976B /* Soundcloud-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Soundcloud-umbrella.h"; sourceTree = "<group>"; };
+		7B87C354692E2526DEEC684C2EB6D1FA /* Pods-Tobydi-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tobydi-frameworks.sh"; sourceTree = "<group>"; };
+		7D24E9F924EE4E6A1ADC5B28DF4A7FBF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FF86CAD0B5BCB714A720E7DED263257 /* AudioPlayerSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AudioPlayerSwift-umbrella.h"; sourceTree = "<group>"; };
+		8397823CEF74CF7D70C8058789C67601 /* STKDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STKDataSource.m; path = StreamingKit/StreamingKit/STKDataSource.m; sourceTree = "<group>"; };
+		85515C60EEABAC2C9347A203CB1C9808 /* UIButton+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+Kingfisher.swift"; path = "Sources/UIButton+Kingfisher.swift"; sourceTree = "<group>"; };
+		85D946AD16FED09EAB307731F8C076DC /* 1PasswordExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = 1PasswordExtension.modulemap; sourceTree = "<group>"; };
+		8621851B76BAEB29F60500987A8568ED /* Placeholder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Placeholder.swift; path = Sources/Placeholder.swift; sourceTree = "<group>"; };
+		87D112CA5E6C95CAEBA30DEE1230DFB8 /* SearchQuery.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SearchQuery.swift; path = sources/SoundcloudSDK/model/SearchQuery.swift; sourceTree = "<group>"; };
+		880A1B56BABC2A853089FF90E28E93FC /* STKHTTPDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STKHTTPDataSource.m; path = StreamingKit/StreamingKit/STKHTTPDataSource.m; sourceTree = "<group>"; };
+		8960536131225E0C19A28635EEE0EFA1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AAC246307D141B73D7BF85D3B52EB4E /* SVProgressHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-umbrella.h"; sourceTree = "<group>"; };
+		8B6D3631085F8BD87031E6AC2814061B /* OnePasswordExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OnePasswordExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B9685B9AAA1BD3D43A202925AEB1E01 /* STKDataSourceWrapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STKDataSourceWrapper.h; path = StreamingKit/StreamingKit/STKDataSourceWrapper.h; sourceTree = "<group>"; };
+		8ED3F742BFB66812702EC6A52CF92C0B /* 1Password.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = 1Password.xcassets; sourceTree = "<group>"; };
+		8F7E7DA82D50F403ABFDE184E2AEAF2C /* Enums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Enums.swift; path = sources/SoundcloudSDK/model/Enums.swift; sourceTree = "<group>"; };
+		904ED39845B57D55184A75CE36FF9CCA /* SVProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
+		906E69937D5D0AFF71021B29B93163BA /* Soundcloud-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Soundcloud-dummy.m"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A5783EF18A524E4A28E6382F4AD0D4 /* STKAutoRecoveringHTTPDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STKAutoRecoveringHTTPDataSource.h; path = StreamingKit/StreamingKit/STKAutoRecoveringHTTPDataSource.h; sourceTree = "<group>"; };
+		9428B7BA75F530FE15C18AFE20AD1CCB /* KeychainAccess.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KeychainAccess.modulemap; sourceTree = "<group>"; };
+		94F961589E18E9EE11576559DF980F30 /* Keychain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = Lib/KeychainAccess/Keychain.swift; sourceTree = "<group>"; };
+		99B69C22DC1109E4699267E3DA0FD05E /* Playlist.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Playlist.swift; path = sources/SoundcloudSDK/model/Playlist.swift; sourceTree = "<group>"; };
+		99C738E92307075EAFDC388FBEB79254 /* STKDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STKDataSource.h; path = StreamingKit/StreamingKit/STKDataSource.h; sourceTree = "<group>"; };
+		9C4C5994005A4BB7D90337AD6E25F4FD /* Kingfisher-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kingfisher-dummy.m"; sourceTree = "<group>"; };
+		9D3FFE6451879099F4CC8CD6EE7ABE74 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		9F47626652BCCC86B9F61CBC394CE6D6 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = sources/SoundcloudSDK/request/Request.swift; sourceTree = "<group>"; };
+		A1669207AE472FFD8F63CA784DFCCECF /* StreamingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = StreamingKit.framework; path = StreamingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1D586D563693B03591EE74E72A81266 /* StreamingKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "StreamingKit-umbrella.h"; sourceTree = "<group>"; };
+		A67131CF57BC203F471BED9C12B0DED2 /* Pods-Tobydi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tobydi.debug.xcconfig"; sourceTree = "<group>"; };
+		A757801E6D058493068DD486A02CE75E /* Kingfisher-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kingfisher-umbrella.h"; sourceTree = "<group>"; };
+		A76D35E3D4CA28933763B72C5196B7E7 /* SouncloudClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SouncloudClient.swift; path = sources/SoundcloudSDK/soundcloud/SouncloudClient.swift; sourceTree = "<group>"; };
+		A90D64DEFCCD4A6994BF4A91328A81CA /* Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Kingfisher.swift; path = Sources/Kingfisher.swift; sourceTree = "<group>"; };
+		A9999F7135EF732EE3C41040BDD11108 /* AudioPlayerSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AudioPlayerSwift.xcconfig; sourceTree = "<group>"; };
+		AA23AA85C5EA86956ECC6441472386A1 /* STKCoreFoundationDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STKCoreFoundationDataSource.m; path = StreamingKit/StreamingKit/STKCoreFoundationDataSource.m; sourceTree = "<group>"; };
+		AA27D1E9D6AE4A3FC3798622A1AF0550 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE13A1817F512DD39B4D653253CE0040 /* TrackRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TrackRequest.swift; path = sources/SoundcloudSDK/request/TrackRequest.swift; sourceTree = "<group>"; };
+		B417F8A90ED413A4FC3BB05CDC3764CE /* KingfisherManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherManager.swift; path = Sources/KingfisherManager.swift; sourceTree = "<group>"; };
+		B4C84A12F106CD296FFD9604BB233433 /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KeychainAccess.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B544CBC4B79843B4E89DBEE925B9CC35 /* String+Components.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Components.swift"; path = "Sources/Extensions/String+Components.swift"; sourceTree = "<group>"; };
+		B5C702498CAE5F88AC72A031044C4F09 /* ImageView+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ImageView+Kingfisher.swift"; path = "Sources/ImageView+Kingfisher.swift"; sourceTree = "<group>"; };
+		B666AE531FF73BF9FA8ADA99C7FA7FDF /* STKAudioPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STKAudioPlayer.h; path = StreamingKit/StreamingKit/STKAudioPlayer.h; sourceTree = "<group>"; };
+		BAA30F734EC910A0C47BF3E1FD0088D5 /* ExtractionSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtractionSource.swift; path = Sources/ExtractionSource.swift; sourceTree = "<group>"; };
+		BCB318E9EE219D52580C37C8A9244AA4 /* STKLocalFileDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STKLocalFileDataSource.h; path = StreamingKit/StreamingKit/STKLocalFileDataSource.h; sourceTree = "<group>"; };
+		BCDDC93D403090AE5A663A5824CE6DF3 /* SVProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-prefix.pch"; sourceTree = "<group>"; };
+		BF5A9660D3F609C0E6052E76D1EB75A2 /* YoutubeDirectLinkExtractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YoutubeDirectLinkExtractor.swift; path = Sources/YoutubeDirectLinkExtractor.swift; sourceTree = "<group>"; };
+		C17EF8E77EB023E2C921B13D89BF9455 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C293DA5EB1247D07E9828F32EBD2A742 /* STKAutoRecoveringHTTPDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STKAutoRecoveringHTTPDataSource.m; path = StreamingKit/StreamingKit/STKAutoRecoveringHTTPDataSource.m; sourceTree = "<group>"; };
+		C342B87152C9B770A9A078868F8C7A50 /* YoutubeDirectLinkExtractor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = YoutubeDirectLinkExtractor.modulemap; sourceTree = "<group>"; };
+		C3BE96994E248D8E695A9767A9A2C9CB /* User.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = User.swift; path = sources/SoundcloudSDK/model/User.swift; sourceTree = "<group>"; };
+		C468C618A07F97280262E0A6F11AF6A6 /* Pods-Tobydi-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tobydi-resources.sh"; sourceTree = "<group>"; };
+		C47656EA433D7526711B8B6C61AB49EA /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SVProgressHUD.framework; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4AE95CC6ECA33CB25973536EB9D28C0 /* Soundcloud.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Soundcloud.swift; path = sources/SoundcloudSDK/soundcloud/Soundcloud.swift; sourceTree = "<group>"; };
+		C5D3393F9D618AC27D304FB28536C013 /* 1PasswordExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "1PasswordExtension-umbrella.h"; sourceTree = "<group>"; };
+		C6D9E1ABAA9659F6BD49A2E1A7BCB8BB /* ImageProcessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageProcessor.swift; path = Sources/ImageProcessor.swift; sourceTree = "<group>"; };
+		C8EA5659C30B5917998BB2D87E482EC1 /* AudioPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AudioPlayer.framework; path = AudioPlayerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDF7247952BBC69E2B0D2034DD6B7478 /* Resource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Sources/Resource.swift; sourceTree = "<group>"; };
+		CEC81F408E7D12F3354AA5225C73ED1E /* ImagePrefetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImagePrefetcher.swift; path = Sources/ImagePrefetcher.swift; sourceTree = "<group>"; };
+		CEF906233F3ED9EC75580EB1BFCBAB2A /* KeychainAccess-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KeychainAccess-umbrella.h"; sourceTree = "<group>"; };
+		CF2ECD894B7CA0D020F889FDE1F9A628 /* YoutubeDirectLinkExtractor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YoutubeDirectLinkExtractor-prefix.pch"; sourceTree = "<group>"; };
+		D0184D72B9FF5942E1ACACA8AC3EFB69 /* VideoInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoInfo.swift; path = Sources/VideoInfo.swift; sourceTree = "<group>"; };
+		D0D29764C0892BD5AA940378A742B790 /* STKQueueEntry.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STKQueueEntry.m; path = StreamingKit/StreamingKit/STKQueueEntry.m; sourceTree = "<group>"; };
+		D2307605AEAF2CDC109B2EB538F35624 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6C56AEE8104A5C4C712688E4B30C9DF /* AudioPlayerSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AudioPlayerSwift.modulemap; sourceTree = "<group>"; };
+		DB8B3B9B9F9060F947CADF308C5ABEC0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		DE67B9D094F2DF9BE21929DF97166AA3 /* Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = Sources/Errors.swift; sourceTree = "<group>"; };
+		DED20B39CEDCD6D49C953F5BFC91E696 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1E126035579882949574950A45C8B67 /* DictionaryExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DictionaryExtension.swift; path = sources/SoundcloudSDK/extension/DictionaryExtension.swift; sourceTree = "<group>"; };
+		E27109C9402810ACB5675E031274F0C9 /* UserRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserRequest.swift; path = sources/SoundcloudSDK/request/UserRequest.swift; sourceTree = "<group>"; };
+		E72A302393AD3A7BB9241F109C3B2A26 /* 1PasswordExtension.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = 1PasswordExtension.xcconfig; sourceTree = "<group>"; };
+		E93931D08DCBC233D977AE2531A3436F /* StreamingKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "StreamingKit-dummy.m"; sourceTree = "<group>"; };
+		EA4DAC26AEDCBC75D4A28BB21411A12A /* NSMutableArray+STKAudioPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+STKAudioPlayer.m"; path = "StreamingKit/StreamingKit/NSMutableArray+STKAudioPlayer.m"; sourceTree = "<group>"; };
+		EBDEBDB5C8901D86D00BF2BBB7B77BF2 /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Filter.swift; sourceTree = "<group>"; };
+		ECCAD9059FF28AE09B909108A06BF4BC /* OnePasswordExtensionResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = OnePasswordExtensionResources.bundle; path = "1PasswordExtension-OnePasswordExtensionResources.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF63B4E68A976926A6F4F36008F4E5AE /* KeychainAccess-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KeychainAccess-prefix.pch"; sourceTree = "<group>"; };
+		F05D349898EA9F156623954060DF36ED /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		F359BCEC7CED700517FF313C0E18D5BA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5A6551F94CA81B0F2E74D4C5117908C /* ThreadHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThreadHelper.swift; path = Sources/ThreadHelper.swift; sourceTree = "<group>"; };
+		F5E8264C201F7881F4BB29D6F107D283 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVRadialGradientLayer.h; path = SVProgressHUD/SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		F7369D23C3E039944484291B1506D0D8 /* ImageURLs.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageURLs.swift; path = sources/SoundcloudSDK/model/ImageURLs.swift; sourceTree = "<group>"; };
+		F844DD5F0808BA74641F2A89B9A02BE1 /* Soundcloud-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Soundcloud-prefix.pch"; sourceTree = "<group>"; };
+		F8AA5B5D8AD5A2AD0235FF20EFAD2622 /* Comment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = sources/SoundcloudSDK/model/Comment.swift; sourceTree = "<group>"; };
+		FA0E2CBCF44AA9CF9E0D7406A9C971E1 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Kingfisher.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC45F184F15F2E53FAFD839F69E6B3AD /* Soundcloud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Soundcloud.framework; path = Soundcloud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCDE302A4046BCBE8441A026404B6B4A /* SoundcloudWebViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SoundcloudWebViewController.swift; path = sources/SoundcloudSDK/views/SoundcloudWebViewController.swift; sourceTree = "<group>"; };
+		FDC6748365159BC52342E20D0BE1D271 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressAnimatedView.h; path = SVProgressHUD/SVProgressAnimatedView.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0366D979832FA96B0EBFA8B35C1352E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FB8C4D3042DF4A50C1FF99BD5D6A38F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1EFBAE1F5125F6571101D1526EA3A7AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF3477C5A7F55013DB28263894C637F0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4EB79542E76F2DCAD9B0C42C04E2503E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CFBA4BAC78D8583A637106F3C2CBE01 /* AudioToolbox.framework in Frameworks */,
+				9C0F66636462A6B93CE027ECF4DC21BC /* CFNetwork.framework in Frameworks */,
+				7FAE6CFB12090796446A93DFF777364D /* CoreFoundation.framework in Frameworks */,
+				0BF29DB5DF7F1840FC7E9022F8D91C73 /* Foundation.framework in Frameworks */,
+				5B80C3E1A8127703BC49CFDED8824C21 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55C36F7CC1AF497CD89C8420A717D06F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80C433B4D3695F2D158DBCE57E434900 /* CFNetwork.framework in Frameworks */,
+				56BEC83974E0E941F93C3CF834B78BBA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BD78A2D079473F660D4D54FFF68DE7E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C7EF9389D7763891999B1056D9504B9 /* Foundation.framework in Frameworks */,
+				713D38E5191D4551A8C80B4A73D9621C /* KeychainAccess.framework in Frameworks */,
+				179B58CF1CA740089F57DEE9FD3BC9E7 /* OnePasswordExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A137AD594A04393A38C2F37E6F3F89EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9865FEA848E97273D00CF534D681436C /* Foundation.framework in Frameworks */,
+				461F95CF5A8FA675456A208056425D22 /* MobileCoreServices.framework in Frameworks */,
+				EE6DCF56C004C30A473DB353A9429294 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB9D40864789EB428C9CE3F8311F3011 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC9985BA51EF125F451736F71ED58C2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEAEE2AC6D326C073CE7513547FCE1A1 /* AVFoundation.framework in Frameworks */,
+				ED13CB243235167EF334F2662DCF10D4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFBF223E3B9700F5D1FF3C33012540D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDB75FC7E23F86FAC704B38F45C1EF80 /* Foundation.framework in Frameworks */,
+				125A9EACDBD8F30A00B359106324CA14 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEF467F5AC2705499A393CE2D9F8741B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				886799B83E5BF677DEC19ADAD8DC5B9F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0C66A42C90C1456A6FEF5CEF9837BB76 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C8EA5659C30B5917998BB2D87E482EC1 /* AudioPlayer.framework */,
+				B4C84A12F106CD296FFD9604BB233433 /* KeychainAccess.framework */,
+				FA0E2CBCF44AA9CF9E0D7406A9C971E1 /* Kingfisher.framework */,
+				1F46773A514A6B499AE6D0C09545EBBB /* OnePasswordExtension.framework */,
+				ECCAD9059FF28AE09B909108A06BF4BC /* OnePasswordExtensionResources.bundle */,
+				25201DA2F60C368C16BB507AF962C138 /* Pods_Tobydi.framework */,
+				FC45F184F15F2E53FAFD839F69E6B3AD /* Soundcloud.framework */,
+				A1669207AE472FFD8F63CA784DFCCECF /* StreamingKit.framework */,
+				C47656EA433D7526711B8B6C61AB49EA /* SVProgressHUD.framework */,
+				05D0DFAFC849910B027ADF75964B85E7 /* YoutubeDirectLinkExtractor.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0EB928F7D5ACC7AED67774454B95B9FF /* YoutubeDirectLinkExtractor */ = {
+			isa = PBXGroup;
+			children = (
+				640B8E01A4F9D9116F22D41BAB33D91F /* Array+SafeSubscript.swift */,
+				DE67B9D094F2DF9BE21929DF97166AA3 /* Errors.swift */,
+				BAA30F734EC910A0C47BF3E1FD0088D5 /* ExtractionSource.swift */,
+				B544CBC4B79843B4E89DBEE925B9CC35 /* String+Components.swift */,
+				D0184D72B9FF5942E1ACACA8AC3EFB69 /* VideoInfo.swift */,
+				BF5A9660D3F609C0E6052E76D1EB75A2 /* YoutubeDirectLinkExtractor.swift */,
+				37631A0DA7E1C95769F3DA6A3F057584 /* Support Files */,
+			);
+			name = YoutubeDirectLinkExtractor;
+			path = YoutubeDirectLinkExtractor;
+			sourceTree = "<group>";
+		};
+		2164C0622163194A74FD6B19D76D59DC /* Soundcloud */ = {
+			isa = PBXGroup;
+			children = (
+				13BA8291028F6F3DFC48A5D1B0B293F1 /* Activity.swift */,
+				7940D841BF0D26763F202F452858298E /* APIResponse.swift */,
+				2ACBDB03933CB050D3610CD17ADFBA80 /* App.swift */,
+				F8AA5B5D8AD5A2AD0235FF20EFAD2622 /* Comment.swift */,
+				52BFA8E69297A0368D36E8EF8A009C41 /* DataExtension.swift */,
+				E1E126035579882949574950A45C8B67 /* DictionaryExtension.swift */,
+				8F7E7DA82D50F403ABFDE184E2AEAF2C /* Enums.swift */,
+				F7369D23C3E039944484291B1506D0D8 /* ImageURLs.swift */,
+				99B69C22DC1109E4699267E3DA0FD05E /* Playlist.swift */,
+				63C120ACCF21D487D990A3FBFC24403B /* PlaylistRequest.swift */,
+				9F47626652BCCC86B9F61CBC394CE6D6 /* Request.swift */,
+				87D112CA5E6C95CAEBA30DEE1230DFB8 /* SearchQuery.swift */,
+				A76D35E3D4CA28933763B72C5196B7E7 /* SouncloudClient.swift */,
+				C4AE95CC6ECA33CB25973536EB9D28C0 /* Soundcloud.swift */,
+				FCDE302A4046BCBE8441A026404B6B4A /* SoundcloudWebViewController.swift */,
+				60A39FFA269054DD163C9F13E7BC04CD /* StringExtension.swift */,
+				74BADFC6268B62D5896EEA5BBE2BC40C /* Track.swift */,
+				AE13A1817F512DD39B4D653253CE0040 /* TrackRequest.swift */,
+				136B3596FAF626C0EFAA1D4EB3CBBEF2 /* URLExtension.swift */,
+				C3BE96994E248D8E695A9767A9A2C9CB /* User.swift */,
+				E27109C9402810ACB5675E031274F0C9 /* UserRequest.swift */,
+				C9A29D6FD536E659C2B82EB492267077 /* Support Files */,
+			);
+			name = Soundcloud;
+			path = Soundcloud;
+			sourceTree = "<group>";
+		};
+		2C5FA62E896367FAA7D0B166B2937BEB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DED20B39CEDCD6D49C953F5BFC91E696 /* Info.plist */,
+				9428B7BA75F530FE15C18AFE20AD1CCB /* KeychainAccess.modulemap */,
+				7202B35B8314B969A98B7591C419A5AF /* KeychainAccess.xcconfig */,
+				149C1611E43CF04977B71F7207BABC2B /* KeychainAccess-dummy.m */,
+				EF63B4E68A976926A6F4F36008F4E5AE /* KeychainAccess-prefix.pch */,
+				CEF906233F3ED9EC75580EB1BFCBAB2A /* KeychainAccess-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/KeychainAccess";
+			sourceTree = "<group>";
+		};
+		37631A0DA7E1C95769F3DA6A3F057584 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7D24E9F924EE4E6A1ADC5B28DF4A7FBF /* Info.plist */,
+				C342B87152C9B770A9A078868F8C7A50 /* YoutubeDirectLinkExtractor.modulemap */,
+				779E1E9CD5B4F91C64CF45B5B6EFA48D /* YoutubeDirectLinkExtractor.xcconfig */,
+				22AFCDB47465DD2BC4D8C73DA58E3584 /* YoutubeDirectLinkExtractor-dummy.m */,
+				CF2ECD894B7CA0D020F889FDE1F9A628 /* YoutubeDirectLinkExtractor-prefix.pch */,
+				680796E789B418D34C548770A948DAD3 /* YoutubeDirectLinkExtractor-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/YoutubeDirectLinkExtractor";
+			sourceTree = "<group>";
+		};
+		501555B35FCDE487DE3DE0EB176799F4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				119F97192170679545C8409B73BE2C1F /* Info.plist */,
+				23EC05E0581F631F7445E4C812D7C780 /* StreamingKit.modulemap */,
+				41AF38F3312B09925BD4CF8E1AAB1437 /* StreamingKit.xcconfig */,
+				E93931D08DCBC233D977AE2531A3436F /* StreamingKit-dummy.m */,
+				2E49BCB68D581E1A69CED928DE9282EA /* StreamingKit-prefix.pch */,
+				A1D586D563693B03591EE74E72A81266 /* StreamingKit-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/StreamingKit";
+			sourceTree = "<group>";
+		};
+		5118F86FC1AC19A90C27B773F7CD7AEC /* 1PasswordExtension */ = {
+			isa = PBXGroup;
+			children = (
+				4D1948A1C9801E79228BFA4840F6F24E /* OnePasswordExtension.h */,
+				5331FB32B77AB6A3F087DB817A48B7CB /* OnePasswordExtension.m */,
+				ACBA324EB09F3C340A730F3945896989 /* Resources */,
+				69DFD3287AD6577F24D83D86D832365A /* Support Files */,
+			);
+			name = 1PasswordExtension;
+			path = 1PasswordExtension;
+			sourceTree = "<group>";
+		};
+		54BE8ED2F7369DEAA35F4AC3B4C6130B /* StreamingKit */ = {
+			isa = PBXGroup;
+			children = (
+				785C1B883875561B3ECC20638853A7D8 /* NSMutableArray+STKAudioPlayer.h */,
+				EA4DAC26AEDCBC75D4A28BB21411A12A /* NSMutableArray+STKAudioPlayer.m */,
+				B666AE531FF73BF9FA8ADA99C7FA7FDF /* STKAudioPlayer.h */,
+				7762735A5A256F15083236DC8774769F /* STKAudioPlayer.m */,
+				93A5783EF18A524E4A28E6382F4AD0D4 /* STKAutoRecoveringHTTPDataSource.h */,
+				C293DA5EB1247D07E9828F32EBD2A742 /* STKAutoRecoveringHTTPDataSource.m */,
+				096EFB9AE65749AE9D081B71DDB3B60E /* STKCoreFoundationDataSource.h */,
+				AA23AA85C5EA86956ECC6441472386A1 /* STKCoreFoundationDataSource.m */,
+				99C738E92307075EAFDC388FBEB79254 /* STKDataSource.h */,
+				8397823CEF74CF7D70C8058789C67601 /* STKDataSource.m */,
+				8B9685B9AAA1BD3D43A202925AEB1E01 /* STKDataSourceWrapper.h */,
+				0A01A6FFED9D6EC62161FF5AC570936E /* STKDataSourceWrapper.m */,
+				3C76E1DE13F0E2A9FFC3E33C0F886AB5 /* STKHTTPDataSource.h */,
+				880A1B56BABC2A853089FF90E28E93FC /* STKHTTPDataSource.m */,
+				BCB318E9EE219D52580C37C8A9244AA4 /* STKLocalFileDataSource.h */,
+				25ED79671FC1C730BAF4ECABD93C5806 /* STKLocalFileDataSource.m */,
+				0165154AF8BC1DCE9EDFB2DEB78B118C /* STKQueueEntry.h */,
+				D0D29764C0892BD5AA940378A742B790 /* STKQueueEntry.m */,
+				501555B35FCDE487DE3DE0EB176799F4 /* Support Files */,
+			);
+			name = StreamingKit;
+			path = StreamingKit;
+			sourceTree = "<group>";
+		};
+		5C55199D8EEE0C8B4504273D086DF8B1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D6C56AEE8104A5C4C712688E4B30C9DF /* AudioPlayerSwift.modulemap */,
+				A9999F7135EF732EE3C41040BDD11108 /* AudioPlayerSwift.xcconfig */,
+				59807BD5B725BAD44675CD66D1B3F7DC /* AudioPlayerSwift-dummy.m */,
+				3DC4F85C64EC7488B9D5D17AE0BAAD5A /* AudioPlayerSwift-prefix.pch */,
+				7FF86CAD0B5BCB714A720E7DED263257 /* AudioPlayerSwift-umbrella.h */,
+				8960536131225E0C19A28635EEE0EFA1 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/AudioPlayerSwift";
+			sourceTree = "<group>";
+		};
+		69DFD3287AD6577F24D83D86D832365A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				85D946AD16FED09EAB307731F8C076DC /* 1PasswordExtension.modulemap */,
+				E72A302393AD3A7BB9241F109C3B2A26 /* 1PasswordExtension.xcconfig */,
+				6DD6D3E83BB2E28227CE34A52B02EE76 /* 1PasswordExtension-dummy.m */,
+				6BDDFF51D503C4CABA1767B72C054164 /* 1PasswordExtension-prefix.pch */,
+				C5D3393F9D618AC27D304FB28536C013 /* 1PasswordExtension-umbrella.h */,
+				6BEA4CA62BEFC431EB659B63DB165AAC /* Info.plist */,
+				024174AE5947A516C987F6C17577DE2A /* ResourceBundle-OnePasswordExtensionResources-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/1PasswordExtension";
+			sourceTree = "<group>";
+		};
+		6A5B4AFF95C8AE5390688E2DD8557384 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				496136FC0DB392727ADAF5DDFE5D15AC /* SVIndefiniteAnimatedView.h */,
+				F05D349898EA9F156623954060DF36ED /* SVIndefiniteAnimatedView.m */,
+				FDC6748365159BC52342E20D0BE1D271 /* SVProgressAnimatedView.h */,
+				51C7D724858C656978F3E3E58A047ED7 /* SVProgressAnimatedView.m */,
+				904ED39845B57D55184A75CE36FF9CCA /* SVProgressHUD.h */,
+				3BF1113B4E8724A64C36FE5DB8A19C29 /* SVProgressHUD.m */,
+				F5E8264C201F7881F4BB29D6F107D283 /* SVRadialGradientLayer.h */,
+				1637587E9781495E9FC1E5179D6D8F6B /* SVRadialGradientLayer.m */,
+				AFA44BD8D54B21A354DB58641C0EBA11 /* Resources */,
+				8BE18FFEE51F1F71E32BDE4821183A70 /* Support Files */,
+			);
+			name = SVProgressHUD;
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		6ED02BD0499D193F61B5D1A1B86D29DA /* Kingfisher */ = {
+			isa = PBXGroup;
+			children = (
+				5491F25DC173BD7A70EA969FEDA3A6A8 /* AnimatedImageView.swift */,
+				3774D341E526980534DE8CCA2F92ECE2 /* Box.swift */,
+				6CD49744E7D9C3529D0FC787FAE1146B /* CacheSerializer.swift */,
+				EBDEBDB5C8901D86D00BF2BBB7B77BF2 /* Filter.swift */,
+				07C6362E7A9A65F3958EE7CBF30942D8 /* FormatIndicatedCacheSerializer.swift */,
+				3CE40B29092F6862981E1031ADD24BCA /* Image.swift */,
+				790AEEA4B8D1087A842DC86660A253E4 /* ImageCache.swift */,
+				56D0F6B740D6979AF3C5D47B8473E843 /* ImageDownloader.swift */,
+				2053001A26F9FEBD696526D6CFE566DD /* ImageModifier.swift */,
+				CEC81F408E7D12F3354AA5225C73ED1E /* ImagePrefetcher.swift */,
+				C6D9E1ABAA9659F6BD49A2E1A7BCB8BB /* ImageProcessor.swift */,
+				344C1DE17C234EB761C833752821837D /* ImageTransition.swift */,
+				B5C702498CAE5F88AC72A031044C4F09 /* ImageView+Kingfisher.swift */,
+				6735A7915E9A76F09A0C1D1E4854C1DF /* Indicator.swift */,
+				399F150DEC2254FF735F0B99D731526A /* Kingfisher.h */,
+				A90D64DEFCCD4A6994BF4A91328A81CA /* Kingfisher.swift */,
+				B417F8A90ED413A4FC3BB05CDC3764CE /* KingfisherManager.swift */,
+				58F196F65DAC13FEC374900FA4C452B9 /* KingfisherOptionsInfo.swift */,
+				8621851B76BAEB29F60500987A8568ED /* Placeholder.swift */,
+				1105D1779E4AB79F246A4EA423B82BDA /* RequestModifier.swift */,
+				CDF7247952BBC69E2B0D2034DD6B7478 /* Resource.swift */,
+				156664DD2BC350703055B75E2BF92649 /* String+MD5.swift */,
+				F5A6551F94CA81B0F2E74D4C5117908C /* ThreadHelper.swift */,
+				85515C60EEABAC2C9347A203CB1C9808 /* UIButton+Kingfisher.swift */,
+				D412B617EF71D4AB06DC68FDF39F3482 /* Support Files */,
+			);
+			name = Kingfisher;
+			path = Kingfisher;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				8ADB5B564B5D4925BF714CE9BAA6E34C /* Frameworks */,
+				E29476E45F9A60E9139765AE78820163 /* Pods */,
+				0C66A42C90C1456A6FEF5CEF9837BB76 /* Products */,
+				D9246709DC3BC1457520754E310867FE /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		84B4F4A5F335DB371CD1FC7F4E289657 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2282588F5845174E9E6DA64C96F55830 /* AudioToolbox.framework */,
+				734B29952D69857565D0464204313058 /* AVFoundation.framework */,
+				14CC9057DDEC8BB1200C8E3E5AB77BAA /* CFNetwork.framework */,
+				74D89892A7D9C2CFC69E00D17D4E22DF /* CoreFoundation.framework */,
+				9D3FFE6451879099F4CC8CD6EE7ABE74 /* Foundation.framework */,
+				216E5F3FF286EAC65FC0B916997B4AAA /* MobileCoreServices.framework */,
+				4402B0ACFA5580463FA5C5CDCFA9AAB7 /* QuartzCore.framework */,
+				DB8B3B9B9F9060F947CADF308C5ABEC0 /* SystemConfiguration.framework */,
+				785E5C4524E8FF55EAABBFA92CCB391A /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		8ADB5B564B5D4925BF714CE9BAA6E34C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				352EBCCE9455392EBAB1EF112347CDB7 /* KeychainAccess.framework */,
+				8B6D3631085F8BD87031E6AC2814061B /* OnePasswordExtension.framework */,
+				84B4F4A5F335DB371CD1FC7F4E289657 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8BE18FFEE51F1F71E32BDE4821183A70 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA27D1E9D6AE4A3FC3798622A1AF0550 /* Info.plist */,
+				538B7EE08FAA90164C7826DBDAFC4D7E /* SVProgressHUD.modulemap */,
+				1077C22F17A3786644C611383F8B95BA /* SVProgressHUD.xcconfig */,
+				723C21E47DD4FD8B935A802BD3A08453 /* SVProgressHUD-dummy.m */,
+				BCDDC93D403090AE5A663A5824CE6DF3 /* SVProgressHUD-prefix.pch */,
+				8AAC246307D141B73D7BF85D3B52EB4E /* SVProgressHUD-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SVProgressHUD";
+			sourceTree = "<group>";
+		};
+		ACBA324EB09F3C340A730F3945896989 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8ED3F742BFB66812702EC6A52CF92C0B /* 1Password.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		AFA44BD8D54B21A354DB58641C0EBA11 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				348C0295103EE335BC8360EA391D9BF0 /* SVProgressHUD.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		C9A29D6FD536E659C2B82EB492267077 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D2307605AEAF2CDC109B2EB538F35624 /* Info.plist */,
+				22244284ECD6667FFE5A8F1FB727BF0A /* Soundcloud.modulemap */,
+				536F9D929EDDF04560BB4DD698320CAB /* Soundcloud.xcconfig */,
+				906E69937D5D0AFF71021B29B93163BA /* Soundcloud-dummy.m */,
+				F844DD5F0808BA74641F2A89B9A02BE1 /* Soundcloud-prefix.pch */,
+				7AA852D37AA7D507C2D42B67D4D3976B /* Soundcloud-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Soundcloud";
+			sourceTree = "<group>";
+		};
+		D412B617EF71D4AB06DC68FDF39F3482 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C17EF8E77EB023E2C921B13D89BF9455 /* Info.plist */,
+				4E6D553ACA13B4187949A7B62780F2DF /* Kingfisher.modulemap */,
+				5DEE858B6AED43A776C3E5243D4E8C9F /* Kingfisher.xcconfig */,
+				9C4C5994005A4BB7D90337AD6E25F4FD /* Kingfisher-dummy.m */,
+				6EA3281B2D1E3103BB73FA58B3EF5CDA /* Kingfisher-prefix.pch */,
+				A757801E6D058493068DD486A02CE75E /* Kingfisher-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Kingfisher";
+			sourceTree = "<group>";
+		};
+		D57E084FEC4B9D658B14DB90B201A5E3 /* Pods-Tobydi */ = {
+			isa = PBXGroup;
+			children = (
+				F359BCEC7CED700517FF313C0E18D5BA /* Info.plist */,
+				79660E12058FF6360DFF4D55F0FA8D70 /* Pods-Tobydi.modulemap */,
+				204431D3AB8EEE864ADDBC42B83C93EF /* Pods-Tobydi-acknowledgements.markdown */,
+				60CB012C3B3CB6B1EBD4C3808D37A197 /* Pods-Tobydi-acknowledgements.plist */,
+				794463E9E40EDF78A9C59218A1A642E8 /* Pods-Tobydi-dummy.m */,
+				7B87C354692E2526DEEC684C2EB6D1FA /* Pods-Tobydi-frameworks.sh */,
+				C468C618A07F97280262E0A6F11AF6A6 /* Pods-Tobydi-resources.sh */,
+				43DAEA46F2691CB38719E4E5CDC633E3 /* Pods-Tobydi-umbrella.h */,
+				A67131CF57BC203F471BED9C12B0DED2 /* Pods-Tobydi.debug.xcconfig */,
+				44B7A02BB71B2F65557DD855D01DC5EF /* Pods-Tobydi.release.xcconfig */,
+			);
+			name = "Pods-Tobydi";
+			path = "Target Support Files/Pods-Tobydi";
+			sourceTree = "<group>";
+		};
+		D87FFF3767C366231FE4CBEEE665E9F8 /* AudioPlayerSwift */ = {
+			isa = PBXGroup;
+			children = (
+				61B6E0612CB48AF1FD43420551278243 /* AudioPlayer.swift */,
+				5C55199D8EEE0C8B4504273D086DF8B1 /* Support Files */,
+			);
+			name = AudioPlayerSwift;
+			path = AudioPlayerSwift;
+			sourceTree = "<group>";
+		};
+		D9246709DC3BC1457520754E310867FE /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D57E084FEC4B9D658B14DB90B201A5E3 /* Pods-Tobydi */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		E29476E45F9A60E9139765AE78820163 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5118F86FC1AC19A90C27B773F7CD7AEC /* 1PasswordExtension */,
+				D87FFF3767C366231FE4CBEEE665E9F8 /* AudioPlayerSwift */,
+				EDB7D4D6069D2BD47AC0B30BFE2235AE /* KeychainAccess */,
+				6ED02BD0499D193F61B5D1A1B86D29DA /* Kingfisher */,
+				2164C0622163194A74FD6B19D76D59DC /* Soundcloud */,
+				54BE8ED2F7369DEAA35F4AC3B4C6130B /* StreamingKit */,
+				6A5B4AFF95C8AE5390688E2DD8557384 /* SVProgressHUD */,
+				0EB928F7D5ACC7AED67774454B95B9FF /* YoutubeDirectLinkExtractor */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EDB7D4D6069D2BD47AC0B30BFE2235AE /* KeychainAccess */ = {
+			isa = PBXGroup;
+			children = (
+				94F961589E18E9EE11576559DF980F30 /* Keychain.swift */,
+				2C5FA62E896367FAA7D0B166B2937BEB /* Support Files */,
+			);
+			name = KeychainAccess;
+			path = KeychainAccess;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3701073C0726103C38BCDFC3D5949AE4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C8FA9E18B18C7AFD02D1F263C4CFE9C /* Soundcloud-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DCB50E1EAE76A10559C48D06F53E0EE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4565031E0304574C7A466B62E73E7478 /* KeychainAccess-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ECFD0F37D0E27358F1ED914F31A9038 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CBFB41F35D64297B306EAD49DF4687D /* NSMutableArray+STKAudioPlayer.h in Headers */,
+				5ADE222F5777D7B18300C4E57660E36E /* STKAudioPlayer.h in Headers */,
+				1638228A4508050EFBF2B5E3274D5AE8 /* STKAutoRecoveringHTTPDataSource.h in Headers */,
+				29CC4FFA9059DC23CA56F5908E456E93 /* STKCoreFoundationDataSource.h in Headers */,
+				76029009EAEE9269AA6DDB51FB5DFF99 /* STKDataSource.h in Headers */,
+				42A92DE8F969BEB3B2E30B15815AF947 /* STKDataSourceWrapper.h in Headers */,
+				470B146A0944F683600B507BF3E53D05 /* STKHTTPDataSource.h in Headers */,
+				0792F2469448A31E500B715DA2B03BAF /* STKLocalFileDataSource.h in Headers */,
+				57E3243FB20DA49185B68650D0E32E52 /* STKQueueEntry.h in Headers */,
+				8EC82A62E9AA72E326655ECF63761FA7 /* StreamingKit-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		675794B2894A07E608D81BF150CB278C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				958462AC38FAFF17C83624BC2A463B89 /* 1PasswordExtension-umbrella.h in Headers */,
+				FE6C4FDA0BF7A742805EF43035784E67 /* OnePasswordExtension.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		855F995C0C190C3D8C93C61A222F45FA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68B65A696A201B7F7EF6110F9C057737 /* Pods-Tobydi-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4416D8D7BAB1B44603B29053B8C30A1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE633B3532903E2EF04B5D7BA480C3C7 /* Kingfisher-umbrella.h in Headers */,
+				74991D9F2A55044D75545D00A70C8CA9 /* Kingfisher.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9E604F9FDA0827A4A62EC9725DE6F95 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49DD4B0572F35B0EEA391B20F5119067 /* AudioPlayerSwift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E95C3DAF6F636CD312F04599E810932D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F25C88B4DEEF57CEEC0EBFD8D155715A /* SVIndefiniteAnimatedView.h in Headers */,
+				31E118DC779815A64D6EC59ABAB28148 /* SVProgressAnimatedView.h in Headers */,
+				788B51CAA01A1BA1F596CAC1EBD602FC /* SVProgressHUD-umbrella.h in Headers */,
+				CDAA93721AA4019A45D57064D0BE1DF9 /* SVProgressHUD.h in Headers */,
+				B4A0F727E6D17EABFD5EDD409CDCFF78 /* SVRadialGradientLayer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDEC1B40F09205BCA2571A8E1015D79C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81C87DB91D3223092A5E59BB28D10128 /* YoutubeDirectLinkExtractor-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0109289AF996A75DFE4A9A51883579B5 /* YoutubeDirectLinkExtractor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4897BFBDF23B74D361CDD838582CD59E /* Build configuration list for PBXNativeTarget "YoutubeDirectLinkExtractor" */;
+			buildPhases = (
+				FDEC1B40F09205BCA2571A8E1015D79C /* Headers */,
+				B6DE57B5995073DC6A24D91841341CB8 /* Sources */,
+				DC9985BA51EF125F451736F71ED58C2C /* Frameworks */,
+				112D8FAC8643E1B0CB0A7F301B5A3ABA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YoutubeDirectLinkExtractor;
+			productName = YoutubeDirectLinkExtractor;
+			productReference = 05D0DFAFC849910B027ADF75964B85E7 /* YoutubeDirectLinkExtractor.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1630C0AC0CCE2704C3F517D1DFD56586 /* KeychainAccess */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BC26EB508840B6B2446C27E690E60BC /* Build configuration list for PBXNativeTarget "KeychainAccess" */;
+			buildPhases = (
+				3DCB50E1EAE76A10559C48D06F53E0EE /* Headers */,
+				6CF23713FC2035F5BD9D246E95236685 /* Sources */,
+				0366D979832FA96B0EBFA8B35C1352E8 /* Frameworks */,
+				82731D02B1DBAC326E46F5E6E83C1130 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KeychainAccess;
+			productName = KeychainAccess;
+			productReference = B4C84A12F106CD296FFD9604BB233433 /* KeychainAccess.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		20486E1B01ABE10C928AE952BF20F2AE /* Pods-Tobydi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 235B46E4282352E9AC12C07A45D1B04A /* Build configuration list for PBXNativeTarget "Pods-Tobydi" */;
+			buildPhases = (
+				855F995C0C190C3D8C93C61A222F45FA /* Headers */,
+				D9BF44C1695B6C6324BA3B96553E8639 /* Sources */,
+				1EFBAE1F5125F6571101D1526EA3A7AB /* Frameworks */,
+				9A621C6FD898FBC4DDB8CE8ABBE38B12 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B2FC9BDEEE78CB8049B0E5ED3CBA329 /* PBXTargetDependency */,
+				6B1058063C4D05B57CD27EC3D4785719 /* PBXTargetDependency */,
+				FEFF6ED8B12AAE6E120B2326AF53BC43 /* PBXTargetDependency */,
+				97DA1DC4EB31F42CCC794BD6CF7EBE27 /* PBXTargetDependency */,
+				062A3D17BC186372591F57BC7E708010 /* PBXTargetDependency */,
+				635DE9D8F4A638B1D7AD2F7729AF43D9 /* PBXTargetDependency */,
+				BDD69E59020E1C3ABBA13A05F3A93A41 /* PBXTargetDependency */,
+				CE420331F6BCF350178F135558BC6D40 /* PBXTargetDependency */,
+			);
+			name = "Pods-Tobydi";
+			productName = "Pods-Tobydi";
+			productReference = 25201DA2F60C368C16BB507AF962C138 /* Pods_Tobydi.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		617337684680CDF652ED8C024728B258 /* Soundcloud */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3597B47C418D8461E5640C291717914 /* Build configuration list for PBXNativeTarget "Soundcloud" */;
+			buildPhases = (
+				3701073C0726103C38BCDFC3D5949AE4 /* Headers */,
+				BE12C45C5673C7CD7EB7CE51BC9F66EC /* Sources */,
+				5BD78A2D079473F660D4D54FFF68DE7E /* Frameworks */,
+				C6B8FDCE81DDDBA080757B690A872F29 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DE615321A6F48BC1364D04480C4945D5 /* PBXTargetDependency */,
+				97404468715784E2AC0C4FA7C90540F5 /* PBXTargetDependency */,
+			);
+			name = Soundcloud;
+			productName = Soundcloud;
+			productReference = FC45F184F15F2E53FAFD839F69E6B3AD /* Soundcloud.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		812CC73FB5D772CBB98DC327150D7416 /* AudioPlayerSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F75975FB6113EAD4C883B2982320B0C /* Build configuration list for PBXNativeTarget "AudioPlayerSwift" */;
+			buildPhases = (
+				B9E604F9FDA0827A4A62EC9725DE6F95 /* Headers */,
+				B6A36CA8270ABDA0346AA5AF7E473DD9 /* Sources */,
+				EEF467F5AC2705499A393CE2D9F8741B /* Frameworks */,
+				3422F73FC320BA08BA13898344DC5B1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AudioPlayerSwift;
+			productName = AudioPlayerSwift;
+			productReference = C8EA5659C30B5917998BB2D87E482EC1 /* AudioPlayer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A15CD3220CB655EF65975142EDBD8C6E /* Kingfisher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 055CB86039F87F17BFAACCE5B1899A4E /* Build configuration list for PBXNativeTarget "Kingfisher" */;
+			buildPhases = (
+				A4416D8D7BAB1B44603B29053B8C30A1 /* Headers */,
+				D9F6E34E36CF832E207A40E6DE2EBB3C /* Sources */,
+				55C36F7CC1AF497CD89C8420A717D06F /* Frameworks */,
+				907E8FAD109F4265A17FD9B5C5BCDD9D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kingfisher;
+			productName = Kingfisher;
+			productReference = FA0E2CBCF44AA9CF9E0D7406A9C971E1 /* Kingfisher.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BBB839619539490383FA635C5D80CA91 /* SVProgressHUD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4EF10C8F8E371E6CE4FF779057437E0C /* Build configuration list for PBXNativeTarget "SVProgressHUD" */;
+			buildPhases = (
+				E95C3DAF6F636CD312F04599E810932D /* Headers */,
+				0B24C88260CC97DB470F4F41CB083058 /* Sources */,
+				DFBF223E3B9700F5D1FF3C33012540D3 /* Frameworks */,
+				A0CFF72110977127AE3492BAB5369038 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SVProgressHUD;
+			productName = SVProgressHUD;
+			productReference = C47656EA433D7526711B8B6C61AB49EA /* SVProgressHUD.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CF2B5DF0BB3EFE326920BE615A125D89 /* 1PasswordExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F08546257C21224D117A9AFF3AEA8889 /* Build configuration list for PBXNativeTarget "1PasswordExtension" */;
+			buildPhases = (
+				675794B2894A07E608D81BF150CB278C /* Headers */,
+				1167D28AF4CCB033F3AF1B2C46E41DA6 /* Sources */,
+				A137AD594A04393A38C2F37E6F3F89EC /* Frameworks */,
+				23CD3836CA86AF76D7A8935C0681B6FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E48216417C8DEB49B1D3670C03D7061C /* PBXTargetDependency */,
+			);
+			name = 1PasswordExtension;
+			productName = 1PasswordExtension;
+			productReference = 1F46773A514A6B499AE6D0C09545EBBB /* OnePasswordExtension.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E4F6D37469B6EB275969EC167E734FDF /* StreamingKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE22C61591E2E3C170AB6EB41D16A075 /* Build configuration list for PBXNativeTarget "StreamingKit" */;
+			buildPhases = (
+				3ECFD0F37D0E27358F1ED914F31A9038 /* Headers */,
+				7780235B3D7AB5E200448EB8698A2814 /* Sources */,
+				4EB79542E76F2DCAD9B0C42C04E2503E /* Frameworks */,
+				D4218A078664A15F80FE4ECFAF3ECF47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StreamingKit;
+			productName = StreamingKit;
+			productReference = A1669207AE472FFD8F63CA784DFCCECF /* StreamingKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E5A9B966F6E4405BD7641F8E416B22D4 /* 1PasswordExtension-OnePasswordExtensionResources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 910927C6E1EF869E3369E7CC4085AA1D /* Build configuration list for PBXNativeTarget "1PasswordExtension-OnePasswordExtensionResources" */;
+			buildPhases = (
+				B00B2B7CC414CBC6DA35B398075113FA /* Sources */,
+				AB9D40864789EB428C9CE3F8311F3011 /* Frameworks */,
+				9447B146873E077BE7881D8B02AEABC8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "1PasswordExtension-OnePasswordExtensionResources";
+			productName = "1PasswordExtension-OnePasswordExtensionResources";
+			productReference = ECCAD9059FF28AE09B909108A06BF4BC /* OnePasswordExtensionResources.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 0C66A42C90C1456A6FEF5CEF9837BB76 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CF2B5DF0BB3EFE326920BE615A125D89 /* 1PasswordExtension */,
+				E5A9B966F6E4405BD7641F8E416B22D4 /* 1PasswordExtension-OnePasswordExtensionResources */,
+				812CC73FB5D772CBB98DC327150D7416 /* AudioPlayerSwift */,
+				1630C0AC0CCE2704C3F517D1DFD56586 /* KeychainAccess */,
+				A15CD3220CB655EF65975142EDBD8C6E /* Kingfisher */,
+				20486E1B01ABE10C928AE952BF20F2AE /* Pods-Tobydi */,
+				617337684680CDF652ED8C024728B258 /* Soundcloud */,
+				E4F6D37469B6EB275969EC167E734FDF /* StreamingKit */,
+				BBB839619539490383FA635C5D80CA91 /* SVProgressHUD */,
+				0109289AF996A75DFE4A9A51883579B5 /* YoutubeDirectLinkExtractor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		112D8FAC8643E1B0CB0A7F301B5A3ABA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23CD3836CA86AF76D7A8935C0681B6FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FF08A084BAA3EBB235208A4D33B2E3E /* OnePasswordExtensionResources.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3422F73FC320BA08BA13898344DC5B1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82731D02B1DBAC326E46F5E6E83C1130 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		907E8FAD109F4265A17FD9B5C5BCDD9D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9447B146873E077BE7881D8B02AEABC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F045274224D4FFE7909E13EE267F083 /* 1Password.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A621C6FD898FBC4DDB8CE8ABBE38B12 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0CFF72110977127AE3492BAB5369038 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				991A4CEAD4629A35BE09A02F7262DC9D /* SVProgressHUD.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6B8FDCE81DDDBA080757B690A872F29 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4218A078664A15F80FE4ECFAF3ECF47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B24C88260CC97DB470F4F41CB083058 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78DB58EAB02A6B62FA65A97DEB0470AD /* SVIndefiniteAnimatedView.m in Sources */,
+				2B9D2A9F13DFC7BD6CA3793659844891 /* SVProgressAnimatedView.m in Sources */,
+				63B6BA71AA6C4D89CD2CEE5B9FE165A0 /* SVProgressHUD-dummy.m in Sources */,
+				39A622DEF1FEE36D66F56D0C058501A0 /* SVProgressHUD.m in Sources */,
+				6F57F6515041B95A7E7BCDA5CFD42DA7 /* SVRadialGradientLayer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1167D28AF4CCB033F3AF1B2C46E41DA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C33EEC056DF35E50ED7F5593CE2512F5 /* 1PasswordExtension-dummy.m in Sources */,
+				F2C15F8B02921123ADFFE909EB332017 /* OnePasswordExtension.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CF23713FC2035F5BD9D246E95236685 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8FC628BC39A85B021B33CD0EDF94E06 /* Keychain.swift in Sources */,
+				7FD1C9171DE80CDCBE2C974D9EE0991A /* KeychainAccess-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7780235B3D7AB5E200448EB8698A2814 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B7A1A019A78D874ACE2F76EB50EA1F4 /* NSMutableArray+STKAudioPlayer.m in Sources */,
+				A48604A10A12DDF0C0A782ECBA59841A /* STKAudioPlayer.m in Sources */,
+				9B7D6308DCD7375236E1CDC4A6C2F1F7 /* STKAutoRecoveringHTTPDataSource.m in Sources */,
+				F515C8607D1392718FB63DF1725E1A6B /* STKCoreFoundationDataSource.m in Sources */,
+				51179C471EF8D4F3FD2860BF4C2BE5F7 /* STKDataSource.m in Sources */,
+				65DE5A6E3D05B4E4343524DEC09A42DB /* STKDataSourceWrapper.m in Sources */,
+				87CDC28BB108C8C51453D99500EAFF36 /* STKHTTPDataSource.m in Sources */,
+				2D6FA77EE57BEA34571AA3F71FEFFA94 /* STKLocalFileDataSource.m in Sources */,
+				3510DCF7310F35623CAF3227932DBF0F /* STKQueueEntry.m in Sources */,
+				64A79D4FA9411BAE246BE8A63172F2D0 /* StreamingKit-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B00B2B7CC414CBC6DA35B398075113FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6A36CA8270ABDA0346AA5AF7E473DD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DB4691650B1604DF7A2B3DED6C509B6 /* AudioPlayer.swift in Sources */,
+				420A84B3ED1E2EF6A927F5A5BA21B434 /* AudioPlayerSwift-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6DE57B5995073DC6A24D91841341CB8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				719F7EEF3975C2491C60A8E3834B4CB9 /* Array+SafeSubscript.swift in Sources */,
+				C9CE6B8807087030C3AAE03061DD0942 /* Errors.swift in Sources */,
+				E1A49174A96377D96253D9F5A4F894F5 /* ExtractionSource.swift in Sources */,
+				208F7DB0E1C22EE63B02CA3F4450E353 /* String+Components.swift in Sources */,
+				A7616F8EDD3CD4AF9C2E34E5A086FFC8 /* VideoInfo.swift in Sources */,
+				4E022BB6672EC9E67F00909F92EEB03E /* YoutubeDirectLinkExtractor-dummy.m in Sources */,
+				C8FAA25D1DC70784DB1FBB85441C8231 /* YoutubeDirectLinkExtractor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE12C45C5673C7CD7EB7CE51BC9F66EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				909BBB753B14CA3B4A7CE7565CCE4A9F /* Activity.swift in Sources */,
+				9FF6D1E82F1B44F07AA4CD19A04834C5 /* APIResponse.swift in Sources */,
+				FDBCBC13476C9A4A7FCF7EA4EAC579F0 /* App.swift in Sources */,
+				33B8745B2A0A30DC6CEE97BA5A25DC83 /* Comment.swift in Sources */,
+				1657E430242BC0276A14C4E8B82E0B5B /* DataExtension.swift in Sources */,
+				3DD120C9002F94A4CA978EE230AD71A1 /* DictionaryExtension.swift in Sources */,
+				213B013D7781F72A69510ED0F90BC18F /* Enums.swift in Sources */,
+				15EF7766A16671E0969AA642E7ECD79E /* ImageURLs.swift in Sources */,
+				D9D56555A9BF271C448AD83B8C7CE77B /* Playlist.swift in Sources */,
+				03F52648C6725FA0EFC6EA1C34B65750 /* PlaylistRequest.swift in Sources */,
+				665F3F5B281E2FD85E9A4A4F406745F2 /* Request.swift in Sources */,
+				5EF50A06D7BC68ED7BD8C3148DB4C7C9 /* SearchQuery.swift in Sources */,
+				665EC50E5613385813663D91638C917D /* SouncloudClient.swift in Sources */,
+				049BCC310C1FD6A67CEFACF87E19813B /* Soundcloud-dummy.m in Sources */,
+				C2024274C7A1C1D7C74FBB79B82D129F /* Soundcloud.swift in Sources */,
+				479AD721BEFAE1A0DBB2869D5B3531C4 /* SoundcloudWebViewController.swift in Sources */,
+				12ECD44EDC1AE14462F05282C14F86DC /* StringExtension.swift in Sources */,
+				9017F65EFD5605D7E9135696F9BF3765 /* Track.swift in Sources */,
+				F7950C7B0F4A6B8F70434F730D118006 /* TrackRequest.swift in Sources */,
+				70FC375FAC15E89C55C88EF444211B38 /* URLExtension.swift in Sources */,
+				3233745597BB9B657F43000692E85C2D /* User.swift in Sources */,
+				6AA440C35FCF6A4649D25653BDA9CEAF /* UserRequest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9BF44C1695B6C6324BA3B96553E8639 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				483D9A7933DCAB91C940C8019CE665CD /* Pods-Tobydi-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9F6E34E36CF832E207A40E6DE2EBB3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA9BE16ECCC17CC9AD847C52D1B64671 /* AnimatedImageView.swift in Sources */,
+				B239F6D91EC58C8046497C0909CB2E78 /* Box.swift in Sources */,
+				95AB33523EE2DA5C145714D7279E8D27 /* CacheSerializer.swift in Sources */,
+				B1D0744B9405A528508A49B4DE06A8DB /* Filter.swift in Sources */,
+				453378DA661AD7FCBA79D1BFA59302EB /* FormatIndicatedCacheSerializer.swift in Sources */,
+				BBE6B85E960BF7927A44E2329DE05A5F /* Image.swift in Sources */,
+				90523ACEFEF8D56C35F5CF41CB70EE58 /* ImageCache.swift in Sources */,
+				97EB2E795C2BE40106D734B5C0AEBDB3 /* ImageDownloader.swift in Sources */,
+				07C0515BAB41A01EDFCB5164FB622170 /* ImageModifier.swift in Sources */,
+				41D22E6F4C3E24D8FE690DE6D644AC3E /* ImagePrefetcher.swift in Sources */,
+				DAC3F0C65BA82526594477C6DDF06745 /* ImageProcessor.swift in Sources */,
+				2F84C0A84F2B5A0E9E3073417CA651C3 /* ImageTransition.swift in Sources */,
+				75A1E4900C0AA7CE6E2454C64AA169E2 /* ImageView+Kingfisher.swift in Sources */,
+				3554E5702FFEA0C2FC74B19EEC7D6325 /* Indicator.swift in Sources */,
+				C9538BAC268AB8AAB4336A4E62B2EA1F /* Kingfisher-dummy.m in Sources */,
+				20FEB969513418DFAC5090C858D10516 /* Kingfisher.swift in Sources */,
+				66CCE448DAB752E36445FD69CD761C93 /* KingfisherManager.swift in Sources */,
+				88CE4EE02A104D4BD65DE024ACF209F7 /* KingfisherOptionsInfo.swift in Sources */,
+				008D5DDE0942B5C3EC51E6D4557DFD64 /* Placeholder.swift in Sources */,
+				9EDFA1C34D4853B76A78B8E40B89C775 /* RequestModifier.swift in Sources */,
+				179FCD8BC40E115DFA9C05F603A878A9 /* Resource.swift in Sources */,
+				833B4550B26D2A945E08C978BB7BD505 /* String+MD5.swift in Sources */,
+				F667936752E8742E44668CC80FC31720 /* ThreadHelper.swift in Sources */,
+				34AEF9EE16EAEAF7FA0E66A48982F0C8 /* UIButton+Kingfisher.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		062A3D17BC186372591F57BC7E708010 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SVProgressHUD;
+			target = BBB839619539490383FA635C5D80CA91 /* SVProgressHUD */;
+			targetProxy = 81A93D67B526BA6829603ED0F2CA63B5 /* PBXContainerItemProxy */;
+		};
+		5B2FC9BDEEE78CB8049B0E5ED3CBA329 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = 1PasswordExtension;
+			target = CF2B5DF0BB3EFE326920BE615A125D89 /* 1PasswordExtension */;
+			targetProxy = 47255B6D6003A0430DE502B8DACF5A17 /* PBXContainerItemProxy */;
+		};
+		635DE9D8F4A638B1D7AD2F7729AF43D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Soundcloud;
+			target = 617337684680CDF652ED8C024728B258 /* Soundcloud */;
+			targetProxy = 8A93EA86EEDECE6E380AA8BA03BD58A0 /* PBXContainerItemProxy */;
+		};
+		6B1058063C4D05B57CD27EC3D4785719 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AudioPlayerSwift;
+			target = 812CC73FB5D772CBB98DC327150D7416 /* AudioPlayerSwift */;
+			targetProxy = C118F38BE341B823791ECAF082E3DD3E /* PBXContainerItemProxy */;
+		};
+		97404468715784E2AC0C4FA7C90540F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KeychainAccess;
+			target = 1630C0AC0CCE2704C3F517D1DFD56586 /* KeychainAccess */;
+			targetProxy = CDFE1C11E3FAB0B65F291CD3CD093292 /* PBXContainerItemProxy */;
+		};
+		97DA1DC4EB31F42CCC794BD6CF7EBE27 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Kingfisher;
+			target = A15CD3220CB655EF65975142EDBD8C6E /* Kingfisher */;
+			targetProxy = 06DA3E2AF22A173DBF9AD31351718235 /* PBXContainerItemProxy */;
+		};
+		BDD69E59020E1C3ABBA13A05F3A93A41 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = StreamingKit;
+			target = E4F6D37469B6EB275969EC167E734FDF /* StreamingKit */;
+			targetProxy = 28C0C75553E6F55D52EE227225F98CB8 /* PBXContainerItemProxy */;
+		};
+		CE420331F6BCF350178F135558BC6D40 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = YoutubeDirectLinkExtractor;
+			target = 0109289AF996A75DFE4A9A51883579B5 /* YoutubeDirectLinkExtractor */;
+			targetProxy = 8D04AE0C7EA7880476465A2ADE407ACA /* PBXContainerItemProxy */;
+		};
+		DE615321A6F48BC1364D04480C4945D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = 1PasswordExtension;
+			target = CF2B5DF0BB3EFE326920BE615A125D89 /* 1PasswordExtension */;
+			targetProxy = 74D8DE8D840CC737EC73D7CDCBCCDB18 /* PBXContainerItemProxy */;
+		};
+		E48216417C8DEB49B1D3670C03D7061C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "1PasswordExtension-OnePasswordExtensionResources";
+			target = E5A9B966F6E4405BD7641F8E416B22D4 /* 1PasswordExtension-OnePasswordExtensionResources */;
+			targetProxy = 9AB817C99217D004BD23FAA516786720 /* PBXContainerItemProxy */;
+		};
+		FEFF6ED8B12AAE6E120B2326AF53BC43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KeychainAccess;
+			target = 1630C0AC0CCE2704C3F517D1DFD56586 /* KeychainAccess */;
+			targetProxy = D2902683DBA81652AF743C56C7AB571D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		050CCC7757644AF14DFCB78075ED85B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41AF38F3312B09925BD4CF8E1AAB1437 /* StreamingKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/StreamingKit/StreamingKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/StreamingKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/StreamingKit/StreamingKit.modulemap";
+				PRODUCT_MODULE_NAME = StreamingKit;
+				PRODUCT_NAME = StreamingKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		066AB5C9276882B9583964FE0C37CC86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DEE858B6AED43A776C3E5243D4E8C9F /* Kingfisher.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Kingfisher/Kingfisher-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Kingfisher/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Kingfisher/Kingfisher.modulemap";
+				PRODUCT_MODULE_NAME = Kingfisher;
+				PRODUCT_NAME = Kingfisher;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0838EF896BB4A47F6A4683AD13118B45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E72A302393AD3A7BB9241F109C3B2A26 /* 1PasswordExtension.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/1PasswordExtension";
+				INFOPLIST_FILE = "Target Support Files/1PasswordExtension/ResourceBundle-OnePasswordExtensionResources-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = OnePasswordExtensionResources;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		0B1689776C8462EC204F1A8CC3A6A39A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E72A302393AD3A7BB9241F109C3B2A26 /* 1PasswordExtension.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/1PasswordExtension/1PasswordExtension-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/1PasswordExtension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/1PasswordExtension/1PasswordExtension.modulemap";
+				PRODUCT_MODULE_NAME = OnePasswordExtension;
+				PRODUCT_NAME = OnePasswordExtension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		12C6E27FEA994988F3A6CDFEC0EC8C1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1077C22F17A3786644C611383F8B95BA /* SVProgressHUD.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SVProgressHUD/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SVProgressHUD/SVProgressHUD.modulemap";
+				PRODUCT_MODULE_NAME = SVProgressHUD;
+				PRODUCT_NAME = SVProgressHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1E6454CE3A4C3AD49E746BE813727F61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1077C22F17A3786644C611383F8B95BA /* SVProgressHUD.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SVProgressHUD/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SVProgressHUD/SVProgressHUD.modulemap";
+				PRODUCT_MODULE_NAME = SVProgressHUD;
+				PRODUCT_NAME = SVProgressHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1E857AE8473EB8859E352ADA5E80CC59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E72A302393AD3A7BB9241F109C3B2A26 /* 1PasswordExtension.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/1PasswordExtension/1PasswordExtension-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/1PasswordExtension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/1PasswordExtension/1PasswordExtension.modulemap";
+				PRODUCT_MODULE_NAME = OnePasswordExtension;
+				PRODUCT_NAME = OnePasswordExtension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		34A7379C13251F380F22047BBFF0BAEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 536F9D929EDDF04560BB4DD698320CAB /* Soundcloud.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Soundcloud/Soundcloud-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Soundcloud/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Soundcloud/Soundcloud.modulemap";
+				PRODUCT_MODULE_NAME = Soundcloud;
+				PRODUCT_NAME = Soundcloud;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		389E595ED4CA933F7FD8B277428679C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A67131CF57BC203F471BED9C12B0DED2 /* Pods-Tobydi.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Tobydi/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Tobydi/Pods-Tobydi.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		42469AC634158D902D67097EC7537DFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9999F7135EF732EE3C41040BDD11108 /* AudioPlayerSwift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AudioPlayerSwift/AudioPlayerSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AudioPlayerSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/AudioPlayerSwift/AudioPlayerSwift.modulemap";
+				PRODUCT_MODULE_NAME = AudioPlayer;
+				PRODUCT_NAME = AudioPlayer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9680982FFE57544B29226BBD4552B8E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 779E1E9CD5B4F91C64CF45B5B6EFA48D /* YoutubeDirectLinkExtractor.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/YoutubeDirectLinkExtractor/YoutubeDirectLinkExtractor-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/YoutubeDirectLinkExtractor/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/YoutubeDirectLinkExtractor/YoutubeDirectLinkExtractor.modulemap";
+				PRODUCT_MODULE_NAME = YoutubeDirectLinkExtractor;
+				PRODUCT_NAME = YoutubeDirectLinkExtractor;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		97364804807ACE8CE6A66F2504E2F7CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E72A302393AD3A7BB9241F109C3B2A26 /* 1PasswordExtension.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/1PasswordExtension";
+				INFOPLIST_FILE = "Target Support Files/1PasswordExtension/ResourceBundle-OnePasswordExtensionResources-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = OnePasswordExtensionResources;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		98E98810EEEB96C99CB95CB91F4ADE0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		AA98FBE85C02FF3E1D4C48A3800D69B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7202B35B8314B969A98B7591C419A5AF /* KeychainAccess.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KeychainAccess/KeychainAccess-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KeychainAccess/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/KeychainAccess/KeychainAccess.modulemap";
+				PRODUCT_MODULE_NAME = KeychainAccess;
+				PRODUCT_NAME = KeychainAccess;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B108554E65F2A05430A500EB169D17D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 536F9D929EDDF04560BB4DD698320CAB /* Soundcloud.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Soundcloud/Soundcloud-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Soundcloud/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Soundcloud/Soundcloud.modulemap";
+				PRODUCT_MODULE_NAME = Soundcloud;
+				PRODUCT_NAME = Soundcloud;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B2A0879908C4894A2D8CF54C5557DF33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 779E1E9CD5B4F91C64CF45B5B6EFA48D /* YoutubeDirectLinkExtractor.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/YoutubeDirectLinkExtractor/YoutubeDirectLinkExtractor-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/YoutubeDirectLinkExtractor/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/YoutubeDirectLinkExtractor/YoutubeDirectLinkExtractor.modulemap";
+				PRODUCT_MODULE_NAME = YoutubeDirectLinkExtractor;
+				PRODUCT_NAME = YoutubeDirectLinkExtractor;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B97A7F6ACE1216BB5A2307CA83FC93C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		C7A17C589036E0A55CE66574326206C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9999F7135EF732EE3C41040BDD11108 /* AudioPlayerSwift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AudioPlayerSwift/AudioPlayerSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AudioPlayerSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/AudioPlayerSwift/AudioPlayerSwift.modulemap";
+				PRODUCT_MODULE_NAME = AudioPlayer;
+				PRODUCT_NAME = AudioPlayer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F20AC64498C05E0C67D6438F3FE48A40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41AF38F3312B09925BD4CF8E1AAB1437 /* StreamingKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/StreamingKit/StreamingKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/StreamingKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/StreamingKit/StreamingKit.modulemap";
+				PRODUCT_MODULE_NAME = StreamingKit;
+				PRODUCT_NAME = StreamingKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F7518E5D3D7FF754DDB2E321592BE29D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44B7A02BB71B2F65557DD855D01DC5EF /* Pods-Tobydi.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Tobydi/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Tobydi/Pods-Tobydi.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FA0228A14E62882FEE667F9BFA284561 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DEE858B6AED43A776C3E5243D4E8C9F /* Kingfisher.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Kingfisher/Kingfisher-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Kingfisher/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Kingfisher/Kingfisher.modulemap";
+				PRODUCT_MODULE_NAME = Kingfisher;
+				PRODUCT_NAME = Kingfisher;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FE7F9698AABDE060F38D8CE93838F298 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7202B35B8314B969A98B7591C419A5AF /* KeychainAccess.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KeychainAccess/KeychainAccess-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KeychainAccess/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/KeychainAccess/KeychainAccess.modulemap";
+				PRODUCT_MODULE_NAME = KeychainAccess;
+				PRODUCT_NAME = KeychainAccess;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		055CB86039F87F17BFAACCE5B1899A4E /* Build configuration list for PBXNativeTarget "Kingfisher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA0228A14E62882FEE667F9BFA284561 /* Debug */,
+				066AB5C9276882B9583964FE0C37CC86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		235B46E4282352E9AC12C07A45D1B04A /* Build configuration list for PBXNativeTarget "Pods-Tobydi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				389E595ED4CA933F7FD8B277428679C3 /* Debug */,
+				F7518E5D3D7FF754DDB2E321592BE29D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98E98810EEEB96C99CB95CB91F4ADE0A /* Debug */,
+				B97A7F6ACE1216BB5A2307CA83FC93C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4897BFBDF23B74D361CDD838582CD59E /* Build configuration list for PBXNativeTarget "YoutubeDirectLinkExtractor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2A0879908C4894A2D8CF54C5557DF33 /* Debug */,
+				9680982FFE57544B29226BBD4552B8E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BC26EB508840B6B2446C27E690E60BC /* Build configuration list for PBXNativeTarget "KeychainAccess" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE7F9698AABDE060F38D8CE93838F298 /* Debug */,
+				AA98FBE85C02FF3E1D4C48A3800D69B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4EF10C8F8E371E6CE4FF779057437E0C /* Build configuration list for PBXNativeTarget "SVProgressHUD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12C6E27FEA994988F3A6CDFEC0EC8C1E /* Debug */,
+				1E6454CE3A4C3AD49E746BE813727F61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		910927C6E1EF869E3369E7CC4085AA1D /* Build configuration list for PBXNativeTarget "1PasswordExtension-OnePasswordExtensionResources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0838EF896BB4A47F6A4683AD13118B45 /* Debug */,
+				97364804807ACE8CE6A66F2504E2F7CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F75975FB6113EAD4C883B2982320B0C /* Build configuration list for PBXNativeTarget "AudioPlayerSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7A17C589036E0A55CE66574326206C5 /* Debug */,
+				42469AC634158D902D67097EC7537DFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE22C61591E2E3C170AB6EB41D16A075 /* Build configuration list for PBXNativeTarget "StreamingKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F20AC64498C05E0C67D6438F3FE48A40 /* Debug */,
+				050CCC7757644AF14DFCB78075ED85B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3597B47C418D8461E5640C291717914 /* Build configuration list for PBXNativeTarget "Soundcloud" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34A7379C13251F380F22047BBFF0BAEF /* Debug */,
+				B108554E65F2A05430A500EB169D17D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F08546257C21224D117A9AFF3AEA8889 /* Build configuration list for PBXNativeTarget "1PasswordExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B1689776C8462EC204F1A8CC3A6A39A /* Debug */,
+				1E857AE8473EB8859E352ADA5E80CC59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

@@ -1,0 +1,6 @@
+framework module Pods_Tobydi {
+  umbrella header "Pods-Tobydi-umbrella.h"
+
+  export *
+  module * { export * }
+}

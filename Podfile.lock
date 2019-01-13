@@ -1,0 +1,44 @@
+PODS:
+  - 1PasswordExtension (1.8.5)
+  - AudioPlayerSwift (1.6.1)
+  - KeychainAccess (3.1.2)
+  - Kingfisher (4.10.1)
+  - Soundcloud (1.1.0):
+    - 1PasswordExtension (~> 1.8.3)
+    - KeychainAccess (~> 3.0)
+  - StreamingKit (0.1.30)
+  - SVProgressHUD (2.2.5)
+  - YoutubeDirectLinkExtractor (0.2.0)
+
+DEPENDENCIES:
+  - AudioPlayerSwift
+  - Kingfisher
+  - Soundcloud
+  - StreamingKit
+  - SVProgressHUD
+  - YoutubeDirectLinkExtractor
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - 1PasswordExtension
+    - AudioPlayerSwift
+    - KeychainAccess
+    - Kingfisher
+    - Soundcloud
+    - StreamingKit
+    - SVProgressHUD
+    - YoutubeDirectLinkExtractor
+
+SPEC CHECKSUMS:
+  1PasswordExtension: 0e95bdea64ec8ff2f4f693be5467a09fac42a83d
+  AudioPlayerSwift: 90b1bbd228bde3eca6bc59320091c3672486328d
+  KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  Soundcloud: 476ba41826b4968a963048e76303056dbe529b64
+  StreamingKit: 70ca8608c206864b4d54a577eacb3c8bf7c72209
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  YoutubeDirectLinkExtractor: 068b6a09d64551cb7cec966179d7f5f5824cd2db
+
+PODFILE CHECKSUM: 3a382c82869071b8e91ab65c98becd551967e2c0
+
+COCOAPODS: 1.5.3

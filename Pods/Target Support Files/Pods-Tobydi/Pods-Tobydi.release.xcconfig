@@ -1,0 +1,11 @@
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/1PasswordExtension" "${PODS_CONFIGURATION_BUILD_DIR}/AudioPlayerSwift" "${PODS_CONFIGURATION_BUILD_DIR}/KeychainAccess" "${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher" "${PODS_CONFIGURATION_BUILD_DIR}/SVProgressHUD" "${PODS_CONFIGURATION_BUILD_DIR}/Soundcloud" "${PODS_CONFIGURATION_BUILD_DIR}/StreamingKit" "${PODS_CONFIGURATION_BUILD_DIR}/YoutubeDirectLinkExtractor"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited) -iquote "${PODS_CONFIGURATION_BUILD_DIR}/1PasswordExtension/OnePasswordExtension.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/AudioPlayerSwift/AudioPlayer.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/KeychainAccess/KeychainAccess.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher/Kingfisher.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/SVProgressHUD/SVProgressHUD.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Soundcloud/Soundcloud.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/StreamingKit/StreamingKit.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/YoutubeDirectLinkExtractor/YoutubeDirectLinkExtractor.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "AudioPlayer" -framework "KeychainAccess" -framework "Kingfisher" -framework "OnePasswordExtension" -framework "SVProgressHUD" -framework "Soundcloud" -framework "StreamingKit" -framework "YoutubeDirectLinkExtractor"
+OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods

@@ -7,23 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10F56E401328B075C5773C88 /* Pods_Tobydi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CB2790E8AB0707A760B169 /* Pods_Tobydi.framework */; };
+		3504FBDA21EB23E4002CD476 /* MusicPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504FBD921EB23E4002CD476 /* MusicPlayerController.swift */; };
+		3504FBDF21EB2B24002CD476 /* YouTube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504FBDE21EB2B24002CD476 /* YouTube.swift */; };
+		3504FBE121EB30EB002CD476 /* ShahzamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504FBE021EB30EB002CD476 /* ShahzamViewController.swift */; };
 		3549E62521E8DFB300DBE9A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549E62421E8DFB300DBE9A0 /* AppDelegate.swift */; };
-		3549E62721E8DFB300DBE9A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549E62621E8DFB300DBE9A0 /* ViewController.swift */; };
+		3549E62721E8DFB300DBE9A0 /* YouTubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549E62621E8DFB300DBE9A0 /* YouTubeViewController.swift */; };
 		3549E62A21E8DFB300DBE9A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3549E62821E8DFB300DBE9A0 /* Main.storyboard */; };
 		3549E62D21E8DFB300DBE9A0 /* Tobydi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3549E62B21E8DFB300DBE9A0 /* Tobydi.xcdatamodeld */; };
 		3549E62F21E8DFB600DBE9A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3549E62E21E8DFB600DBE9A0 /* Assets.xcassets */; };
 		3549E63221E8DFB600DBE9A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3549E63021E8DFB600DBE9A0 /* LaunchScreen.storyboard */; };
+		3549E63A21E8E52E00DBE9A0 /* PlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549E63921E8E52E00DBE9A0 /* PlayerCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		180658E6480F597A65C88D17 /* Pods-Tobydi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tobydi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tobydi/Pods-Tobydi.release.xcconfig"; sourceTree = "<group>"; };
+		3504FBD921EB23E4002CD476 /* MusicPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerController.swift; sourceTree = "<group>"; };
+		3504FBDE21EB2B24002CD476 /* YouTube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTube.swift; sourceTree = "<group>"; };
+		3504FBE021EB30EB002CD476 /* ShahzamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShahzamViewController.swift; sourceTree = "<group>"; };
 		3549E62121E8DFB300DBE9A0 /* Tobydi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tobydi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3549E62421E8DFB300DBE9A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3549E62621E8DFB300DBE9A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3549E62621E8DFB300DBE9A0 /* YouTubeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeViewController.swift; sourceTree = "<group>"; };
 		3549E62921E8DFB300DBE9A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3549E62C21E8DFB300DBE9A0 /* Tobydi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tobydi.xcdatamodel; sourceTree = "<group>"; };
 		3549E62E21E8DFB600DBE9A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3549E63121E8DFB600DBE9A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3549E63321E8DFB600DBE9A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3549E63921E8E52E00DBE9A0 /* PlayerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCollectionViewCell.swift; sourceTree = "<group>"; };
+		67CB2790E8AB0707A760B169 /* Pods_Tobydi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tobydi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1960325532E6973E7D924C /* Pods-Tobydi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tobydi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tobydi/Pods-Tobydi.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +43,57 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10F56E401328B075C5773C88 /* Pods_Tobydi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0670A0518251CEBD14E3F52D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8D1960325532E6973E7D924C /* Pods-Tobydi.debug.xcconfig */,
+				180658E6480F597A65C88D17 /* Pods-Tobydi.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3504FBDB21EB298C002CD476 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3549E63021E8DFB600DBE9A0 /* LaunchScreen.storyboard */,
+				3549E63921E8E52E00DBE9A0 /* PlayerCollectionViewCell.swift */,
+				3549E62821E8DFB300DBE9A0 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3504FBDC21EB29A0002CD476 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3504FBD921EB23E4002CD476 /* MusicPlayerController.swift */,
+				3549E62621E8DFB300DBE9A0 /* YouTubeViewController.swift */,
+				3504FBE021EB30EB002CD476 /* ShahzamViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3504FBDD21EB2B05002CD476 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3504FBDE21EB2B24002CD476 /* YouTube.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3549E61821E8DFB300DBE9A0 = {
 			isa = PBXGroup;
 			children = (
 				3549E62321E8DFB300DBE9A0 /* Tobydi */,
 				3549E62221E8DFB300DBE9A0 /* Products */,
+				0670A0518251CEBD14E3F52D /* Pods */,
+				925A298D9019ABE89C60D551 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +109,22 @@
 			isa = PBXGroup;
 			children = (
 				3549E62421E8DFB300DBE9A0 /* AppDelegate.swift */,
-				3549E62621E8DFB300DBE9A0 /* ViewController.swift */,
-				3549E62821E8DFB300DBE9A0 /* Main.storyboard */,
+				3504FBDD21EB2B05002CD476 /* Model */,
+				3504FBDC21EB29A0002CD476 /* Controller */,
+				3504FBDB21EB298C002CD476 /* View */,
 				3549E62E21E8DFB600DBE9A0 /* Assets.xcassets */,
-				3549E63021E8DFB600DBE9A0 /* LaunchScreen.storyboard */,
 				3549E63321E8DFB600DBE9A0 /* Info.plist */,
 				3549E62B21E8DFB300DBE9A0 /* Tobydi.xcdatamodeld */,
 			);
 			path = Tobydi;
+			sourceTree = "<group>";
+		};
+		925A298D9019ABE89C60D551 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				67CB2790E8AB0707A760B169 /* Pods_Tobydi.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +134,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3549E63621E8DFB600DBE9A0 /* Build configuration list for PBXNativeTarget "Tobydi" */;
 			buildPhases = (
+				24C33525BF91B2B43621373C /* [CP] Check Pods Manifest.lock */,
 				3549E61D21E8DFB300DBE9A0 /* Sources */,
 				3549E61E21E8DFB300DBE9A0 /* Frameworks */,
 				3549E61F21E8DFB300DBE9A0 /* Resources */,
+				5EA879FA8AB9B8230A6F130A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -99,6 +161,11 @@
 				TargetAttributes = {
 					3549E62021E8DFB300DBE9A0 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -133,13 +200,78 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		24C33525BF91B2B43621373C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tobydi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5EA879FA8AB9B8230A6F130A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Tobydi/Pods-Tobydi-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/1PasswordExtension/OnePasswordExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/AudioPlayerSwift/AudioPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Soundcloud/Soundcloud.framework",
+				"${BUILT_PRODUCTS_DIR}/StreamingKit/StreamingKit.framework",
+				"${BUILT_PRODUCTS_DIR}/YoutubeDirectLinkExtractor/YoutubeDirectLinkExtractor.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OnePasswordExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AudioPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Soundcloud.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StreamingKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YoutubeDirectLinkExtractor.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tobydi/Pods-Tobydi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3549E61D21E8DFB300DBE9A0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3549E62D21E8DFB300DBE9A0 /* Tobydi.xcdatamodeld in Sources */,
-				3549E62721E8DFB300DBE9A0 /* ViewController.swift in Sources */,
+				3504FBDF21EB2B24002CD476 /* YouTube.swift in Sources */,
+				3549E63A21E8E52E00DBE9A0 /* PlayerCollectionViewCell.swift in Sources */,
+				3504FBE121EB30EB002CD476 /* ShahzamViewController.swift in Sources */,
+				3549E62721E8DFB300DBE9A0 /* YouTubeViewController.swift in Sources */,
+				3504FBDA21EB23E4002CD476 /* MusicPlayerController.swift in Sources */,
 				3549E62521E8DFB300DBE9A0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,9 +416,11 @@
 		};
 		3549E63721E8DFB600DBE9A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D1960325532E6973E7D924C /* Pods-Tobydi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 434JC6R7SW;
 				INFOPLIST_FILE = Tobydi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -301,9 +435,11 @@
 		};
 		3549E63821E8DFB600DBE9A0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 180658E6480F597A65C88D17 /* Pods-Tobydi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 434JC6R7SW;
 				INFOPLIST_FILE = Tobydi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
