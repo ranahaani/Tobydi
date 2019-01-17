@@ -18,6 +18,8 @@
 		3549E62F21E8DFB600DBE9A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3549E62E21E8DFB600DBE9A0 /* Assets.xcassets */; };
 		3549E63221E8DFB600DBE9A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3549E63021E8DFB600DBE9A0 /* LaunchScreen.storyboard */; };
 		3549E63A21E8E52E00DBE9A0 /* PlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549E63921E8E52E00DBE9A0 /* PlayerCollectionViewCell.swift */; };
+		3566F35021F0B78C000F2BC1 /* iTunesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3566F34F21F0B78C000F2BC1 /* iTunesViewController.swift */; };
+		3566F35221F0B80A000F2BC1 /* iTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3566F35121F0B80A000F2BC1 /* iTunes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		3549E63121E8DFB600DBE9A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3549E63321E8DFB600DBE9A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3549E63921E8E52E00DBE9A0 /* PlayerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCollectionViewCell.swift; sourceTree = "<group>"; };
+		3566F34F21F0B78C000F2BC1 /* iTunesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesViewController.swift; sourceTree = "<group>"; };
+		3566F35121F0B80A000F2BC1 /* iTunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunes.swift; sourceTree = "<group>"; };
 		67CB2790E8AB0707A760B169 /* Pods_Tobydi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tobydi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1960325532E6973E7D924C /* Pods-Tobydi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tobydi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tobydi/Pods-Tobydi.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +78,7 @@
 			children = (
 				3504FBD921EB23E4002CD476 /* MusicPlayerController.swift */,
 				3549E62621E8DFB300DBE9A0 /* YouTubeViewController.swift */,
+				3566F34F21F0B78C000F2BC1 /* iTunesViewController.swift */,
 				3504FBE021EB30EB002CD476 /* ShahzamViewController.swift */,
 			);
 			path = Controller;
@@ -83,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				3504FBDE21EB2B24002CD476 /* YouTube.swift */,
+				3566F35121F0B80A000F2BC1 /* iTunes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,9 +239,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Tobydi/Pods-Tobydi-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/1PasswordExtension/OnePasswordExtension.framework",
-				"${BUILT_PRODUCTS_DIR}/AudioPlayerSwift/AudioPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/FRadioPlayer/FRadioPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Soundcloud/Soundcloud.framework",
 				"${BUILT_PRODUCTS_DIR}/StreamingKit/StreamingKit.framework",
@@ -246,9 +254,11 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OnePasswordExtension.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AudioPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FRadioPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Soundcloud.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StreamingKit.framework",
@@ -267,9 +277,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3549E62D21E8DFB300DBE9A0 /* Tobydi.xcdatamodeld in Sources */,
+				3566F35221F0B80A000F2BC1 /* iTunes.swift in Sources */,
 				3504FBDF21EB2B24002CD476 /* YouTube.swift in Sources */,
 				3549E63A21E8E52E00DBE9A0 /* PlayerCollectionViewCell.swift in Sources */,
 				3504FBE121EB30EB002CD476 /* ShahzamViewController.swift in Sources */,
+				3566F35021F0B78C000F2BC1 /* iTunesViewController.swift in Sources */,
 				3549E62721E8DFB300DBE9A0 /* YouTubeViewController.swift in Sources */,
 				3504FBDA21EB23E4002CD476 /* MusicPlayerController.swift in Sources */,
 				3549E62521E8DFB300DBE9A0 /* AppDelegate.swift in Sources */,

@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double AudioPlayerVersionNumber;
-FOUNDATION_EXPORT const unsigned char AudioPlayerVersionString[];
+FOUNDATION_EXPORT double FRadioPlayerVersionNumber;
+FOUNDATION_EXPORT const unsigned char FRadioPlayerVersionString[];
 

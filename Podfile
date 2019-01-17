@@ -6,11 +6,13 @@ target 'Tobydi' do
   use_frameworks!
  # pod 'SDWebImage', '~> 4.0'
   pod 'Kingfisher'
-  pod 'AudioPlayerSwift'
   pod 'StreamingKit'
+  pod 'ReachabilitySwift'
   pod 'SVProgressHUD'
   pod 'YoutubeDirectLinkExtractor'
   pod 'Soundcloud'
+  pod 'MarqueeLabel/Swift'
+  pod 'FRadioPlayer'
 
 
   # Pods for Tobydi

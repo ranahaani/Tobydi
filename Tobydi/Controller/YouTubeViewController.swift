@@ -9,22 +9,26 @@
 import UIKit
 import Kingfisher
 import AVFoundation
-import AudioPlayer
+import FRadioPlayer
 import YoutubeDirectLinkExtractor
 import StreamingKit
 import SVProgressHUD
+import MarqueeLabel
+import Reachability
 class YouTubeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
-     let audioPlayer = STKAudioPlayer()
-    private var player: AVPlayer!
+    let player = FRadioPlayer.shared
 
-    @IBOutlet weak var Songtitle: UILabel!
+    
+    let reachability = Reachability()!
+    var audioPlayer = STKAudioPlayer()
+
+    @IBOutlet weak var Songtitle: MarqueeLabel!
     @IBOutlet weak var videoView: UIView!
     var rows=0
     var arr:[String]=[]
     var video_arr:[String]=[]
     var video_str=""
     var images:[String]=[]
-    var isPlaying = false
     override func viewDidLoad() {
         super.viewDidLoad()
         SVProgressHUD.setForegroundColor(UIColor(rgb: 0x91dbed))
@@ -32,8 +36,50 @@ class YouTubeViewController: UIViewController,UICollectionViewDelegate,UICollect
         Songtitle.textColor = (UIColor(rgb: 0x91dbed))
         view.backgroundColor = (UIColor(rgb: 0x91dbed))
         reload()
-    }
+       // resetAudioPlayer()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        checkInternetConnection()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+    }
+    
+    func checkInternetConnection(){
+        reachability.whenReachable = { reachability in
+            if reachability.connection == .wifi {
+                print("Reachable via WiFi")
+            } else {
+                print("Reachable via Cellular")
+            }
+        }
+        reachability.whenUnreachable = { _ in
+            let alertVC = UIAlertController(title: "Error", message:self.reachability.connection.description , preferredStyle: .alert)
+            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertVC.addAction(action)
+            self.present(alertVC,animated: true)
+        }
+    }
+    
+    
+
+//
+//    private func resetAudioPlayer() {
+//        var options = STKAudioPlayerOptions()
+//        options.flushQueueOnSeek = true
+//        options.enableVolumeMixer = true
+//        audioPlayer = STKAudioPlayer(options: options)
+//
+//        // Set up audio player
+//        audioPlayer.meteringEnabled = true
+//        audioPlayer.volume = 5
+//    }
+//
+
+    
     func do_table_refresh()
     {
         DispatchQueue.main.async{
@@ -59,17 +105,7 @@ class YouTubeViewController: UIViewController,UICollectionViewDelegate,UICollect
         let token = newstr.components(separatedBy: delimiter)
         item.musicTitle.text = token[0] + " " + token[1]
         item.musicImage.layer.cornerRadius = item.musicImage.frame.width / 2
-        item.Button.layer.cornerRadius = item.Button.frame.width / 2
-        
-        
-        item.Button.animateButtonUp()
-        item.Button.clipsToBounds = true
-        item.musicImage.clipsToBounds = true
-        if isPlayings()==false{
-            item.Button.setBackgroundImage(UIImage(named: "PlayFilled"), for: .normal)
-        }else{
-            item.Button.setBackgroundImage(UIImage(named: "PauseFilled"), for: .normal)
-        }
+       item.musicImage.clipsToBounds = true
        item.musicArtist.text = "YouTube"
         item.musicImage.kf.setImage(with: URL(string: images[indexPath.row]))
         item.backgroundColor = (UIColor(rgb: 0x91dbed))
@@ -80,22 +116,22 @@ class YouTubeViewController: UIViewController,UICollectionViewDelegate,UICollect
    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Clicked")
-        
         let y = YoutubeDirectLinkExtractor()
         y.extractInfo(for: .id(video_arr[indexPath.row]), success: { info in
-            
-           // print()
-            if self.isPlayings() == false {
+            if self.audioPlayer.state != .playing {
+                SVProgressHUD.show(UIImage(named: "PlayFilled") ?? UIImage(named:"play-button")!, status: "Played")
                 if info.highestQualityPlayableLink == nil{
                     if info.lowestQualityPlayableLink == nil{
-                        let alertVC = UIAlertController(title: "Error", message: info.lowestQualityPlayableLink, preferredStyle: .alert)
+                        let alertVC = UIAlertController(title: "Error", message: "Video unavailable", preferredStyle: .alert)
                         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
                         alertVC.addAction(action)
                         self.present(alertVC,animated: true)
                     }
                     else{
-                        SVProgressHUD.setStatus("Started")
-                            self.audioPlayer.play(info.lowestQualityPlayableLink!)
+                            //self.audioPlayer.play(info.lowestQualityPlayableLink!)
+                        
+                        self.player.radioURL = URL(string: info.highestQualityPlayableLink!)
+                        self.player.isAutoPlay = true
                         print("Playing")
 
                     }
@@ -103,34 +139,30 @@ class YouTubeViewController: UIViewController,UICollectionViewDelegate,UICollect
                 }
                 else
                 {
-                    SVProgressHUD.setStatus("Started")
-
-                    self.audioPlayer.play(info.highestQualityPlayableLink!)
+                    self.player.radioURL = URL(string: info.lowestQualityPlayableLink!)
+                    self.player.isAutoPlay = true
+                    SVProgressHUD.show(UIImage(named: "PauseFilled") ?? UIImage(named:"play-button")!, status: "Paused")
+                //self.audioPlayer.play(info.highestQualityPlayableLink!)
                 }
-                self.isPlaying = true
                 
             }
-            else if self.isPlayings() == true {
-                print("Paused")
-                self.audioPlayer.pause()
-                self.isPlaying = false
-            }
-            else {
-                self.audioPlayer.stop()
-            }
+//            else if self.audioPlayer.state == .playing{
+//               // self.audioPlayer.stop()
+//                SVProgressHUD.show(UIImage(named: "PauseFilled") ?? UIImage(named:"play-button")!, status: "Paused")
+//
+//            }
+            
             self.Songtitle.text = self.arr[indexPath.row]
-           
+            
         }) { error in
             print(error)
         }
     }
 
-    private func isPlayings() -> Bool {
-        return audioPlayer.progress != 0
-    }
+
     func reload() {
         let jsonUrlString =
-        "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=Hollywood+Music&key=AIzaSyCSP3HUsmcAPSnUAS877Jac9QzDABnH6NY"
+        "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&sp=CAMSBAgDEAE%253D&q=English+Music&key=AIzaSyCSP3HUsmcAPSnUAS877Jac9QzDABnH6NY"
         
         let url = URL(string: jsonUrlString)
         
@@ -146,7 +178,7 @@ class YouTubeViewController: UIViewController,UICollectionViewDelegate,UICollect
                         self.images.append("https://i.ytimg.com/vi/sGIm0-dQd8M/default.jpg")
                     }else{
                         self.video_arr.append(sng.id.videoId)
-                        self.images.append(sng.snippet.thumbnails.high.url)
+                        self.images.append(sng.snippet.thumbnails.medium.url)
                         //print(sng.url.high)
                     }
                     
@@ -180,15 +212,7 @@ extension UIView {
     }
     
 }
-extension UIImage {
-    func image(alpha: CGFloat) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(size, false, scale)
-        draw(at: .zero, blendMode: .normal, alpha: alpha)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage
-    }
-}
+
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")

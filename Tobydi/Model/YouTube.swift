@@ -16,12 +16,12 @@ struct yt :Decodable{
 struct items:Decodable {
     let etag:String?
     let snippet:snippet
-    let id:id
+    let id:id!
     
     
 }
 struct snippet:Decodable {
-    let title:String?
+    let title:String!
     let thumbnails:thumbnails
     
 }
@@ -29,8 +29,8 @@ struct id:Decodable {
     let videoId:String!
 }
 struct thumbnails:Decodable {
-    let high:high!
+    let medium:medium!
 }
-struct high:Decodable {
+struct medium:Decodable {
     let url:String!
 }

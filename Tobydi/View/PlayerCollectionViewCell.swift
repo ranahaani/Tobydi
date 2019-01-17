@@ -7,16 +7,13 @@
 //
 
 import UIKit
-import AudioPlayer
 class PlayerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var musicImage: UIImageView!
     
     @IBOutlet weak var musicTitle: UILabel!
     
     @IBOutlet weak var musicArtist: UILabel!
-    
-    @IBOutlet weak var Button: UIButton!
-   
+       
     
    
 }

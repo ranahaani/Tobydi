@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import AudioPlayer
 import YoutubeDirectLinkExtractor
 class MusicPlayerController: UIViewController {
     
@@ -166,7 +165,7 @@ class MusicPlayerController: UIViewController {
         dismiss(animated: true, completion: nil)
         
         
-        var timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector(("updateScrubSlider")), userInfo: nil, repeats: true)
+         Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector(("updateScrubSlider")), userInfo: nil, repeats: true)
         
     }
     
