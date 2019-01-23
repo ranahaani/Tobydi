@@ -11,8 +11,11 @@ target 'Tobydi' do
   pod 'SVProgressHUD'
   pod 'YoutubeDirectLinkExtractor'
   pod 'Soundcloud'
+  pod 'Spring'
   pod 'MarqueeLabel/Swift'
   pod 'FRadioPlayer'
+  pod 'Google-Mobile-Ads-SDK'
+
 
 
   # Pods for Tobydi

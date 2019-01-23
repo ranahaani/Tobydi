@@ -31,12 +31,17 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
     var trackImages:[String]=[]
     var trackName:[String]=[]
     override func viewDidLoad() {
+        
+
         super.viewDidLoad()
         SVProgressHUD.setForegroundColor(UIColor(rgb: 0x91dbed))
         SVProgressHUD.show()
         Songtitle.textColor = (UIColor(rgb: 0x91dbed))
         view.backgroundColor = (UIColor(rgb: 0x91dbed))
         reload()
+        player.artworkSize = 100
+        player.enableArtwork = true
+        
         
     }
     
