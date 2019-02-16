@@ -17,24 +17,26 @@ import MarqueeLabel
 import GoogleMobileAds
 import Reachability
 class YouTubeViewController: UIViewController,FRadioPlayerDelegate,UICollectionViewDelegate,UICollectionViewDataSource {
-    func radioPlayer(_ player: FRadioPlayer, playerStateDidChange state: FRadioPlayerState) {
-        SVProgressHUD.show(UIImage(named: "PauseFilled") ?? UIImage(named:"play-button")!, status: "Paused")
-    }
     
-    func radioPlayer(_ player: FRadioPlayer, playbackStateDidChange state: FRadioPlaybackState) {
-        SVProgressHUD.show(UIImage(named: "PlayFilled") ?? UIImage(named:"play-button")!, status: "Played")
-    }
     var bannerView: GADBannerView!
 
     let player = FRadioPlayer.shared
 
     let reachability = Reachability()!
     var audioPlayer = STKAudioPlayer()
-
+    let y = YoutubeDirectLinkExtractor()
     @IBOutlet weak var Songtitle: MarqueeLabel!
     @IBOutlet weak var videoView: UIView!
     var rows=0
-
+    lazy var adBannerView: GADBannerView = {
+        let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        adBannerView.adUnitID = "ca-app-pub-8501671653071605/1974659335"
+        adBannerView.delegate = self
+        adBannerView.rootViewController = self
+        
+        return adBannerView
+    }()
+    @IBOutlet weak var collectionView: UICollectionView!
     var arr:[String]=[]
     var video_arr:[String]=[]
     var video_str=""
@@ -43,76 +45,28 @@ class YouTubeViewController: UIViewController,FRadioPlayerDelegate,UICollectionV
         super.viewDidLoad()
         SVProgressHUD.setForegroundColor(UIColor(rgb: 0x91dbed))
        SVProgressHUD.show()
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        
-        addBannerViewToView(bannerView)
-        bannerView.adUnitID = "ca-app-pub-4401604271141178/8591872902"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
-
+        let adRequest = GADRequest()
+        adRequest.testDevices = [ kGADSimulatorID, "2077ef9a63d2b398840261c8221a0c9b" ]
+        adBannerView.load(GADRequest())
         Songtitle.textColor = (UIColor(rgb: 0x91dbed))
         player.delegate = self
         view.backgroundColor = (UIColor(rgb: 0x91dbed))
         reload()
+        player.radioURL = URL.init(string: "https://www.youtube.com/watch?v=GoAZc8QhC4k")
        // resetAudioPlayer()
         
     }
     
     
-    
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        print("adViewDidReceiveAd")
+    func radioPlayer(_ player: FRadioPlayer, playerStateDidChange state: FRadioPlayerState) {
+        SVProgressHUD.show(UIImage(named: "PauseFilled") ?? UIImage(named:"play-button")!, status: "Paused")
     }
     
-    /// Tells the delegate an ad request failed.
-    func adView(_ bannerView: GADBannerView,
-                didFailToReceiveAdWithError error: GADRequestError) {
-        print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
-    }
-    
-    /// Tells the delegate that a full-screen view will be presented in response
-    /// to the user clicking on an ad.
-    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
-        print("adViewWillPresentScreen")
-    }
-    
-    /// Tells the delegate that the full-screen view will be dismissed.
-    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
-        print("adViewWillDismissScreen")
-    }
-    
-    /// Tells the delegate that the full-screen view has been dismissed.
-    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
-        print("adViewDidDismissScreen")
-    }
-    
-    /// Tells the delegate that a user click will open another app (such as
-    /// the App Store), backgrounding the current app.
-    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
-        print("adViewWillLeaveApplication")
+    func radioPlayer(_ player: FRadioPlayer, playbackStateDidChange state: FRadioPlaybackState) {
+        //SVProgressHUD.show(UIImage(named: "PlayFilled") ?? UIImage(named:"play-button")!, status: "Played")
     }
     
    
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bannerView)
-        view.addConstraints(
-            [NSLayoutConstraint(item: bannerView,
-                                attribute: .bottom,
-                                relatedBy: .equal,
-                                toItem: bottomLayoutGuide,
-                                attribute: .top,
-                                multiplier: 1,
-                                constant: 0),
-             NSLayoutConstraint(item: bannerView,
-                                attribute: .centerX,
-                                relatedBy: .equal,
-                                toItem: view,
-                                attribute: .centerX,
-                                multiplier: 1,
-                                constant: 0)
-            ])
-    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         checkInternetConnection()
@@ -136,22 +90,6 @@ class YouTubeViewController: UIViewController,FRadioPlayerDelegate,UICollectionV
             self.present(alertVC,animated: true)
         }
     }
-    
-    
-
-//
-//    private func resetAudioPlayer() {
-//        var options = STKAudioPlayerOptions()
-//        options.flushQueueOnSeek = true
-//        options.enableVolumeMixer = true
-//        audioPlayer = STKAudioPlayer(options: options)
-//
-//        // Set up audio player
-//        audioPlayer.meteringEnabled = true
-//        audioPlayer.volume = 5
-//    }
-//
-
     
     func do_table_refresh()
     {
@@ -189,7 +127,6 @@ class YouTubeViewController: UIViewController,FRadioPlayerDelegate,UICollectionV
    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Clicked")
-        let y = YoutubeDirectLinkExtractor()
         y.extractInfo(for: .id(video_arr[indexPath.row]), success: { info in
             if self.audioPlayer.state != .playing {
                 
@@ -202,7 +139,7 @@ class YouTubeViewController: UIViewController,FRadioPlayerDelegate,UICollectionV
                     }
                     else{
                             //self.audioPlayer.play(info.lowestQualityPlayableLink!)
-                        
+                        print(info.rawInfo)
                         self.player.radioURL = URL(string: info.highestQualityPlayableLink!)
                         self.player.isAutoPlay = true
                         print("Playing")
@@ -212,6 +149,8 @@ class YouTubeViewController: UIViewController,FRadioPlayerDelegate,UICollectionV
                 }
                 else
                 {
+                    print(info.rawInfo)
+
                     self.player.radioURL = URL(string: info.lowestQualityPlayableLink!)
                     self.player.isAutoPlay = true
                     
@@ -266,6 +205,20 @@ class YouTubeViewController: UIViewController,FRadioPlayerDelegate,UICollectionV
             
             }.resume()
         
+    }
+}
+
+extension YouTubeViewController: GADBannerViewDelegate {
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("Banner loaded successfully")
+        videoView.frame = bannerView.frame
+        videoView = bannerView
+    }
+    
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        print("Fail to receive ads")
+        print(error)
     }
 }
 extension UIView {

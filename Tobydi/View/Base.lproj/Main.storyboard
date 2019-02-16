@@ -132,6 +132,7 @@
                     <tabBarItem key="tabBarItem" title="YouTube" image="play-button" landscapeImage="play-button" id="7V7-KY-2Pl"/>
                     <connections>
                         <outlet property="Songtitle" destination="iZL-py-SDn" id="SGp-bp-Stg"/>
+                        <outlet property="collectionView" destination="4fR-Is-kzE" id="mq0-pE-lIL"/>
                         <outlet property="videoView" destination="cH5-Ax-i5O" id="juh-aC-fL8"/>
                     </connections>
                 </viewController>
