@@ -12,6 +12,7 @@ target 'Tobydi' do
   pod 'YoutubeDirectLinkExtractor'
   pod 'Soundcloud'
   pod 'Spring'
+  pod 'HCYoutubeParser'
   pod 'MarqueeLabel/Swift'
   pod 'FRadioPlayer'
   pod 'Google-Mobile-Ads-SDK'

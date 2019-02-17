@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1D5AAAE13C75D9E93A8E949238F59366"
+               BlueprintIdentifier = "1381D509ADA0CB666A2EA5112347B899"
                BlueprintName = "YoutubeDirectLinkExtractor"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "YoutubeDirectLinkExtractor.framework">

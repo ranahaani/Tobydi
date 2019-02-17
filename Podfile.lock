@@ -2,6 +2,7 @@ PODS:
   - 1PasswordExtension (1.8.5)
   - FRadioPlayer (0.1.15)
   - Google-Mobile-Ads-SDK (7.38.0)
+  - HCYoutubeParser (0.0.5)
   - KeychainAccess (3.1.2)
   - Kingfisher (5.1.0)
   - MarqueeLabel/Swift (3.2.0)
@@ -17,6 +18,7 @@ PODS:
 DEPENDENCIES:
   - FRadioPlayer
   - Google-Mobile-Ads-SDK
+  - HCYoutubeParser
   - Kingfisher
   - MarqueeLabel/Swift
   - ReachabilitySwift
@@ -31,6 +33,7 @@ SPEC REPOS:
     - 1PasswordExtension
     - FRadioPlayer
     - Google-Mobile-Ads-SDK
+    - HCYoutubeParser
     - KeychainAccess
     - Kingfisher
     - MarqueeLabel
@@ -45,6 +48,7 @@ SPEC CHECKSUMS:
   1PasswordExtension: 0e95bdea64ec8ff2f4f693be5467a09fac42a83d
   FRadioPlayer: 0ad8b63756c3597af3c4a2672334c5dc22e026e4
   Google-Mobile-Ads-SDK: fec4a72b71a81302d3fd75454df3417c03c50ed5
+  HCYoutubeParser: bc1db8c062e4b835eda381f2be2f9970f6a8d071
   KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
   Kingfisher: fcec238063d17404fca89bf0a850583211c4cbf6
   MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
@@ -55,6 +59,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   YoutubeDirectLinkExtractor: 068b6a09d64551cb7cec966179d7f5f5824cd2db
 
-PODFILE CHECKSUM: 629e0c24e27d25a896e825ffc13d4bca914f7b91
+PODFILE CHECKSUM: ab7d11d94c7e0aee71d45aa63f59b83add9093b0
 
 COCOAPODS: 1.5.3

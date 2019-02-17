@@ -5,7 +5,6 @@
 //  Created by Muhammad Abdullah on 11/01/2019.
 //  Copyright © 2019 Muhammad Abdullah. All rights reserved.
 //
-
 import UIKit
 import Kingfisher
 import AVFoundation
@@ -15,6 +14,7 @@ import StreamingKit
 import SVProgressHUD
 import MarqueeLabel
 import GoogleMobileAds
+import HCYoutubeParser
 import Reachability
 class YouTubeViewController: UIViewController,FRadioPlayerDelegate,UICollectionViewDelegate,UICollectionViewDataSource {
     
@@ -40,31 +40,25 @@ class YouTubeViewController: UIViewController,FRadioPlayerDelegate,UICollectionV
     var arr:[String]=[]
     var video_arr:[String]=[]
     var video_str=""
+    var audioLinks = [String]()
     var images:[String]=[]
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkInternetConnection()
         SVProgressHUD.setForegroundColor(UIColor(rgb: 0x91dbed))
        SVProgressHUD.show()
         let adRequest = GADRequest()
-        adRequest.testDevices = [ kGADSimulatorID, "2077ef9a63d2b398840261c8221a0c9b" ]
+        adRequest.testDevices = [ kGADSimulatorID, "e2d7a1dd28234b89e87a57a0d38d36cd" ]
         adBannerView.load(GADRequest())
         Songtitle.textColor = (UIColor(rgb: 0x91dbed))
         player.delegate = self
         view.backgroundColor = (UIColor(rgb: 0x91dbed))
         reload()
-        player.radioURL = URL.init(string: "https://www.youtube.com/watch?v=GoAZc8QhC4k")
-       // resetAudioPlayer()
         
     }
     
     
-    func radioPlayer(_ player: FRadioPlayer, playerStateDidChange state: FRadioPlayerState) {
-        SVProgressHUD.show(UIImage(named: "PauseFilled") ?? UIImage(named:"play-button")!, status: "Paused")
-    }
     
-    func radioPlayer(_ player: FRadioPlayer, playbackStateDidChange state: FRadioPlaybackState) {
-        //SVProgressHUD.show(UIImage(named: "PlayFilled") ?? UIImage(named:"play-button")!, status: "Played")
-    }
     
    
     override func viewWillAppear(_ animated: Bool) {
@@ -111,9 +105,7 @@ class YouTubeViewController: UIViewController,FRadioPlayerDelegate,UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let item = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as! PlayerCollectionViewCell
         collectionView.backgroundColor = (UIColor(rgb: 0x91dbed))
-        let delimiter = " "
-        let newstr = arr[indexPath.row]
-        let token = newstr.components(separatedBy: delimiter)
+        let token = arr[indexPath.row].components(separatedBy: " ")
         item.musicTitle.text = token[0] + " " + token[1]
         item.musicImage.layer.cornerRadius = item.musicImage.frame.width / 2
        item.musicImage.clipsToBounds = true
@@ -127,52 +119,53 @@ class YouTubeViewController: UIViewController,FRadioPlayerDelegate,UICollectionV
    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Clicked")
+        SVProgressHUD.show()
         y.extractInfo(for: .id(video_arr[indexPath.row]), success: { info in
-            if self.audioPlayer.state != .playing {
-                
-                if info.highestQualityPlayableLink == nil{
-                    if info.lowestQualityPlayableLink == nil{
-                        let alertVC = UIAlertController(title: "Error", message: "Video unavailable", preferredStyle: .alert)
-                        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                        alertVC.addAction(action)
-                        self.present(alertVC,animated: true)
-                    }
-                    else{
-                            //self.audioPlayer.play(info.lowestQualityPlayableLink!)
-                        print(info.rawInfo)
-                        self.player.radioURL = URL(string: info.highestQualityPlayableLink!)
-                        self.player.isAutoPlay = true
-                        print("Playing")
-
-                    }
-                    
-                }
-                else
-                {
-                    print(info.rawInfo)
-
-                    self.player.radioURL = URL(string: info.lowestQualityPlayableLink!)
-                    self.player.isAutoPlay = true
-                    
-                //self.audioPlayer.play(info.highestQualityPlayableLink!)
-                }
-                
+            
+            print(info.lowestQualityPlayableLink,info.highestQualityPlayableLink,info.rawInfo[2]["url"],info.rawInfo[1]["url"],info.rawInfo[0]["url"])
+            SVProgressHUD.dismiss()
+            SVProgressHUD.setSuccessImage(UIImage(named: "PlayFilled")!)
+            SVProgressHUD.showSuccess(withStatus: "Playing")
+            if info.rawInfo[0]["url"] != nil{
+                self.audioPlayer.play(info.rawInfo[1]["url"]!)
             }
-//            else if self.audioPlayer.state == .playing{
-//               // self.audioPlayer.stop()
-//                SVProgressHUD.show(UIImage(named: "PauseFilled") ?? UIImage(named:"play-button")!, status: "Paused")
-//
-//            }
+            else if info.rawInfo[1]["url"] != nil{
+                self.audioPlayer.play(info.rawInfo[2]["url"]!)
+            }
+            else if info.rawInfo[2]["url"] != nil{
+                self.audioPlayer.play(info.rawInfo[0]["url"]!)
+            }
+            else if info.highestQualityPlayableLink != nil{
+                self.audioPlayer.play(info.highestQualityPlayableLink!)
+            }
+            else if info.lowestQualityPlayableLink != nil{
+                self.audioPlayer.play(info.lowestQualityPlayableLink!)
+            }
+            else{
+                self.ShowAlert(title: "Alert", message: "Can't be played")
+            }
             
             self.Songtitle.text = self.arr[indexPath.row]
             
         }) { error in
-            print(error)
+            
+            self.ShowAlert(title: "Error", message: error.localizedDescription)
+            SVProgressHUD.dismiss()
+            print(error.localizedDescription)
         }
     }
 
-
+    func radioPlayer(_ player: FRadioPlayer, playerStateDidChange state: FRadioPlayerState) {
+       // SVProgressHUD.show(UIImage(named: "PauseFilled") ??UIImage(named:"play-button")!, status: "Paused")
+    }
+    
+    func radioPlayer(_ player: FRadioPlayer, playbackStateDidChange state: FRadioPlaybackState) {
+        //SVProgressHUD.show()
+        //SVProgressHUD.show(UIImage(named: "PlayFilled") ?? UIImage(named:"play-button")!, status: "Played")
+    }
     func reload() {
+        
+
         let jsonUrlString =
         "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&sp=CAMSBAgDEAE%253D&q=English+Music&key=AIzaSyCSP3HUsmcAPSnUAS877Jac9QzDABnH6NY"
         
@@ -219,6 +212,13 @@ extension YouTubeViewController: GADBannerViewDelegate {
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
         print("Fail to receive ads")
         print(error)
+    }
+    
+    func ShowAlert(title:String,message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 extension UIView {

@@ -1,0 +1,6 @@
+framework module HCYoutubeParser {
+  umbrella header "HCYoutubeParser-umbrella.h"
+
+  export *
+  module * { export * }
+}
