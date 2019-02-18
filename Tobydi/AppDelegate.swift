@@ -14,11 +14,33 @@ import GoogleMobileAds
 import Reachability
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var interstitial: GADInterstitial!
 
     var window: UIWindow?
     let reachability = Reachability()!
 
-
+    func showInterstitial(_ notification: NSNotification) {
+        
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-4401604271141178/8098469764")
+        let request = GADRequest()
+        interstitial.delegate = (self as! GADInterstitialDelegate)
+        // Request test ads on devices you specify. Your test device ID is printed to the console when
+        // an ad request is made.
+        //request.testDevices = [ kGADSimulatorID, "2077ef9a63d2b398840261c8221a0c9b" ]
+        interstitial.load(request)
+    }
+    
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        
+        if(self.interstitial.isReady){
+            interstitial.present(fromRootViewController: (self.window?.rootViewController)!)
+            
+        }
+    }
+    
+    func interstitialDidFail(toPresentScreen ad: GADInterstitial) {
+        NSLog("")
+    }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         reachability.whenReachable = { reachability in
             if reachability.connection == .wifi {

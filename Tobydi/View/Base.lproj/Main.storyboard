@@ -144,7 +144,7 @@
                     <connections>
                         <segue destination="fqf-dE-HSO" kind="relationship" relationship="viewControllers" id="UiH-X7-uGA"/>
                         <segue destination="byC-bh-w4j" kind="relationship" relationship="viewControllers" id="ptq-X7-Ije"/>
-                        <segue destination="ud3-5w-uyD" kind="relationship" relationship="viewControllers" id="iqO-jn-iuL"/>
+                        <segue destination="NuW-Hq-MH5" kind="relationship" relationship="viewControllers" id="iqO-jn-iuL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gee-Ce-xIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -268,7 +268,7 @@
             </objects>
             <point key="canvasLocation" x="2304.8000000000002" y="-615.74212893553226"/>
         </scene>
-        <!--iTunes-->
+        <!--iTunes View Controller-->
         <scene sceneID="OLx-kC-4NG">
             <objects>
                 <viewController id="ud3-5w-uyD" customClass="iTunesViewController" customModule="Tobydi" customModuleProvider="target" sceneMemberID="viewController">
@@ -387,15 +387,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="emK-SU-JqG"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="iTunes" image="itunes" landscapeImage="itunes" id="e9v-fP-2VX"/>
+                    <navigationItem key="navigationItem" id="vEI-Ke-DyI"/>
                     <connections>
                         <outlet property="Songtitle" destination="GzO-Oa-CWF" id="xKf-51-KZJ"/>
+                        <outlet property="collectionView" destination="MfA-yr-Qa6" id="2IH-7u-HJq"/>
                         <outlet property="videoView" destination="abu-Qi-ubB" id="209-SI-piN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k5P-pP-3gh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="872"/>
+            <point key="canvasLocation" x="2015.2" y="871.21439280359823"/>
         </scene>
         <!--YouTube-->
         <scene sceneID="2q8-qQ-I3V">
@@ -434,6 +435,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hqe-HG-ffP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1365.5999999999999" y="-615.74212893553226"/>
+        </scene>
+        <!--iTunes-->
+        <scene sceneID="LxF-NR-3xN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NuW-Hq-MH5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="iTunes" image="itunes" landscapeImage="itunes" id="e9v-fP-2VX"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XWR-KE-w7t">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ud3-5w-uyD" kind="relationship" relationship="rootViewController" id="JCD-tN-v9w"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jOi-yZ-3IO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="871.21439280359823"/>
         </scene>
     </scenes>
     <resources>

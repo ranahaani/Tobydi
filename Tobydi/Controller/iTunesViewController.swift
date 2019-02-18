@@ -10,6 +10,7 @@
 
 import UIKit
 import Kingfisher
+import GoogleMobileAds
 import AVFoundation
 import FRadioPlayer
 import YoutubeDirectLinkExtractor
@@ -17,23 +18,41 @@ import StreamingKit
 import SVProgressHUD
 import MarqueeLabel
 import Reachability
-class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource ,UISearchBarDelegate,UISearchControllerDelegate{
     let player = FRadioPlayer.shared
     var isSame = false
-    
+    @IBOutlet weak var collectionView: UICollectionView!
     let reachability = Reachability()!
     var audioPlayer = STKAudioPlayer()
-    
+    var interstitial: GADInterstitial!
+
     @IBOutlet weak var Songtitle: MarqueeLabel!
     @IBOutlet weak var videoView: UIView!
     var trackURL:[String]=[]
     var trackArtist:[String]=[]
     var trackImages:[String]=[]
     var trackName:[String]=[]
+    var searchActive : Bool = false
+    let searchController = UISearchController(searchResultsController: nil)
+    
     override func viewDidLoad() {
-        
-
         super.viewDidLoad()
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-4401604271141178/8098469764")
+        let request = GADRequest()
+        interstitial.load(request)
+        self.searchController.searchResultsUpdater = self
+        self.searchController.delegate = self
+        self.searchController.searchBar.delegate = self
+        self.searchController.hidesNavigationBarDuringPresentation = false
+        self.searchController.dimsBackgroundDuringPresentation = true
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.sizeToFit()
+        searchController.searchBar.becomeFirstResponder()
+        self.navigationItem.titleView = searchController.searchBar
+        self.definesPresentationContext = true
+        self.searchController.searchBar.placeholder = "Search for Audio"
+        
+        
         SVProgressHUD.setForegroundColor(UIColor(rgb: 0x91dbed))
         SVProgressHUD.show()
         Songtitle.textColor = (UIColor(rgb: 0x91dbed))
@@ -105,6 +124,11 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if interstitial.isReady {
+            interstitial.present(fromRootViewController: self)
+        } else {
+            print("Ad wasn't ready")
+        }
         Songtitle.text = trackName[indexPath.row]
         if player.isPlaying && isSame == false{
             player.pause()
@@ -127,8 +151,16 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     
     func reload() {
+        trackURL.removeAll()
+        trackImages.removeAll()
+        trackName.removeAll()
+        trackArtist.removeAll()
+        var searchString = searchController.searchBar.text
+        if (searchString?.contains(find: " "))!{
+            searchString = searchString?.replace(string: " ", replacement: "+")
+        }
         let jsonUrlString =
-        "https://itunes.apple.com/search?term=Queen&entity=song&limit=300"
+        "https://itunes.apple.com/search?term=\(searchString ?? "Arjit")&entity=song&limit=30"
         
         let url = URL(string: jsonUrlString)
         
@@ -158,4 +190,41 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
         
     }
 
+}
+extension iTunesViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        //collectionView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true
+        // collectionView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+        reload()
+        SVProgressHUD.show(withStatus: "Searching...")
+        collectionView.reloadData()
+    }
+    
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        if !searchActive {
+            searchActive = true
+            collectionView.reloadData()
+        }
+        
+        searchController.searchBar.resignFirstResponder()
+    }
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+}
 }

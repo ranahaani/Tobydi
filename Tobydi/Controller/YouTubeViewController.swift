@@ -20,6 +20,8 @@ import Reachability
 
 class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UISearchControllerDelegate {
     var bannerView: GADBannerView!
+    var interstitial: GADInterstitial!
+
     var audioPlayer = STKAudioPlayer()
     let y = YoutubeDirectLinkExtractor()
     @IBOutlet weak var Songtitle: MarqueeLabel!
@@ -43,6 +45,11 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
     let searchController = UISearchController(searchResultsController: nil)
     override func viewDidLoad() {
         super.viewDidLoad()
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-4401604271141178/8098469764")
+        let request = GADRequest()
+        interstitial.load(request)
+        interstitial = createAndLoadInterstitial()
+
         self.searchController.searchResultsUpdater = self
         self.searchController.delegate = self
         self.searchController.searchBar.delegate = self
@@ -68,7 +75,15 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
         
         
     }
+    func createAndLoadInterstitial() -> GADInterstitial {
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-4401604271141178/8098469764")
+        interstitial.load(GADRequest())
+        return interstitial
+    }
     
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        interstitial = createAndLoadInterstitial()
+    }
 
     
     func do_table_refresh()
@@ -112,6 +127,11 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
     
    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if interstitial.isReady {
+            interstitial.present(fromRootViewController: self)
+        } else {
+            print("Ad wasn't ready")
+        }
         print("Clicked")
         SVProgressHUD.show(withStatus: "Playing...")
         y.extractInfo(for: .id(video_arr[indexPath.row]), success: { info in
@@ -158,10 +178,13 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
         video_arr.removeAll()
         images.removeAll()
         arr.removeAll()
-        let searchString = searchController.searchBar.text
-       
-        let jsonUrlString =
+        var searchString = searchController.searchBar.text
+        if (searchString?.contains(find: " "))!{
+           searchString = searchString?.replace(string: " ", replacement: "+")
+        }
+        let  jsonUrlString =
         "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&sp=CAMSBAgDEAE%253D&type=music&q=\(searchString ?? "Hollywood")+Song&key=AIzaSyCSP3HUsmcAPSnUAS877Jac9QzDABnH6NY"
+        
         
         let url = URL(string: jsonUrlString)
         
@@ -212,6 +235,9 @@ extension YouTubeViewController: GADBannerViewDelegate {
 }
 
 extension String {
+    func replace(string:String, replacement:String) -> String {
+        return self.replacingOccurrences(of: string, with: replacement, options: NSString.CompareOptions.literal, range: nil)
+    }
     subscript(_ range: CountableRange<Int>) -> String {
         let idx1 = index(startIndex, offsetBy: max(0, range.lowerBound))
         let idx2 = index(startIndex, offsetBy: min(self.count, range.upperBound))
