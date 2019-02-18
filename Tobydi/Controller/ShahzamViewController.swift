@@ -22,7 +22,7 @@ class ShahzamViewController: UIViewController,UISearchBarDelegate,UISearchContro
     let player = STKAudioPlayer()
     var imagesArrayTubidy = [URL]()
     var searchActive : Bool = false
-    var video_arr:[String]=[]
+    var titleArr:[String]=[]
     var video_str=""
     var audioLinks = [String]()
     var myURLString = "https://tubidy.mobi/search.php?q=music"
@@ -55,6 +55,9 @@ class ShahzamViewController: UIViewController,UISearchBarDelegate,UISearchContro
         }
         myURLString.removeAll()
         images.removeAll()
+        titleArr.removeAll()
+        imagesArrayTubidy.removeAll()
+        audioLinks.removeAll()
         myURLString = "https://tubidy.mobi/search.php?q=\(searchString ?? "Music")"
         guard let myURL = URL(string: myURLString) else {
             print("Error: \(myURLString) doesn't seem to be a valid URL")
@@ -64,6 +67,7 @@ class ShahzamViewController: UIViewController,UISearchBarDelegate,UISearchContro
     }
     func getAudioId(myURL: URL) -> [URL] {
         do {
+        
             let myHTMLString = try String(contentsOf: myURL, encoding: .ascii)
             let types: NSTextCheckingResult.CheckingType = .link
             
@@ -81,8 +85,6 @@ class ShahzamViewController: UIViewController,UISearchBarDelegate,UISearchContro
                             else{
                                 imagesArrayTubidy.append(URL(string:  "https://tubidy.net/nthumbs/1/DdJBluvrj6Gy3CnrsAds2Q_3D_3D.jpg")!)
                             }
-                            
-                            
                         }
                     }
                 }
@@ -90,7 +92,20 @@ class ShahzamViewController: UIViewController,UISearchBarDelegate,UISearchContro
                     let aURL = "\(value)"
                     audioLinks.append(aURL[28..<aURL.count-4])
                 }
-                
+                let stringWithoutHtml = myHTMLString.stripOutHtml()
+                let token = stringWithoutHtml?.components(separatedBy: "\n")
+                for (index,t) in (token?.enumerated())!{
+                    if t.count > 20 && index > 12 && index < 49{
+                        var token = t.components(separatedBy: " ")
+                        if token.count > 4 {
+                            titleArr.append("\(token[0]) \(token[1]) \(token[3]) \(token[4])")
+                        }
+                        else{
+                            titleArr.append(token[0])
+                        }
+                        
+                    }
+                }
             } catch {
                 print ("error in findAndOpenURL detector")
             }
@@ -114,22 +129,16 @@ extension ShahzamViewController:UICollectionViewDelegate,UICollectionViewDataSou
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //print(titleArr)
         let item = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as! PlayerCollectionViewCell
         collectionView.backgroundColor = (UIColor(rgb: 0x91dbed))
-        let token = audioLinks[indexPath.row].components(separatedBy: " ")
-        if token.count >= 2{
-            item.musicTitle.text = token[0] + " " + token[1]
-        }
-        else{
-            item.musicTitle.text = token[0]
-        }
+        item.musicTitle.text = titleArr[indexPath.row]
         item.musicImage.layer.cornerRadius = item.musicImage.frame.width / 2
         item.musicImage.clipsToBounds = true
         item.musicArtist.text = "Shahzam"
         if imagesArrayTubidy.count == audioLinks.count {
              item.musicImage.kf.setImage(with: imagesArrayTubidy[indexPath.row])
         }
-       
         item.backgroundColor = (UIColor(rgb: 0x91dbed))
         return item
     }
@@ -158,7 +167,6 @@ extension ShahzamViewController:UICollectionViewDelegate,UICollectionViewDataSou
                     SVProgressHUD.dismiss()
                 }
                
-                
             } catch {
                 print ("error in findAndOpenURL detector")
             }
@@ -184,14 +192,18 @@ extension ShahzamViewController: UISearchResultsUpdating {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true
-        collectionView.reloadData()
+        //collectionView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
         SVProgressHUD.show(withStatus: "Searching...")
         callURL()
-        collectionView.reloadData()
+        DispatchQueue.main.async{
+            self.collectionView.reloadData()
+            
+        }
+        //collectionView.reloadData()
     }
     
     func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
@@ -203,7 +215,6 @@ extension ShahzamViewController: UISearchResultsUpdating {
         searchController.searchBar.resignFirstResponder()
     }
     func searchBarIsEmpty() -> Bool {
-        // Returns true if the text is empty or nil
         return searchController.searchBar.text?.isEmpty ?? true
     }
     

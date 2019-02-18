@@ -183,7 +183,7 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
            searchString = searchString?.replace(string: " ", replacement: "+")
         }
         let  jsonUrlString =
-        "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&sp=CAMSBAgDEAE%253D&type=music&q=\(searchString ?? "Hollywood")+Song&key=AIzaSyCSP3HUsmcAPSnUAS877Jac9QzDABnH6NY"
+        "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&sp=CAMSBAgDEAE%253D&type=music&q=\(searchString ?? "Hollywood")+Song&key=AIzaSyCSP3HUsmcAPSnUAS877Jac9QzDABnH6NY"
         
         
         let url = URL(string: jsonUrlString)
@@ -235,6 +235,27 @@ extension YouTubeViewController: GADBannerViewDelegate {
 }
 
 extension String {
+    func deleteHTMLTag(tag:String) -> String {
+        return self.replacingOccurrences(of: "(?i)</?\(tag)\\b[^<]*>", with: "", options: .regularExpression, range: nil)
+    }
+    func stripOutHtml() -> String? {
+        do {
+            guard let data = self.data(using: .unicode) else {
+                return nil
+            }
+            let attributed = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil)
+            return attributed.string
+        } catch {
+            return nil
+        }
+    }
+    func deleteHTMLTags(tags:[String]) -> String {
+        var mutableString = self
+        for tag in tags {
+            mutableString = mutableString.deleteHTMLTag(tag: tag)
+        }
+        return mutableString
+    }
     func replace(string:String, replacement:String) -> String {
         return self.replacingOccurrences(of: string, with: replacement, options: NSString.CompareOptions.literal, range: nil)
     }

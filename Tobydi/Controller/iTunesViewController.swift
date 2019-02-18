@@ -51,7 +51,7 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
         self.navigationItem.titleView = searchController.searchBar
         self.definesPresentationContext = true
         self.searchController.searchBar.placeholder = "Search for Audio"
-        
+        SVProgressHUD.show()
         
         SVProgressHUD.setForegroundColor(UIColor(rgb: 0x91dbed))
         SVProgressHUD.show()
@@ -95,8 +95,7 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
     {
         
         DispatchQueue.main.async{
-            self.loadView()
-            
+            self.collectionView.reloadData()
         }
         SVProgressHUD.dismiss()
     }
@@ -160,10 +159,8 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
             searchString = searchString?.replace(string: " ", replacement: "+")
         }
         let jsonUrlString =
-        "https://itunes.apple.com/search?term=\(searchString ?? "Arjit")&entity=song&limit=30"
-        
+        "https://itunes.apple.com/search?term=\(searchString ?? "Justin")+Songs&entity=song&limit=50"
         let url = URL(string: jsonUrlString)
-        
         URLSession.shared.dataTask(with: url!) { (data, response, err) in
             guard let data = data else { return }
             
@@ -193,7 +190,7 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
 }
 extension iTunesViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        //collectionView.reloadData()
+        collectionView.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
