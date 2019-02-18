@@ -16,18 +16,16 @@ import MarqueeLabel
 import GoogleMobileAds
 import HCYoutubeParser
 import Reachability
-class YouTubeViewController: UIViewController,FRadioPlayerDelegate,UICollectionViewDelegate,UICollectionViewDataSource {
-    
+
+
+class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UISearchControllerDelegate {
     var bannerView: GADBannerView!
-
-    let player = FRadioPlayer.shared
-
-    let reachability = Reachability()!
     var audioPlayer = STKAudioPlayer()
     let y = YoutubeDirectLinkExtractor()
     @IBOutlet weak var Songtitle: MarqueeLabel!
     @IBOutlet weak var videoView: UIView!
     var rows=0
+    var origImg_play = UIImage(named: "PlayFilled")!
     lazy var adBannerView: GADBannerView = {
         let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
         adBannerView.adUnitID = "ca-app-pub-8501671653071605/1974659335"
@@ -40,59 +38,50 @@ class YouTubeViewController: UIViewController,FRadioPlayerDelegate,UICollectionV
     var arr:[String]=[]
     var video_arr:[String]=[]
     var video_str=""
-    var audioLinks = [String]()
     var images:[String]=[]
+    var searchActive : Bool = false
+    let searchController = UISearchController(searchResultsController: nil)
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkInternetConnection()
+        self.searchController.searchResultsUpdater = self
+        self.searchController.delegate = self
+        self.searchController.searchBar.delegate = self
+        self.searchController.hidesNavigationBarDuringPresentation = false
+        self.searchController.dimsBackgroundDuringPresentation = true
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.sizeToFit()
+        searchController.searchBar.becomeFirstResponder()
+        self.navigationItem.titleView = searchController.searchBar
+        self.definesPresentationContext = true
+        self.searchController.searchBar.placeholder = "Search for Audio"
+        
+        
+        
         SVProgressHUD.setForegroundColor(UIColor(rgb: 0x91dbed))
-       SVProgressHUD.show()
+        SVProgressHUD.show()
         let adRequest = GADRequest()
         adRequest.testDevices = [ kGADSimulatorID, "e2d7a1dd28234b89e87a57a0d38d36cd" ]
         adBannerView.load(GADRequest())
-        Songtitle.textColor = (UIColor(rgb: 0x91dbed))
-        player.delegate = self
+        videoView.backgroundColor = (UIColor(rgb: 0x91dbed))
         view.backgroundColor = (UIColor(rgb: 0x91dbed))
         reload()
         
+        
     }
     
-    
-    
-    
-   
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        checkInternetConnection()
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-    }
-    
-    func checkInternetConnection(){
-        reachability.whenReachable = { reachability in
-            if reachability.connection == .wifi {
-                print("Reachable via WiFi")
-            } else {
-                print("Reachable via Cellular")
-            }
-        }
-        reachability.whenUnreachable = { _ in
-            let alertVC = UIAlertController(title: "Error", message:self.reachability.connection.description , preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alertVC.addAction(action)
-            self.present(alertVC,animated: true)
-        }
-    }
+
     
     func do_table_refresh()
     {
         DispatchQueue.main.async{
-            self.loadView()
+            self.collectionView.reloadData()
             
         }
         SVProgressHUD.dismiss()
     }
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arr.count
     }
@@ -106,7 +95,12 @@ class YouTubeViewController: UIViewController,FRadioPlayerDelegate,UICollectionV
         let item = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as! PlayerCollectionViewCell
         collectionView.backgroundColor = (UIColor(rgb: 0x91dbed))
         let token = arr[indexPath.row].components(separatedBy: " ")
-        item.musicTitle.text = token[0] + " " + token[1]
+        if token.count >= 2{
+            item.musicTitle.text = token[0] + " " + token[1]
+        }
+        else{
+            item.musicTitle.text = token[0]
+        }
         item.musicImage.layer.cornerRadius = item.musicImage.frame.width / 2
        item.musicImage.clipsToBounds = true
        item.musicArtist.text = "YouTube"
@@ -119,13 +113,13 @@ class YouTubeViewController: UIViewController,FRadioPlayerDelegate,UICollectionV
    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Clicked")
-        SVProgressHUD.show()
+        SVProgressHUD.show(withStatus: "Playing...")
         y.extractInfo(for: .id(video_arr[indexPath.row]), success: { info in
             
-            print(info.lowestQualityPlayableLink,info.highestQualityPlayableLink,info.rawInfo[2]["url"],info.rawInfo[1]["url"],info.rawInfo[0]["url"])
+            //print(info.lowestQualityPlayableLink,info.highestQualityPlayableLink,info.rawInfo[2]["url"],info.rawInfo[1]["url"],info.rawInfo[0]["url"])
             SVProgressHUD.dismiss()
             SVProgressHUD.setSuccessImage(UIImage(named: "PlayFilled")!)
-            SVProgressHUD.showSuccess(withStatus: "Playing")
+            SVProgressHUD.showSuccess(withStatus: "Played")
             if info.rawInfo[0]["url"] != nil{
                 self.audioPlayer.play(info.rawInfo[1]["url"]!)
             }
@@ -145,7 +139,7 @@ class YouTubeViewController: UIViewController,FRadioPlayerDelegate,UICollectionV
                 self.ShowAlert(title: "Alert", message: "Can't be played")
             }
             
-            self.Songtitle.text = self.arr[indexPath.row]
+           // self.Songtitle.text = self.arr[indexPath.row]
             
         }) { error in
             
@@ -154,20 +148,20 @@ class YouTubeViewController: UIViewController,FRadioPlayerDelegate,UICollectionV
             print(error.localizedDescription)
         }
     }
-
-    func radioPlayer(_ player: FRadioPlayer, playerStateDidChange state: FRadioPlayerState) {
-       // SVProgressHUD.show(UIImage(named: "PauseFilled") ??UIImage(named:"play-button")!, status: "Paused")
-    }
-    
-    func radioPlayer(_ player: FRadioPlayer, playbackStateDidChange state: FRadioPlaybackState) {
-        //SVProgressHUD.show()
-        //SVProgressHUD.show(UIImage(named: "PlayFilled") ?? UIImage(named:"play-button")!, status: "Played")
+    func ShowAlert(title:String,message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     func reload() {
-        
-
+        video_arr.removeAll()
+        images.removeAll()
+        arr.removeAll()
+        let searchString = searchController.searchBar.text
+       
         let jsonUrlString =
-        "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&sp=CAMSBAgDEAE%253D&q=English+Music&key=AIzaSyCSP3HUsmcAPSnUAS877Jac9QzDABnH6NY"
+        "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&sp=CAMSBAgDEAE%253D&type=music&q=\(searchString ?? "Hollywood")+Song&key=AIzaSyCSP3HUsmcAPSnUAS877Jac9QzDABnH6NY"
         
         let url = URL(string: jsonUrlString)
         
@@ -214,11 +208,23 @@ extension YouTubeViewController: GADBannerViewDelegate {
         print(error)
     }
     
-    func ShowAlert(title:String,message:String){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: { (action) in alert.dismiss(animated: true, completion: nil)
-        }))
-        self.present(alert, animated: true, completion: nil)
+   
+}
+
+extension String {
+    subscript(_ range: CountableRange<Int>) -> String {
+        let idx1 = index(startIndex, offsetBy: max(0, range.lowerBound))
+        let idx2 = index(startIndex, offsetBy: min(self.count, range.upperBound))
+        return String(self[idx1..<idx2])
+    }
+    func indices(of string: String) -> [Int] {
+        return indices.reduce([]) { $1.encodedOffset > ($0.last ?? -1) && self[$1...].hasPrefix(string) ? $0 + [$1.encodedOffset] : $0 }
+    }
+    func contains(find: String) -> Bool{
+        return self.range(of: find) != nil
+    }
+    func containsIgnoringCase(find: String) -> Bool{
+        return self.range(of: find, options: .caseInsensitive) != nil
     }
 }
 extension UIView {
@@ -235,6 +241,107 @@ extension UIView {
         UIView.animate(withDuration: 0.1, delay: 0.0, options: [.allowUserInteraction, .curveEaseOut], animations: {
             self.transform = CGAffineTransform.identity
         }, completion: nil)
+    }
+    
+}
+extension YouTubeViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        //collectionView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true
+        // collectionView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+        reload()
+        SVProgressHUD.show(withStatus: "Searching...")
+        collectionView.reloadData()
+    }
+    
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        if !searchActive {
+            searchActive = true
+            collectionView.reloadData()
+        }
+        
+        searchController.searchBar.resignFirstResponder()
+    }
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    private func mediaControls_init() {
+        
+        //Create a container for buttons
+        let containerArea = UIView()
+        containerArea.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1.0)
+        containerArea.layer.borderWidth = 2
+        containerArea.layer.borderColor = UIColor.lightGray.cgColor
+        containerArea.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(containerArea)
+        
+        //Add Rewind, Play, Fast Forward
+        let origImg_rewind = UIImage(named: "Rewind Filled")!
+        let tintedImg_rewind = origImg_rewind.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        let rewindButton = UIButton()
+        
+        let tintedImg_play = origImg_play.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        let playButton = UIButton()
+        
+        let origImg_fastf = UIImage(named: "Fast Forward Filled")!
+        let tintedImg_fastf = origImg_fastf.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        let fastfButton = UIButton()
+        
+        //Set button specifications
+        let tinted_dict = [rewindButton: tintedImg_rewind, playButton: tintedImg_play, fastfButton: tintedImg_fastf]
+        
+        let button_ls = [rewindButton,playButton,fastfButton]
+        
+        for button in button_ls {
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: .horizontal)
+            button.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 751), for: .horizontal)
+            button.setImage(tinted_dict[button], for: .normal)
+            button.tintColor = UIColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 1)
+        }
+        
+        //Set button actions and add to subviews
+        rewindButton.addTarget(self, action: Selector("pressedRewind:"), for: .touchUpInside)
+        playButton.addTarget(self, action: Selector("pressedPlay:"), for: .touchUpInside)
+        fastfButton.addTarget(self, action: Selector("pressedFastf:"), for: .touchUpInside)
+        
+        containerArea.addSubview(playButton)
+        containerArea.addSubview(rewindButton)
+        containerArea.addSubview(fastfButton)
+        
+        //Add button constraints
+        let containerAreaConstraints: [NSLayoutConstraint] = [
+            containerArea.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            containerArea.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            containerArea.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            containerArea.heightAnchor.constraint(equalToConstant: 70),
+            
+            rewindButton.trailingAnchor.constraint(equalTo: playButton.leadingAnchor, constant: -30),
+            playButton.centerXAnchor.constraint(equalTo: containerArea.centerXAnchor),
+            fastfButton.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 30),
+            
+            rewindButton.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor),
+            playButton.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor),
+            fastfButton.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor)
+        ]
+        
+        NSLayoutConstraint.activate(containerAreaConstraints)
     }
     
 }

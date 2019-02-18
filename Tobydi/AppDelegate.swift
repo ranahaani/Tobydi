@@ -11,19 +11,34 @@ import CoreData
 import StreamingKit
 import AVFoundation
 import GoogleMobileAds
+import Reachability
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let reachability = Reachability()!
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+        reachability.whenReachable = { reachability in
+            if reachability.connection == .wifi {
+                print("Reachable via WiFi")
+            } else {
+                print("Reachable via Cellular")
+            }
+        }
+        reachability.whenUnreachable = { _ in
+            let alertVC = UIAlertController(title: "Error", message:self.reachability.connection.description , preferredStyle: .actionSheet)
+            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertVC.addAction(action)
+            self.window?.rootViewController = alertVC
+
+        }
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {
-            print(error)
+            print(error.localizedDescription)
         }
         
         GADMobileAds.configure(withApplicationID: "Pub-4401604271141178")
