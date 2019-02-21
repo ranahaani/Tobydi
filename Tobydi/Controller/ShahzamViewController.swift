@@ -8,18 +8,15 @@
 import UIKit
 import Kingfisher
 import AVFoundation
-import FRadioPlayer
-import YoutubeDirectLinkExtractor
-import StreamingKit
 import SVProgressHUD
-import MarqueeLabel
 import GoogleMobileAds
-import HCYoutubeParser
 import Reachability
 class ShahzamViewController: UIViewController,UISearchBarDelegate,UISearchControllerDelegate {
+    
+   
+    
     let searchController = UISearchController(searchResultsController: nil)
     var images = [URL]()
-    let player = STKAudioPlayer()
     var imagesArrayTubidy = [URL]()
     var searchActive : Bool = false
     var titleArr:[String]=[]
@@ -143,7 +140,13 @@ extension ShahzamViewController:UICollectionViewDelegate,UICollectionViewDataSou
         return item
     }
     
-    
+    func play(url:URL) {
+        let playerItem = AVPlayerItem(url: url)
+            YouTubeViewController.musicPlayer.player = AVPlayer(playerItem:playerItem)
+            // player.volume = 1.0
+            YouTubeViewController.musicPlayer.player.play()
+        
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         SVProgressHUD.show()
@@ -163,7 +166,7 @@ extension ShahzamViewController:UICollectionViewDelegate,UICollectionViewDataSou
                 
                 let matches = detector.matches(in: myHTMLString, options: .reportCompletion, range:  NSMakeRange(0, myHTMLString.characters.count))
                 if matches.count > 9{
-                    player.play(matches[11].url!)
+                    self.play(url:matches[11].url!)
                     SVProgressHUD.dismiss()
                 }
                

@@ -12,21 +12,15 @@ import UIKit
 import Kingfisher
 import GoogleMobileAds
 import AVFoundation
-import FRadioPlayer
-import YoutubeDirectLinkExtractor
-import StreamingKit
 import SVProgressHUD
-import MarqueeLabel
 import Reachability
 class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource ,UISearchBarDelegate,UISearchControllerDelegate{
-    let player = FRadioPlayer.shared
     var isSame = false
     @IBOutlet weak var collectionView: UICollectionView!
     let reachability = Reachability()!
-    var audioPlayer = STKAudioPlayer()
     var interstitial: GADInterstitial!
 
-    @IBOutlet weak var Songtitle: MarqueeLabel!
+    @IBOutlet weak var Songtitle: UILabel!
     @IBOutlet weak var videoView: UIView!
     var trackURL:[String]=[]
     var trackArtist:[String]=[]
@@ -58,38 +52,26 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
         Songtitle.textColor = (UIColor(rgb: 0x91dbed))
         view.backgroundColor = (UIColor(rgb: 0x91dbed))
         reload()
-        player.artworkSize = 100
-        player.enableArtwork = true
+       
         
         
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        checkInternetConnection()
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-    }
-    
-    func checkInternetConnection(){
-        reachability.whenReachable = { reachability in
-            if reachability.connection == .wifi {
-                print("Reachable via WiFi")
-            } else {
-                print("Reachable via Cellular")
-            }
+  
+    func play(url:URL) {
+        
+        do {
+            
+            let playerItem = AVPlayerItem(url: url)
+            
+            YouTubeViewController.musicPlayer.player = try AVPlayer(playerItem:playerItem)
+            // player.volume = 1.0
+            YouTubeViewController.musicPlayer.player.play()
         }
-        reachability.whenUnreachable = { _ in
-            let alertVC = UIAlertController(title: "Error", message:self.reachability.connection.description , preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alertVC.addAction(action)
-            self.present(alertVC,animated: true)
+        catch {
+            print("AVAudioPlayer init failed")
         }
     }
     
-    
-
     
     func do_table_refresh()
     {
@@ -128,24 +110,9 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
         } else {
             print("Ad wasn't ready")
         }
-        Songtitle.text = trackName[indexPath.row]
-        if player.isPlaying && isSame == false{
-            player.pause()
-            isSame = true
-            SVProgressHUD.show(UIImage(named: "PauseFilled") ?? UIImage(named:"play-button")!, status: "Paused")
-            
-            
-        }
-        else if player.isPlaying && isSame == true {
-            player.play()
-            isSame = false
-            SVProgressHUD.show(UIImage(named: "PlayFilled") ?? UIImage(named:"play-button")!, status: "Played")
-        }
-        else{
-            player.radioURL = URL(string: trackURL[indexPath.row])
-            isSame = false
-            SVProgressHUD.show(UIImage(named: "PlayFilled") ?? UIImage(named:"play-button")!, status: "Played")
-        }
+        self.play(url: URL(string:trackURL[indexPath.row])!)
+        
+        
     }
     
     

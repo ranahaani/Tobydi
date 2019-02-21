@@ -143,32 +143,14 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/1PasswordExtension/OnePasswordExtension.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/FRadioPlayer/FRadioPlayer.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/HCYoutubeParser/HCYoutubeParser.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Soundcloud/Soundcloud.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Spring/Spring.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/StreamingKit/StreamingKit.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/YoutubeDirectLinkExtractor/YoutubeDirectLinkExtractor.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/1PasswordExtension/OnePasswordExtension.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/FRadioPlayer/FRadioPlayer.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/HCYoutubeParser/HCYoutubeParser.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Soundcloud/Soundcloud.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Spring/Spring.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/StreamingKit/StreamingKit.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/YoutubeDirectLinkExtractor/YoutubeDirectLinkExtractor.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

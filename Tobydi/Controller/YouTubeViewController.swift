@@ -8,23 +8,22 @@
 import UIKit
 import Kingfisher
 import AVFoundation
-import FRadioPlayer
-import YoutubeDirectLinkExtractor
-import StreamingKit
 import SVProgressHUD
-import MarqueeLabel
 import GoogleMobileAds
-import HCYoutubeParser
 import Reachability
 
 
 class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UISearchControllerDelegate {
+    
+    struct musicPlayer{
+        static var player = AVPlayer()
+    }
     var bannerView: GADBannerView!
     var interstitial: GADInterstitial!
-
-    var audioPlayer = STKAudioPlayer()
-    let y = YoutubeDirectLinkExtractor()
-    @IBOutlet weak var Songtitle: MarqueeLabel!
+    lazy var playerQueue : AVQueuePlayer = {
+        return AVQueuePlayer()
+    }()
+    @IBOutlet weak var Songtitle: UILabel!
     @IBOutlet weak var videoView: UIView!
     var rows=0
     var origImg_play = UIImage(named: "PlayFilled")!
@@ -124,7 +123,12 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
         return item
     }
     
-    
+    func playTrackOrPlaylist(url:URL){
+        
+            let playerItem = AVPlayerItem.init(url: url)
+            self.playerQueue.insert(playerItem, after: nil)
+            self.playerQueue.play()
+    }
    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if interstitial.isReady {
@@ -132,7 +136,6 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
         } else {
             print("Ad wasn't ready")
         }
-        print("Clicked")
         SVProgressHUD.show(withStatus: "Playing...")
         
         let id = "http://michaelbelgium.me/ytconverter/convert.php?youtubelink=https://www.youtube.com/watch?v=\(video_arr[indexPath.row])"
@@ -147,12 +150,15 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
                 
                 let downloadedFile = try JSONDecoder().decode(getDownloadLink.self, from: data)
                 if downloadedFile.file != nil{
-                    self.audioPlayer.play(downloadedFile.file)
+                    
+            
+                    //self.playTrackOrPlaylist(url: URL(string:downloadedFile.file)!)
+                    self.play(url: URL(string:downloadedFile.file)!)
+                   
                     SVProgressHUD.dismiss()
                     SVProgressHUD.setSuccessImage(UIImage(named: "PlayFilled")!)
                     SVProgressHUD.showSuccess(withStatus: "Played")
                 }
-               
                 
             } catch let jsonErr {
                 self.ShowAlert(title: "Error", message: jsonErr.localizedDescription)
@@ -169,6 +175,17 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: { (action) in alert.dismiss(animated: true, completion: nil)
         }))
         self.present(alert, animated: true, completion: nil)
+    }
+    func play(url:URL) {
+            let playerItem = AVPlayerItem(url: url)
+            
+            musicPlayer.player = AVPlayer(playerItem:playerItem)
+           // player.volume = 1.0
+        let playerLayer = AVPlayerLayer(player: musicPlayer.player)
+        playerLayer.frame = self.view.bounds
+        self.view.layer.addSublayer(playerLayer)
+        musicPlayer.player.play()
+       
     }
     func reload() {
         video_arr.removeAll()
@@ -323,70 +340,6 @@ extension YouTubeViewController: UISearchResultsUpdating {
         // Returns true if the text is empty or nil
         return searchController.searchBar.text?.isEmpty ?? true
     }
-    
-    private func mediaControls_init() {
-        
-        //Create a container for buttons
-        let containerArea = UIView()
-        containerArea.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1.0)
-        containerArea.layer.borderWidth = 2
-        containerArea.layer.borderColor = UIColor.lightGray.cgColor
-        containerArea.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(containerArea)
-        
-        //Add Rewind, Play, Fast Forward
-        let origImg_rewind = UIImage(named: "Rewind Filled")!
-        let tintedImg_rewind = origImg_rewind.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-        let rewindButton = UIButton()
-        
-        let tintedImg_play = origImg_play.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-        let playButton = UIButton()
-        
-        let origImg_fastf = UIImage(named: "Fast Forward Filled")!
-        let tintedImg_fastf = origImg_fastf.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-        let fastfButton = UIButton()
-        
-        //Set button specifications
-        let tinted_dict = [rewindButton: tintedImg_rewind, playButton: tintedImg_play, fastfButton: tintedImg_fastf]
-        
-        let button_ls = [rewindButton,playButton,fastfButton]
-        
-        for button in button_ls {
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: .horizontal)
-            button.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 751), for: .horizontal)
-            button.setImage(tinted_dict[button], for: .normal)
-            button.tintColor = UIColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 1)
-        }
-        
-        //Set button actions and add to subviews
-        rewindButton.addTarget(self, action: Selector("pressedRewind:"), for: .touchUpInside)
-        playButton.addTarget(self, action: Selector("pressedPlay:"), for: .touchUpInside)
-        fastfButton.addTarget(self, action: Selector("pressedFastf:"), for: .touchUpInside)
-        
-        containerArea.addSubview(playButton)
-        containerArea.addSubview(rewindButton)
-        containerArea.addSubview(fastfButton)
-        
-        //Add button constraints
-        let containerAreaConstraints: [NSLayoutConstraint] = [
-            containerArea.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            containerArea.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            containerArea.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            containerArea.heightAnchor.constraint(equalToConstant: 70),
-            
-            rewindButton.trailingAnchor.constraint(equalTo: playButton.leadingAnchor, constant: -30),
-            playButton.centerXAnchor.constraint(equalTo: containerArea.centerXAnchor),
-            fastfButton.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 30),
-            
-            rewindButton.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor),
-            playButton.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor),
-            fastfButton.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor)
-        ]
-        
-        NSLayoutConstraint.activate(containerAreaConstraints)
-    }
-    
 }
 
 extension UIColor {

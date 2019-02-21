@@ -1,64 +1,28 @@
 PODS:
-  - 1PasswordExtension (1.8.5)
-  - FRadioPlayer (0.1.15)
   - Google-Mobile-Ads-SDK (7.38.0)
-  - HCYoutubeParser (0.0.5)
-  - KeychainAccess (3.1.2)
   - Kingfisher (5.1.0)
-  - MarqueeLabel/Swift (3.2.0)
   - ReachabilitySwift (4.3.0)
-  - Soundcloud (1.1.0):
-    - 1PasswordExtension (~> 1.8.3)
-    - KeychainAccess (~> 3.0)
-  - Spring (1.0.5)
-  - StreamingKit (0.1.30)
   - SVProgressHUD (2.2.5)
-  - YoutubeDirectLinkExtractor (0.2.0)
 
 DEPENDENCIES:
-  - FRadioPlayer
   - Google-Mobile-Ads-SDK
-  - HCYoutubeParser
   - Kingfisher
-  - MarqueeLabel/Swift
   - ReachabilitySwift
-  - Soundcloud
-  - Spring
-  - StreamingKit
   - SVProgressHUD
-  - YoutubeDirectLinkExtractor
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - 1PasswordExtension
-    - FRadioPlayer
     - Google-Mobile-Ads-SDK
-    - HCYoutubeParser
-    - KeychainAccess
     - Kingfisher
-    - MarqueeLabel
     - ReachabilitySwift
-    - Soundcloud
-    - Spring
-    - StreamingKit
     - SVProgressHUD
-    - YoutubeDirectLinkExtractor
 
 SPEC CHECKSUMS:
-  1PasswordExtension: 0e95bdea64ec8ff2f4f693be5467a09fac42a83d
-  FRadioPlayer: 0ad8b63756c3597af3c4a2672334c5dc22e026e4
   Google-Mobile-Ads-SDK: fec4a72b71a81302d3fd75454df3417c03c50ed5
-  HCYoutubeParser: bc1db8c062e4b835eda381f2be2f9970f6a8d071
-  KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
   Kingfisher: fcec238063d17404fca89bf0a850583211c4cbf6
-  MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
-  Soundcloud: 476ba41826b4968a963048e76303056dbe529b64
-  Spring: 17901566c8ecf3a1327902b940406c64512f9bb1
-  StreamingKit: 70ca8608c206864b4d54a577eacb3c8bf7c72209
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  YoutubeDirectLinkExtractor: 068b6a09d64551cb7cec966179d7f5f5824cd2db
 
-PODFILE CHECKSUM: ab7d11d94c7e0aee71d45aa63f59b83add9093b0
+PODFILE CHECKSUM: f382f966505f84eb5da384dd2f480bd836c132e7
 
 COCOAPODS: 1.5.3

@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import YoutubeDirectLinkExtractor
 class MusicPlayerController: UIViewController {
     
     var av_plyr: AVAudioPlayer = AVAudioPlayer()

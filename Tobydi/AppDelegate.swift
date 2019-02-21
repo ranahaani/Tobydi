@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import StreamingKit
 import AVFoundation
 import GoogleMobileAds
 import Reachability
