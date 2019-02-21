@@ -134,39 +134,35 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
         }
         print("Clicked")
         SVProgressHUD.show(withStatus: "Playing...")
-        y.extractInfo(for: .id(video_arr[indexPath.row]), success: { info in
+        
+        let id = "http://michaelbelgium.me/ytconverter/convert.php?youtubelink=https://www.youtube.com/watch?v=\(video_arr[indexPath.row])"
+        
+        
+        let url = URL(string: id)
+        
+        URLSession.shared.dataTask(with: url!) { (data, response, err) in
+            guard let data = data else { return }
             
-            //print(info.lowestQualityPlayableLink,info.highestQualityPlayableLink,info.rawInfo[2]["url"],info.rawInfo[1]["url"],info.rawInfo[0]["url"])
-            SVProgressHUD.dismiss()
-            SVProgressHUD.setSuccessImage(UIImage(named: "PlayFilled")!)
-            SVProgressHUD.showSuccess(withStatus: "Played")
-            if info.rawInfo[0]["url"] != nil{
-                self.audioPlayer.play(info.rawInfo[1]["url"]!)
-            }
-            else if info.rawInfo[1]["url"] != nil{
-                self.audioPlayer.play(info.rawInfo[2]["url"]!)
-            }
-            else if info.rawInfo[2]["url"] != nil{
-                self.audioPlayer.play(info.rawInfo[0]["url"]!)
-            }
-            else if info.highestQualityPlayableLink != nil{
-                self.audioPlayer.play(info.highestQualityPlayableLink!)
-            }
-            else if info.lowestQualityPlayableLink != nil{
-                self.audioPlayer.play(info.lowestQualityPlayableLink!)
-            }
-            else{
-                self.ShowAlert(title: "Alert", message: "Can't be played")
+            do {
+                
+                let downloadedFile = try JSONDecoder().decode(getDownloadLink.self, from: data)
+                if downloadedFile.file != nil{
+                    self.audioPlayer.play(downloadedFile.file)
+                    SVProgressHUD.dismiss()
+                    SVProgressHUD.setSuccessImage(UIImage(named: "PlayFilled")!)
+                    SVProgressHUD.showSuccess(withStatus: "Played")
+                }
+               
+                
+            } catch let jsonErr {
+                self.ShowAlert(title: "Error", message: jsonErr.localizedDescription)
+                print("Error serializing json:", jsonErr)
             }
             
-           // self.Songtitle.text = self.arr[indexPath.row]
-            
-        }) { error in
-            
-            self.ShowAlert(title: "Error", message: error.localizedDescription)
-            SVProgressHUD.dismiss()
-            print(error.localizedDescription)
-        }
+            }.resume()
+        
+        
+       
     }
     func ShowAlert(title:String,message:String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)

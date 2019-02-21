@@ -34,6 +34,10 @@ struct thumbnails:Decodable {
 struct medium:Decodable {
     let url:String!
 }
+struct getDownloadLink:Decodable {
+    let file: String!
+}
+
 //
 //struct yt :Decodable{
 //    //let kind:String
