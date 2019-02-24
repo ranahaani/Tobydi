@@ -14,8 +14,9 @@ import GoogleMobileAds
 import AVFoundation
 import SVProgressHUD
 import Reachability
+import StreamingKit
 class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource ,UISearchBarDelegate,UISearchControllerDelegate{
-    var isSame = false
+    var isFirstTime = true
     @IBOutlet weak var collectionView: UICollectionView!
     let reachability = Reachability()!
     var interstitial: GADInterstitial!
@@ -57,20 +58,7 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
         
     }
   
-    func play(url:URL) {
-        
-        do {
-            
-            let playerItem = AVPlayerItem(url: url)
-            
-            YouTubeViewController.musicPlayer.player = try AVPlayer(playerItem:playerItem)
-            // player.volume = 1.0
-            YouTubeViewController.musicPlayer.player.play()
-        }
-        catch {
-            print("AVAudioPlayer init failed")
-        }
-    }
+  
     
     
     func do_table_refresh()
@@ -96,7 +84,7 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
         item.musicTitle.text = trackName[indexPath.row]
         item.musicImage.layer.cornerRadius = item.musicImage.frame.width / 2
         item.musicImage.clipsToBounds = true
-        item.musicArtist.text = trackArtist[indexPath.row]
+       // item.musicArtist.text = trackArtist[indexPath.row]
         item.musicImage.kf.setImage(with: URL(string: trackImages[indexPath.row]))
         item.backgroundColor = (UIColor(rgb: 0x91dbed))
         return item
@@ -105,28 +93,80 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        SVProgressHUD.show(withStatus: "Playing...")
+        let Url = "https://ranahaani.herokuapp.com/json?url=\(trackURL[indexPath.row])"
+        
+        print(Url)
+        let url = URL(string: Url)
+        
+        URLSession.shared.dataTask(with: url!) { (data, response, err) in
+            guard let data = data else { return }
+            
+            do {
+                
+                let downloadedFile = try JSONDecoder().decode(getiTunesDownloadable.self, from: data)
+                if downloadedFile.formats.count > 0{
+                    for mp3Song in downloadedFile.formats{
+                        if let playLink = mp3Song.url{
+                        YouTubeViewController.musicPlayer.audioPlayer.play(URL(string:playLink)!)
+                            print(mp3Song.url)
+                            SVProgressHUD.dismiss()
+                            SVProgressHUD.setSuccessImage(UIImage(named: "PlayFilled")!)
+                            SVProgressHUD.showSuccess(withStatus: "Played")
+                        }
+                    }
+                }
+                else{
+                    self.ShowAlert(title: "Error", message: "Sorry Some Error Found")
+                }
+                
+               
+                
+            } catch let jsonErr {
+                self.ShowAlert(title: "Error", message: jsonErr.localizedDescription)
+                print("Error serializing json:", jsonErr)
+            }
+            
+            }.resume()
+        
+        
+        
+        
         if interstitial.isReady {
             interstitial.present(fromRootViewController: self)
         } else {
             print("Ad wasn't ready")
         }
-        self.play(url: URL(string:trackURL[indexPath.row])!)
-        
         
     }
     
-    
+    func ShowAlert(title:String,message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
     func reload() {
         trackURL.removeAll()
         trackImages.removeAll()
         trackName.removeAll()
         trackArtist.removeAll()
+        var jsonUrlString = ""
         var searchString = searchController.searchBar.text
         if (searchString?.contains(find: " "))!{
             searchString = searchString?.replace(string: " ", replacement: "+")
         }
-        let jsonUrlString =
-        "https://itunes.apple.com/search?term=\(searchString ?? "Justin")+Songs&entity=song&limit=50"
+        if isFirstTime{
+             jsonUrlString =
+            "https://api.mixcloud.com/search/?q=\(searchString ?? "Justin")+Party&amp;type=cloudcast&limit=100"
+            isFirstTime = false
+        }
+        else{
+            jsonUrlString.removeAll()
+            jsonUrlString =
+            "https://api.mixcloud.com/search/?q=\(searchString ?? "")&amp;type=cloudcast&limit=100"
+        }
+        
         let url = URL(string: jsonUrlString)
         URLSession.shared.dataTask(with: url!) { (data, response, err) in
             guard let data = data else { return }
@@ -134,20 +174,15 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
             do {
                 
                 let songs = try JSONDecoder().decode(iTunes.self, from: data)
-                for sng in songs.results {
-                    if(sng.previewUrl==nil || sng.artistName == nil || sng.artworkUrl100 == nil || sng.artistName == nil){
-                       
-                    }else{
-                        self.trackName.append(sng.trackName!)
-                        self.trackURL.append(sng.previewUrl!)
-                        self.trackImages.append(sng.artworkUrl100!)
-                        self.trackArtist.append(sng.artistName!)
-                    }
+                for sng in songs.data {
+                    self.trackURL.append(sng.url!)
+                    self.trackName.append(sng.name!)
+                    self.trackImages.append((sng.pictures?.medium)!)
                 }
                 self.do_table_refresh()
                 
             } catch let jsonErr {
-                print("Error serializing json:", jsonErr)
+                print("Error serializing json:", jsonErr.localizedDescription)
             }
             
             }.resume()

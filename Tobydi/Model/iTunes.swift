@@ -9,14 +9,23 @@
 import Foundation
 
 struct iTunes :Decodable{
-    let resultCount:Int
-    let results:[results]
+    let data:[data]
 }
-struct results:Decodable {
-    let artistName:String?
-    let trackName:String?
-    let previewUrl:String?
-    let artworkUrl100:String?
+struct data:Decodable {
+    let pictures:pictures?
+    let name:String?
+    let url:String?
     
-    
+}
+
+struct pictures:Decodable {
+    let medium:String?
+}
+
+
+struct getiTunesDownloadable:Decodable {
+    let formats:[formats]!
+}
+struct formats:Decodable {
+    let url:String!
 }

@@ -34,7 +34,7 @@ struct thumbnails:Decodable {
 struct medium:Decodable {
     let url:String!
 }
-struct getDownloadLink:Decodable {
+struct getYouTubeDownloadLink:Decodable {
     let file: String!
 }
 

@@ -9,28 +9,26 @@ import UIKit
 import Kingfisher
 import AVFoundation
 import SVProgressHUD
+import Alamofire
 import GoogleMobileAds
 import Reachability
 class ShahzamViewController: UIViewController,UISearchBarDelegate,UISearchControllerDelegate {
-    
-   
-    
-    let searchController = UISearchController(searchResultsController: nil)
-    var images = [URL]()
-    var imagesArrayTubidy = [URL]()
-    var searchActive : Bool = false
-    var titleArr:[String]=[]
-    var video_str=""
-    var audioLinks = [String]()
-    var myURLString = "https://tubidy.mobi/search.php?q=music"
+    let dict:[String:Any] = [String:Any]()
+   var searchActive = false
+    var isFirstTime = true
+   var titles = [String]()
+   var ids = [String]()
+   var images = [String]()
+    var owner = [String]()
+   let searchController = UISearchController(searchResultsController: nil)
     var interstitial: GADInterstitial!
-
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         interstitial = GADInterstitial(adUnitID: "ca-app-pub-4401604271141178/8098469764")
         let request = GADRequest()
         interstitial.load(request)
+        
         self.searchController.searchResultsUpdater = self
         self.searchController.delegate = self
         self.searchController.searchBar.delegate = self
@@ -42,141 +40,99 @@ class ShahzamViewController: UIViewController,UISearchBarDelegate,UISearchContro
         self.navigationItem.titleView = searchController.searchBar
         self.definesPresentationContext = true
         self.searchController.searchBar.placeholder = "Search for Audio"
-        callURL()
+        
+        
+        getDataFromApi()
     }
     
-    func callURL()  {
-        var searchString = searchController.searchBar.text
-        if (searchString?.contains(find: " "))!{
-            searchString = searchString?.replace(string: " ", replacement: "+")
-        }
-        myURLString.removeAll()
-        images.removeAll()
-        titleArr.removeAll()
-        imagesArrayTubidy.removeAll()
-        audioLinks.removeAll()
-        myURLString = "https://tubidy.mobi/search.php?q=\(searchString ?? "Music")"
-        guard let myURL = URL(string: myURLString) else {
-            print("Error: \(myURLString) doesn't seem to be a valid URL")
-            return
-        }
-        images = getAudioId(myURL: myURL)
-    }
-    func getAudioId(myURL: URL) -> [URL] {
-        do {
-        
-            let myHTMLString = try String(contentsOf: myURL, encoding: .ascii)
-            let types: NSTextCheckingResult.CheckingType = .link
-            
-            do {
-                let detector = try NSDataDetector(types: types.rawValue)
-                
-                let matches = detector.matches(in: myHTMLString, options: .reportCompletion, range:  NSMakeRange(0, myHTMLString.characters.count))
-                if matches.count > 0 {
-                    for (index,match) in matches.enumerated(){
-                        let mat = "\(match.url!)"
-                        if index > 9 &&  index<22 && mat.contains(find: ".jpg"){
-                            if mat.count > 0 {
-                                imagesArrayTubidy.append(match.url!)
-                            }
-                            else{
-                                imagesArrayTubidy.append(URL(string:  "https://tubidy.net/nthumbs/1/DdJBluvrj6Gy3CnrsAds2Q_3D_3D.jpg")!)
-                            }
-                        }
-                    }
-                }
-                for value in imagesArrayTubidy{
-                    let aURL = "\(value)"
-                    audioLinks.append(aURL[28..<aURL.count-4])
-                }
-                let stringWithoutHtml = myHTMLString.stripOutHtml()
-                let token = stringWithoutHtml?.components(separatedBy: "\n")
-                for (index,t) in (token?.enumerated())!{
-                    if t.count > 20 && index > 12 && index < 49{
-                        var token = t.components(separatedBy: " ")
-                        if token.count > 4 {
-                            titleArr.append("\(token[0]) \(token[1]) \(token[3]) \(token[4])")
-                        }
-                        else{
-                            titleArr.append(token[0])
-                        }
-                        
-                    }
-                }
-            } catch {
-                print ("error in findAndOpenURL detector")
-            }
-        } catch let error {
-            print("Error: \(error.localizedDescription)")
-        }
-        SVProgressHUD.dismiss()
-        return imagesArrayTubidy
-    }
+  
 }
 
 extension ShahzamViewController:UICollectionViewDelegate,UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return audioLinks.count
+        return ids.count
     }
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         cell.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         UIView.animate(withDuration: 0.4) {
             cell.transform = CGAffineTransform.identity
-        }
+        } 
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //print(titleArr)
         let item = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as! PlayerCollectionViewCell
         collectionView.backgroundColor = (UIColor(rgb: 0x91dbed))
-        item.musicTitle.text = titleArr[indexPath.row]
+        item.musicTitle.text = titles[indexPath.row]
         item.musicImage.layer.cornerRadius = item.musicImage.frame.width / 2
         item.musicImage.clipsToBounds = true
         item.musicArtist.text = "Shahzam"
-        if imagesArrayTubidy.count == audioLinks.count {
-             item.musicImage.kf.setImage(with: imagesArrayTubidy[indexPath.row])
-        }
+        item.musicImage.kf.setImage(with: URL(string: images[indexPath.row]))
         item.backgroundColor = (UIColor(rgb: 0x91dbed))
         return item
     }
     
-    func play(url:URL) {
-        let playerItem = AVPlayerItem(url: url)
-            YouTubeViewController.musicPlayer.player = AVPlayer(playerItem:playerItem)
-            // player.volume = 1.0
-            YouTubeViewController.musicPlayer.player.play()
+    func getDataFromApi(){
+        ids.removeAll()
+        images.removeAll()
+        titles.removeAll()
+        SVProgressHUD.show(withStatus: "Loading...")
+        let searchString = searchController.searchBar.text?.replace(string: " ", replacement: "%20")
+        var jsonUrlString = ""
+        if isFirstTime{
+              jsonUrlString = "https://api.audioboom.com/audio_clips?find[query]=Justin%20Bieber"
+            isFirstTime = false
+        }else{
+            jsonUrlString = "https://api.audioboom.com/audio_clips?find[query]=\(searchString ?? "")"
+        }
         
-    }
+        
+        print(jsonUrlString)
+        let url = URL(string: jsonUrlString)
+        print(url)
+        Alamofire.request(url!, method: .get, parameters: nil, encoding: JSONEncoding.default)
+            .responseJSON { response in
+                if let status = response.response?.statusCode {
+                    switch(status){
+                    case 201:
+                        print("example success")
+                    default:
+                        print("error with response status: \(status)")
+                        SVProgressHUD.showError(withStatus: "Error")
+                    }
+                }
+                if let result = response.result.value {
+                    let JSON = result as! NSDictionary
+                    let body = JSON["body"] as! NSDictionary
+                    let audio_clips = body["audio_clips"] as! [NSDictionary]
+                    for audio in audio_clips{
+                        self.titles.append(audio["title"] as! String)
+                        let user = audio["user"] as! NSDictionary
+                        let urls = user["urls"] as! NSDictionary
+                        self.images.append(urls["image"] as! String)
+                        let urlss = audio["urls"] as! NSDictionary
+                        self.ids.append(urlss["high_mp3"] as! String)
+                        
+                    }
+                    
+                    self.collectionView.reloadData()
+                    SVProgressHUD.dismiss()
+                }
+                
+        }
+        
+        }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        SVProgressHUD.show()
         if interstitial.isReady {
             interstitial.present(fromRootViewController: self)
         } else {
             print("Ad wasn't ready")
         }
-        let myURL = URL(string: "https://tubidy.mobi/watch.php?id=\(audioLinks[indexPath.row])&p=3gp-mobile&act=down&lnk=6")
-        print( "https://tubidy.mobi/watch.php?id=\(audioLinks[indexPath.row])&p=3gp-mobile&act=down&lnk=6")
-        do {
-            let myHTMLString = try String(contentsOf: myURL!, encoding: .ascii)
-            let types: NSTextCheckingResult.CheckingType = .link
-            
-            do {
-                let detector = try NSDataDetector(types: types.rawValue)
-                
-                let matches = detector.matches(in: myHTMLString, options: .reportCompletion, range:  NSMakeRange(0, myHTMLString.characters.count))
-                if matches.count > 9{
-                    self.play(url:matches[11].url!)
-                    SVProgressHUD.dismiss()
-                }
-               
-            } catch {
-                print ("error in findAndOpenURL detector")
-            }
-        } catch let error {
-            print("Error: \(error.localizedDescription)")
-        }
-        
+        YouTubeViewController.musicPlayer.audioPlayer.play(URL(string: ids[indexPath.row])!)
+        //SVProgressHUD.setSuccessImage(UIImage(named: "PlayFilled")!)
+        SVProgressHUD.showSuccess(withStatus: "Played")
+
     }
     
 }
@@ -188,6 +144,7 @@ extension ShahzamViewController: UISearchResultsUpdating {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
+        SVProgressHUD.dismiss()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -201,7 +158,7 @@ extension ShahzamViewController: UISearchResultsUpdating {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
         SVProgressHUD.show(withStatus: "Searching...")
-        callURL()
+        getDataFromApi()
         DispatchQueue.main.async{
             self.collectionView.reloadData()
             

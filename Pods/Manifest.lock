@@ -1,28 +1,36 @@
 PODS:
+  - Alamofire (4.8.1)
   - Google-Mobile-Ads-SDK (7.38.0)
   - Kingfisher (5.1.0)
   - ReachabilitySwift (4.3.0)
+  - StreamingKit (0.1.30)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
+  - Alamofire
   - Google-Mobile-Ads-SDK
   - Kingfisher
   - ReachabilitySwift
+  - StreamingKit
   - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - Google-Mobile-Ads-SDK
     - Kingfisher
     - ReachabilitySwift
+    - StreamingKit
     - SVProgressHUD
 
 SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   Google-Mobile-Ads-SDK: fec4a72b71a81302d3fd75454df3417c03c50ed5
   Kingfisher: fcec238063d17404fca89bf0a850583211c4cbf6
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
+  StreamingKit: 70ca8608c206864b4d54a577eacb3c8bf7c72209
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: f382f966505f84eb5da384dd2f480bd836c132e7
+PODFILE CHECKSUM: a4fd2d3e2aa10ff7018c16ed72b01d65066c6c6d
 
 COCOAPODS: 1.5.3

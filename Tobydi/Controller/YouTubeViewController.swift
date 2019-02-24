@@ -11,18 +11,16 @@ import AVFoundation
 import SVProgressHUD
 import GoogleMobileAds
 import Reachability
+import StreamingKit
 
 
 class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UISearchControllerDelegate {
     
     struct musicPlayer{
-        static var player = AVPlayer()
+        static let audioPlayer = STKAudioPlayer()
     }
     var bannerView: GADBannerView!
     var interstitial: GADInterstitial!
-    lazy var playerQueue : AVQueuePlayer = {
-        return AVQueuePlayer()
-    }()
     @IBOutlet weak var Songtitle: UILabel!
     @IBOutlet weak var videoView: UIView!
     var rows=0
@@ -74,6 +72,7 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
         
         
     }
+    
     func createAndLoadInterstitial() -> GADInterstitial {
         let interstitial = GADInterstitial(adUnitID: "ca-app-pub-4401604271141178/8098469764")
         interstitial.load(GADRequest())
@@ -89,7 +88,6 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
     {
         DispatchQueue.main.async{
             self.collectionView.reloadData()
-            
         }
         SVProgressHUD.dismiss()
     }
@@ -122,13 +120,6 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
         item.backgroundColor = (UIColor(rgb: 0x91dbed))
         return item
     }
-    
-    func playTrackOrPlaylist(url:URL){
-        
-            let playerItem = AVPlayerItem.init(url: url)
-            self.playerQueue.insert(playerItem, after: nil)
-            self.playerQueue.play()
-    }
    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if interstitial.isReady {
@@ -138,22 +129,19 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
         }
         SVProgressHUD.show(withStatus: "Playing...")
         
-        let id = "http://michaelbelgium.me/ytconverter/convert.php?youtubelink=https://www.youtube.com/watch?v=\(video_arr[indexPath.row])"
+        let Url = "http://michaelbelgium.me/ytconverter/convert.php?youtubelink=https://www.youtube.com/watch?v=\(video_arr[indexPath.row])"
         
         
-        let url = URL(string: id)
+        let url = URL(string: Url)
         
         URLSession.shared.dataTask(with: url!) { (data, response, err) in
             guard let data = data else { return }
             
             do {
                 
-                let downloadedFile = try JSONDecoder().decode(getDownloadLink.self, from: data)
+                let downloadedFile = try JSONDecoder().decode(getYouTubeDownloadLink.self, from: data)
                 if downloadedFile.file != nil{
-                    
-            
-                    //self.playTrackOrPlaylist(url: URL(string:downloadedFile.file)!)
-                    self.play(url: URL(string:downloadedFile.file)!)
+                musicPlayer.audioPlayer.play(URL(string:downloadedFile.file)!)
                    
                     SVProgressHUD.dismiss()
                     SVProgressHUD.setSuccessImage(UIImage(named: "PlayFilled")!)
@@ -175,17 +163,6 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: { (action) in alert.dismiss(animated: true, completion: nil)
         }))
         self.present(alert, animated: true, completion: nil)
-    }
-    func play(url:URL) {
-            let playerItem = AVPlayerItem(url: url)
-            
-            musicPlayer.player = AVPlayer(playerItem:playerItem)
-           // player.volume = 1.0
-        let playerLayer = AVPlayerLayer(player: musicPlayer.player)
-        playerLayer.frame = self.view.bounds
-        self.view.layer.addSublayer(playerLayer)
-        musicPlayer.player.play()
-       
     }
     func reload() {
         video_arr.removeAll()

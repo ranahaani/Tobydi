@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import AVFoundation
+import SVProgressHUD
 import GoogleMobileAds
 import Reachability
 @UIApplicationMain
@@ -41,20 +42,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSLog("")
     }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        reachability.whenReachable = { reachability in
-            if reachability.connection == .wifi {
-                print("Reachable via WiFi")
-            } else {
-                print("Reachable via Cellular")
-            }
+        if (reachability.connection == .wifi) || (reachability.connection == .cellular){
+            
         }
-        reachability.whenUnreachable = { _ in
-            let alertVC = UIAlertController(title: "Error", message:self.reachability.connection.description , preferredStyle: .actionSheet)
-            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alertVC.addAction(action)
-            self.window?.rootViewController = alertVC
+        else{
+            let alert = UIAlertController(title: "Error in Connection", message: "check your internet connection", preferredStyle: .actionSheet)
+            //alert.showToast(message: "check your internet connection")
+            alert.view.backgroundColor = UIColor.white
+            
+            let LabelView = UILabel(frame: CGRect(x:0, y: alert.view.frame.height/2, width: alert.view.frame.width, height: 100))
+            LabelView.text = reachability.connection.description
+            LabelView.textAlignment = .center
+            LabelView.font = UIFont(name: "Avenir", size: 40.0)
+            alert.view.addSubview(LabelView)
+            SVProgressHUD.showError(withStatus: reachability.connection.description)
+            //SVProgressHUD.show(withStatus: "Waiting for internet...")
+            self.window?.rootViewController = alert
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = alert
+            self.window?.makeKeyAndVisible()
 
         }
+
+        
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)

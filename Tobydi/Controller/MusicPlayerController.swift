@@ -118,10 +118,10 @@ class MusicPlayerController: UIViewController {
         //print(songNum)
         
         if av_plyr.isPlaying == false {
-            avPlyr_init()
+            avPlyr_init(index: 11)
             av_plyr.pause()
         } else if av_plyr.isPlaying == true {
-            avPlyr_init()
+            avPlyr_init(index: 1)
             av_plyr.play()
         }
         
@@ -129,18 +129,13 @@ class MusicPlayerController: UIViewController {
     
     func pressedRewind(button: UIButton) {
         if songNum == 0 {
-            songNum = 2
-        } else {
-            songNum = (songNum - 1)%3
+            songNum += 1
         }
-        
-        //print(songNum)
-        
         if av_plyr.isPlaying == false {
-            avPlyr_init()
+            avPlyr_init(index: 11)
             av_plyr.pause()
         } else if av_plyr.isPlaying == true {
-            avPlyr_init()
+            avPlyr_init(index: 1)
             av_plyr.play()
         }
     }
@@ -149,12 +144,12 @@ class MusicPlayerController: UIViewController {
         print("some action")
     }
     
-    func avPlyr_init() {
+    func avPlyr_init(index: Int) {
         
         self.title = songs_test[songNum]
         
         //Create a path to the mp3 player
-        let audioPath = "https://r2---sn-xcvoxoxu-aixe.googlevideo.com/videoplayback?lmt=1537760939064257&expire=1547387469&dur=775.267&ipbits=0&key=yt6&gir=yes&mime=video%2Fmp4&requiressl=yes&initcwndbps=147500&ratebypass=yes&signature=523E9ECFA67C7E4F02382193F04FEC461EA8663E.64D612598EEB36A920977D5F55461494A21F1527&mv=m&sparams=clen%2Cdur%2Cei%2Cgir%2Cid%2Cinitcwndbps%2Cip%2Cipbits%2Citag%2Clmt%2Cmime%2Cmm%2Cmn%2Cms%2Cmv%2Cpl%2Cratebypass%2Crequiressl%2Csource%2Cexpire&mt=1547365784&ms=au%2Crdu&ip=117.53.42.8&c=WEB&clen=67989595&mn=sn-xcvoxoxu-aixe%2Csn-hju7en7r&mm=31%2C29&id=o-ABF_LfMXyPUocf0x2GpG8xb0GxNbmXi1JXADIs8bSxaq&source=youtube&itag=18&ei=7e06XIT6Mpm-VqGOpcAE&fvip=4&pl=24"
+        let audioPath = songs_test[index]
         do {
             try av_plyr = AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: audioPath) as URL)
             
@@ -194,7 +189,7 @@ class MusicPlayerController: UIViewController {
         
         self.mediaControls_init()
         
-        self.avPlyr_init()
+        self.avPlyr_init(index: 2)
         
         
     }
