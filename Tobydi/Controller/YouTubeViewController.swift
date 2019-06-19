@@ -13,18 +13,21 @@ import GoogleMobileAds
 import Reachability
 import StreamingKit
 
-
 class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UISearchControllerDelegate {
+    
+    var origImg_play = UIImage(named: "PlayFilled")!
+    var songNum = 0
+
+    
+    
+    
     
     struct musicPlayer{
         static let audioPlayer = STKAudioPlayer()
     }
     var bannerView: GADBannerView!
     var interstitial: GADInterstitial!
-    @IBOutlet weak var Songtitle: UILabel!
-    @IBOutlet weak var videoView: UIView!
     var rows=0
-    var origImg_play = UIImage(named: "PlayFilled")!
     lazy var adBannerView: GADBannerView = {
         let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
         adBannerView.adUnitID = "ca-app-pub-8501671653071605/1974659335"
@@ -34,6 +37,7 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
         return adBannerView
     }()
     @IBOutlet weak var collectionView: UICollectionView!
+    
     var arr:[String]=[]
     var video_arr:[String]=[]
     var video_str=""
@@ -46,7 +50,20 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
         let request = GADRequest()
         interstitial.load(request)
         interstitial = createAndLoadInterstitial()
-
+        let adRequest = GADRequest()
+        adRequest.testDevices = [ kGADSimulatorID, "e2d7a1dd28234b89e87a57a0d38d36cd" ]
+        adBannerView.load(GADRequest())
+        
+        SVProgressHUD.setForegroundColor(UIColor(rgb: 0x91dbed))
+        SVProgressHUD.show()
+        view.backgroundColor = (UIColor(rgb: 0x91dbed))
+        reload()
+        searchControllerFunction()
+        mediaControls_init()
+        
+    }
+    func searchControllerFunction(){
+        
         self.searchController.searchResultsUpdater = self
         self.searchController.delegate = self
         self.searchController.searchBar.delegate = self
@@ -58,30 +75,9 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
         self.navigationItem.titleView = searchController.searchBar
         self.definesPresentationContext = true
         self.searchController.searchBar.placeholder = "Search for Audio"
-        
-        
-        
-        SVProgressHUD.setForegroundColor(UIColor(rgb: 0x91dbed))
-        SVProgressHUD.show()
-        let adRequest = GADRequest()
-        adRequest.testDevices = [ kGADSimulatorID, "e2d7a1dd28234b89e87a57a0d38d36cd" ]
-        adBannerView.load(GADRequest())
-        videoView.backgroundColor = (UIColor(rgb: 0x91dbed))
-        view.backgroundColor = (UIColor(rgb: 0x91dbed))
-        reload()
-        
-        
     }
     
-    func createAndLoadInterstitial() -> GADInterstitial {
-        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-4401604271141178/8098469764")
-        interstitial.load(GADRequest())
-        return interstitial
-    }
-    
-    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-        interstitial = createAndLoadInterstitial()
-    }
+   
 
     
     func do_table_refresh()
@@ -113,8 +109,7 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
         else{
             item.musicTitle.text = token[0]
         }
-        item.musicImage.layer.cornerRadius = item.musicImage.frame.width / 2
-       item.musicImage.clipsToBounds = true
+        
        item.musicArtist.text = "YouTube"
         item.musicImage.kf.setImage(with: URL(string: images[indexPath.row]))
         item.backgroundColor = (UIColor(rgb: 0x91dbed))
@@ -173,7 +168,7 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
            searchString = searchString?.replace(string: " ", replacement: "+")
         }
         let  jsonUrlString =
-        "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&sp=CAMSBAgDEAE%253D&type=music&q=\(searchString ?? "Hollywood")+Song&key=AIzaSyCSP3HUsmcAPSnUAS877Jac9QzDABnH6NY"
+        "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&sp=CAMSBAgDEAE%253D&type=music&q=\(searchString ?? "Hollywood")+Music&key=AIzaSyCSP3HUsmcAPSnUAS877Jac9QzDABnH6NY&regionCode=US"
         
         
         let url = URL(string: jsonUrlString)
@@ -208,12 +203,142 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
     }
 }
 
+
+extension YouTubeViewController{
+    
+    @objc func pressedPlay(button: UIButton) {
+        if musicPlayer.audioPlayer.state == .paused {
+            //musicPlayer.audioPlayer.play()
+            
+            origImg_play = UIImage(named: "Pause Filled")!
+            
+            mediaControls_init()
+            
+            
+        } else if musicPlayer.audioPlayer.state == .playing {
+            musicPlayer.audioPlayer.pause()
+            
+            origImg_play = UIImage(named: "Play Filled")!
+            
+            mediaControls_init()
+        }
+    }
+    
+    @objc func pressedFastf(button: UIButton) {
+        songNum = (songNum + 1)%3
+        //print(songNum)
+        
+        if musicPlayer.audioPlayer.state == .paused{
+            musicPlayer.audioPlayer.pause()
+        } else if musicPlayer.audioPlayer.state == .playing {
+           // musicPlayer.audioPlayer.play()
+        }
+        
+    }
+    
+    @objc func pressedRewind(button: UIButton) {
+        if songNum == 0 {
+            songNum += 1
+        }
+       
+        if musicPlayer.audioPlayer.state == .paused{
+            musicPlayer.audioPlayer.pause()
+        } else if musicPlayer.audioPlayer.state == .playing {
+            // musicPlayer.audioPlayer.play()
+        }
+    }
+    
+    @objc func someAction(button: UIButton) {
+        print("some action")
+    }
+    
+    private func mediaControls_init() {
+        let tabbarHeight = tabBarController?.tabBar.frame.height
+        //Create a container for buttons
+        let containerArea = UIView()
+        containerArea.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1.0)
+        containerArea.layer.borderWidth = 2
+        containerArea.layer.borderColor = UIColor.lightGray.cgColor
+        containerArea.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(containerArea)
+        
+        //Add Rewind, Play, Fast Forward
+        let origImg_rewind = UIImage(named: "Rewind Filled")!
+        let tintedImg_rewind = origImg_rewind.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        let rewindButton = UIButton()
+        
+        let tintedImg_play = origImg_play.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        let playButton = UIButton()
+        
+        let origImg_fastf = UIImage(named: "Fast Forward Filled")!
+        let tintedImg_fastf = origImg_fastf.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        let fastfButton = UIButton()
+        
+        //Set button specifications
+        let tinted_dict = [rewindButton: tintedImg_rewind, playButton: tintedImg_play, fastfButton: tintedImg_fastf]
+        
+        let button_ls = [rewindButton,playButton,fastfButton]
+        
+        for button in button_ls {
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: .horizontal)
+            button.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 751), for: .horizontal)
+            button.setImage(tinted_dict[button], for: .normal)
+            button.tintColor = UIColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 1)
+        }
+        
+        //Set button actions and add to subviews
+        rewindButton.addTarget(self, action: #selector(pressedRewind(button:)), for: .touchUpInside)
+        playButton.addTarget(self, action: #selector(pressedPlay(button:)), for: .touchUpInside)
+        fastfButton.addTarget(self, action: #selector(pressedFastf(button:)), for: .touchUpInside)
+        
+        containerArea.addSubview(playButton)
+        containerArea.addSubview(rewindButton)
+        containerArea.addSubview(fastfButton)
+        
+        //Add button constraints
+        let containerAreaConstraints: [NSLayoutConstraint] = [
+            containerArea.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            containerArea.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            containerArea.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -tabbarHeight!),
+            containerArea.heightAnchor.constraint(equalToConstant: 70),
+            
+            rewindButton.trailingAnchor.constraint(equalTo: playButton.leadingAnchor, constant: -30),
+            playButton.centerXAnchor.constraint(equalTo: containerArea.centerXAnchor),
+            fastfButton.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 30),
+            
+            rewindButton.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor),
+            playButton.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor),
+            fastfButton.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor)
+        ]
+        
+        NSLayoutConstraint.activate(containerAreaConstraints)
+    }
+    
+}
+
+
 extension YouTubeViewController: GADBannerViewDelegate {
+    
+    func createAndLoadInterstitial() -> GADInterstitial {
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-4401604271141178/8098469764")
+        interstitial.load(GADRequest())
+        return interstitial
+    }
+    
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        interstitial = createAndLoadInterstitial()
+    }
     
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         print("Banner loaded successfully")
-        videoView.frame = bannerView.frame
-        videoView = bannerView
+        collectionView.addSubview(bannerView)
+        collectionView.contentInset.top = 100
+        
+        bannerView.frame = CGRect(x: 0,
+                                  y: -80,
+                                  width: collectionView.frame.size.width,
+                                  height: 80)
     }
     
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
@@ -224,63 +349,6 @@ extension YouTubeViewController: GADBannerViewDelegate {
    
 }
 
-extension String {
-    func deleteHTMLTag(tag:String) -> String {
-        return self.replacingOccurrences(of: "(?i)</?\(tag)\\b[^<]*>", with: "", options: .regularExpression, range: nil)
-    }
-    func stripOutHtml() -> String? {
-        do {
-            guard let data = self.data(using: .unicode) else {
-                return nil
-            }
-            let attributed = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil)
-            return attributed.string
-        } catch {
-            return nil
-        }
-    }
-    func deleteHTMLTags(tags:[String]) -> String {
-        var mutableString = self
-        for tag in tags {
-            mutableString = mutableString.deleteHTMLTag(tag: tag)
-        }
-        return mutableString
-    }
-    func replace(string:String, replacement:String) -> String {
-        return self.replacingOccurrences(of: string, with: replacement, options: NSString.CompareOptions.literal, range: nil)
-    }
-    subscript(_ range: CountableRange<Int>) -> String {
-        let idx1 = index(startIndex, offsetBy: max(0, range.lowerBound))
-        let idx2 = index(startIndex, offsetBy: min(self.count, range.upperBound))
-        return String(self[idx1..<idx2])
-    }
-    func indices(of string: String) -> [Int] {
-        return indices.reduce([]) { $1.encodedOffset > ($0.last ?? -1) && self[$1...].hasPrefix(string) ? $0 + [$1.encodedOffset] : $0 }
-    }
-    func contains(find: String) -> Bool{
-        return self.range(of: find) != nil
-    }
-    func containsIgnoringCase(find: String) -> Bool{
-        return self.range(of: find, options: .caseInsensitive) != nil
-    }
-}
-extension UIView {
-    
-    func animateButtonDown() {
-        
-        UIView.animate(withDuration: 0.1, delay: 0.0, options: [.allowUserInteraction, .curveEaseIn], animations: {
-            self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-        }, completion: nil)
-    }
-    
-    func animateButtonUp() {
-        
-        UIView.animate(withDuration: 0.1, delay: 0.0, options: [.allowUserInteraction, .curveEaseOut], animations: {
-            self.transform = CGAffineTransform.identity
-        }, completion: nil)
-    }
-    
-}
 extension YouTubeViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         //collectionView.reloadData()
@@ -319,20 +387,3 @@ extension YouTubeViewController: UISearchResultsUpdating {
     }
 }
 
-extension UIColor {
-    convenience init(red: Int, green: Int, blue: Int) {
-        assert(red >= 0 && red <= 255, "Invalid red component")
-        assert(green >= 0 && green <= 255, "Invalid green component")
-        assert(blue >= 0 && blue <= 255, "Invalid blue component")
-        
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
-    }
-    
-    convenience init(rgb: Int) {
-        self.init(
-            red: (rgb >> 16) & 0xFF,
-            green: (rgb >> 8) & 0xFF,
-            blue: rgb & 0xFF
-        )
-    }
-}

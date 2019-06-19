@@ -10,8 +10,14 @@ import Kingfisher
 import AVFoundation
 import SVProgressHUD
 import Alamofire
+import SQLite3
 import GoogleMobileAds
 import Reachability
+
+
+ 
+
+
 class ShahzamViewController: UIViewController,UISearchBarDelegate,UISearchControllerDelegate {
     let dict:[String:Any] = [String:Any]()
    var searchActive = false
@@ -20,14 +26,29 @@ class ShahzamViewController: UIViewController,UISearchBarDelegate,UISearchContro
    var ids = [String]()
    var images = [String]()
     var owner = [String]()
-   let searchController = UISearchController(searchResultsController: nil)
+    var bannerView: GADBannerView!
     var interstitial: GADInterstitial!
+    var rows=0
+    lazy var adBannerView: GADBannerView = {
+        let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        adBannerView.adUnitID = "ca-app-pub-8501671653071605/1974659335"
+        adBannerView.delegate = self
+        adBannerView.rootViewController = self
+        
+        return adBannerView
+    }()
+    let searchController = UISearchController(searchResultsController: nil)
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         interstitial = GADInterstitial(adUnitID: "ca-app-pub-4401604271141178/8098469764")
         let request = GADRequest()
         interstitial.load(request)
+        interstitial = createAndLoadInterstitial()
+        let adRequest = GADRequest()
+        adRequest.testDevices = [ kGADSimulatorID, "e2d7a1dd28234b89e87a57a0d38d36cd" ]
+        adBannerView.load(GADRequest())
+        
         
         self.searchController.searchResultsUpdater = self
         self.searchController.delegate = self
@@ -64,8 +85,6 @@ extension ShahzamViewController:UICollectionViewDelegate,UICollectionViewDataSou
         let item = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as! PlayerCollectionViewCell
         collectionView.backgroundColor = (UIColor(rgb: 0x91dbed))
         item.musicTitle.text = titles[indexPath.row]
-        item.musicImage.layer.cornerRadius = item.musicImage.frame.width / 2
-        item.musicImage.clipsToBounds = true
         item.musicArtist.text = "Shahzam"
         item.musicImage.kf.setImage(with: URL(string: images[indexPath.row]))
         item.backgroundColor = (UIColor(rgb: 0x91dbed))
@@ -177,5 +196,33 @@ extension ShahzamViewController: UISearchResultsUpdating {
     func searchBarIsEmpty() -> Bool {
         return searchController.searchBar.text?.isEmpty ?? true
     }
+    
+}
+extension ShahzamViewController: GADBannerViewDelegate {
+    func createAndLoadInterstitial() -> GADInterstitial {
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-4401604271141178/8098469764")
+        interstitial.load(GADRequest())
+        return interstitial
+    }
+    
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        interstitial = createAndLoadInterstitial()
+    }
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("Banner loaded successfully")
+        collectionView.addSubview(bannerView)
+        collectionView.contentInset.top = 100
+        
+        bannerView.frame = CGRect(x: 0,
+                                  y: -80,
+                                  width: collectionView.frame.size.width,
+                                  height: 80)
+    }
+    
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        print("Fail to receive ads")
+        print(error)
+    }
+    
     
 }

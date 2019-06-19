@@ -15,5 +15,8 @@ class PlayerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var musicArtist: UILabel!
        
     
-   
+    override func awakeFromNib() {
+        musicImage.layer.cornerRadius = 10
+        musicImage.layer.masksToBounds = true
+    }
 }
