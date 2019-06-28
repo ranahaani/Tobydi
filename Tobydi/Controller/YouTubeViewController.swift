@@ -134,7 +134,6 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
        
     }
     func playMusic(indexPath:Int){
-        
         let Url = "http://michaelbelgium.me/ytconverter/convert.php?youtubelink=https://www.youtube.com/watch?v=\(video_arr[indexPath])"
         print(Url)
         let url = URL(string: Url)
@@ -152,7 +151,9 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
                     DispatchQueue.main.async{
                     self.origImg_play = UIImage(named: "PauseFilled")!
                         print("Playing....")
+                        self.setupTimer()
                         self.mediaControls_init()
+                        self.tick()
                         
                     }
 

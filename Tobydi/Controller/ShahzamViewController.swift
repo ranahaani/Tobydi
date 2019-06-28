@@ -293,7 +293,7 @@ extension ShahzamViewController:UICollectionViewDelegate,UICollectionViewDataSou
         let searchString = searchController.searchBar.text?.replace(string: " ", replacement: "%20")
         var jsonUrlString = ""
         if isFirstTime{
-              jsonUrlString = "https://api.audioboom.com/audio_clips?find[query]=Justin%20Bieber"
+              jsonUrlString = "https://api.audioboom.com/audio_clips?find[query]=Justin%20songs"
             isFirstTime = false
         }else{
             jsonUrlString = "https://api.audioboom.com/audio_clips?find[query]=\(searchString ?? "")"
@@ -344,6 +344,7 @@ extension ShahzamViewController:UICollectionViewDelegate,UICollectionViewDataSou
         }
         YouTubeViewController.musicPlayer.audioPlayer.play(URL(string: ids[indexPath.row])!)
         DispatchQueue.main.async {
+            self.setupTimer()
             self.origImg_play = UIImage(named: "PauseFilled")!
             self.mediaControls_init()
         }

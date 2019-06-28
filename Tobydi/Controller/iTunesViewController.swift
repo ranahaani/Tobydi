@@ -17,6 +17,10 @@ import Reachability
 import StreamingKit
 class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource ,UISearchBarDelegate,UISearchControllerDelegate{
     var isFirstTime = true
+    var timer: Timer? = nil
+    var origImg_play = UIImage(named: "PlayFilled")!
+    var songNum = 0
+    var slider: UISlider? = UISlider(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     @IBOutlet weak var collectionView: UICollectionView!
     let reachability = Reachability()!
     var interstitial: GADInterstitial!
@@ -63,7 +67,8 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
         SVProgressHUD.show()
         view.backgroundColor = (UIColor(rgb: 0x91dbed))
         reload()
-       
+       mediaControls_init()
+        setupTimer()
         
         
     }
@@ -109,7 +114,20 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         SVProgressHUD.show(withStatus: "Playing...")
-        let Url = "https://ranahaani.herokuapp.com/json?url=\(trackURL[indexPath.row])"
+       
+        playMusic(indexPath: indexPath.row)
+        
+        if interstitial.isReady {
+            interstitial.present(fromRootViewController: self)
+        } else {
+            print("Ad wasn't ready")
+        }
+        
+    }
+    
+    
+    func playMusic(indexPath:Int){
+        let Url = "https://ranahaani.herokuapp.com/json?url=\(trackURL[indexPath])"
         print(Url)
         print(Url)
         let url = URL(string: Url)
@@ -123,7 +141,7 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
                 if downloadedFile.formats.count > 0{
                     for mp3Song in downloadedFile.formats{
                         if let playLink = mp3Song.url{
-                        YouTubeViewController.musicPlayer.audioPlayer.play(URL(string:playLink)!)
+                            YouTubeViewController.musicPlayer.audioPlayer.play(URL(string:playLink)!)
                             print(mp3Song.url)
                             SVProgressHUD.dismiss()
                             SVProgressHUD.setSuccessImage(UIImage(named: "PlayFilled")!)
@@ -135,7 +153,7 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
                     self.ShowAlert(title: "Error", message: "Sorry Some Error Found")
                 }
                 
-               
+                
                 
             } catch let jsonErr {
                 self.ShowAlert(title: "Error", message: jsonErr.localizedDescription)
@@ -144,14 +162,6 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
             
             }.resume()
         
-        
-        
-        
-        if interstitial.isReady {
-            interstitial.present(fromRootViewController: self)
-        } else {
-            print("Ad wasn't ready")
-        }
         
     }
     
@@ -205,6 +215,192 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
     }
 
 }
+
+
+extension iTunesViewController{
+    @objc func sliderChanged() {
+        
+        print("Slider Changed: \(slider!.value)")
+        
+    YouTubeViewController.musicPlayer.audioPlayer.seek(toTime: Double(slider!.value))
+    }
+    
+    func setupTimer() {
+        timer = Timer(timeInterval: 0.001, target: self, selector: #selector(self.tick), userInfo: nil, repeats: true)
+        
+        RunLoop.current.add(timer!, forMode: .common)
+    }
+    
+    func stopButtonPressed() {
+        YouTubeViewController.musicPlayer.audioPlayer.stop()
+    }
+    func playButtonPressed() {
+        //        if musicPlayer.audioPlayer {
+        //            return
+        //        }
+        
+        if YouTubeViewController.musicPlayer.audioPlayer.state == .paused {
+            YouTubeViewController.musicPlayer.audioPlayer.resume()
+        } else {
+            YouTubeViewController.musicPlayer.audioPlayer.pause()
+        }
+    }
+    
+    func formatTime(fromSeconds totalSeconds: Int) -> String? {
+        
+        let seconds = totalSeconds % 60
+        let minutes = (totalSeconds / 60) % 60
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+    @objc func tick() {
+        
+        
+        
+        if YouTubeViewController.musicPlayer.audioPlayer.duration != 0 {
+            slider!.minimumValue = 0
+            slider!.maximumValue = Float(YouTubeViewController.musicPlayer.audioPlayer.duration)
+            slider!.value = Float(YouTubeViewController.musicPlayer.audioPlayer.progress)
+            
+            //            label.text = "\(formatTime(fromSeconds: audioPlayer.progress)) - \(formatTime(fromSeconds: audioPlayer.duration))"
+        } else {
+            slider!.value = 0
+            slider!.minimumValue = 0
+            slider!.maximumValue = 0
+            
+            //  label.text = "Live stream \(formatTime(fromSeconds: audioPlayer.progress))"
+        }
+        
+        //statusLabel.text = audioPlayer.state == STKAudioPlayerStateBuffering ? "buffering" : ""
+        
+    }
+    
+    
+}
+
+extension iTunesViewController{
+    
+    @objc func pressedPlay(button: UIButton) {
+        if YouTubeViewController.musicPlayer.audioPlayer.state == .paused {
+            playMusic(indexPath: songNum)
+            origImg_play = UIImage(named: "PauseFilled")!
+            mediaControls_init()
+            
+        } else if YouTubeViewController.musicPlayer.audioPlayer.state == .playing {
+            YouTubeViewController.musicPlayer.audioPlayer.pause()
+            
+            origImg_play = UIImage(named: "PlayFilled")!
+            
+            mediaControls_init()
+        }
+    }
+    
+    @objc func pressedFastf(button: UIButton) {
+        songNum += 1
+        playMusic(indexPath: songNum)
+        
+        if YouTubeViewController.musicPlayer.audioPlayer.state == .paused{
+            YouTubeViewController.musicPlayer.audioPlayer.pause()
+        } else if YouTubeViewController.musicPlayer.audioPlayer.state == .playing {
+            // musicPlayer.audioPlayer.play()
+        }
+        
+    }
+    
+    @objc func pressedRewind(button: UIButton) {
+        if songNum == 0 {
+            songNum += 1
+        }
+        else{
+            songNum -= 1
+        }
+        playMusic(indexPath: songNum)
+        if YouTubeViewController.musicPlayer.audioPlayer.state == .paused{
+            YouTubeViewController.musicPlayer.audioPlayer.pause()
+        } else if YouTubeViewController.musicPlayer.audioPlayer.state == .playing {
+            // musicPlayer.audioPlayer.play()
+        }
+    }
+    
+    @objc func someAction(button: UIButton) {
+        print("some action")
+    }
+    
+    private func mediaControls_init() {
+        let tabbarHeight = tabBarController?.tabBar.frame.height
+        //Create a container for buttons
+        
+        let containerArea = UIView()
+        containerArea.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1.0)
+        containerArea.layer.borderWidth = 2
+        containerArea.layer.borderColor = UIColor.lightGray.cgColor
+        containerArea.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(containerArea)
+        
+        //Add Rewind, Play, Fast Forward
+        let origImg_rewind = UIImage(named: "Rewind Filled")!
+        let tintedImg_rewind = origImg_rewind.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        let rewindButton = UIButton()
+        
+        let tintedImg_play = origImg_play.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        let playButton = UIButton()
+        
+        let origImg_fastf = UIImage(named: "Fast Forward Filled")!
+        let tintedImg_fastf = origImg_fastf.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        let fastfButton = UIButton()
+        
+        //Set button specifications
+        let tinted_dict = [rewindButton: tintedImg_rewind, playButton: tintedImg_play, fastfButton: tintedImg_fastf]
+        
+        let button_ls = [rewindButton,playButton,fastfButton]
+        
+        for button in button_ls {
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: .horizontal)
+            button.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 751), for: .horizontal)
+            button.setImage(tinted_dict[button], for: .normal)
+            button.tintColor = UIColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 1)
+        }
+        
+        //Set button actions and add to subviews
+        rewindButton.addTarget(self, action: #selector(pressedRewind(button:)), for: .touchUpInside)
+        playButton.addTarget(self, action: #selector(pressedPlay(button:)), for: .touchUpInside)
+        fastfButton.addTarget(self, action: #selector(pressedFastf(button:)), for: .touchUpInside)
+        slider!.isContinuous = true
+        slider!.addTarget(self, action: #selector(self.sliderChanged), for: .valueChanged)
+        containerArea.addSubview(slider!)
+        containerArea.addSubview(playButton)
+        containerArea.addSubview(rewindButton)
+        containerArea.addSubview(fastfButton)
+        
+        //Add button constraints
+        let containerAreaConstraints: [NSLayoutConstraint] = [
+            containerArea.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            containerArea.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            containerArea.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -tabbarHeight!),
+            containerArea.heightAnchor.constraint(equalToConstant: 80),
+            
+            (slider?.leadingAnchor.constraint(equalTo: containerArea.leadingAnchor))!,
+            (slider?.trailingAnchor.constraint(equalTo: containerArea.trailingAnchor))!,
+            (slider?.bottomAnchor.constraint(equalTo: containerArea.topAnchor,constant: 28))!,
+            
+            rewindButton.trailingAnchor.constraint(equalTo: playButton.leadingAnchor, constant: -30),
+            playButton.centerXAnchor.constraint(equalTo: containerArea.centerXAnchor),
+            fastfButton.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 30),
+            
+            rewindButton.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor),
+            playButton.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor),
+            fastfButton.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor)
+        ]
+        
+        NSLayoutConstraint.activate(containerAreaConstraints)
+    }
+    
+}
+
+
+
+
+
 extension iTunesViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         collectionView.reloadData()
