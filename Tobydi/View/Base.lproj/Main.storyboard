@@ -106,10 +106,10 @@
             </objects>
             <point key="canvasLocation" x="2015.2" y="127.28635682158921"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="ZQ5-q1-HB2">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Mbt-t3-ASe" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Mbt-t3-ASe" customClass="TabViewController" customModule="Tobydi" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Civ-2M-pwB">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

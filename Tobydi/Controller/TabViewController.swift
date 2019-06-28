@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import GoogleMobileAds
 class TabViewController: UITabBarController {
 
     override func viewDidLoad() {

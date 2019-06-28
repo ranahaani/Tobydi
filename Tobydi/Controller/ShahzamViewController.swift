@@ -21,6 +21,10 @@ import Reachability
 class ShahzamViewController: UIViewController,UISearchBarDelegate,UISearchControllerDelegate {
     let dict:[String:Any] = [String:Any]()
    var searchActive = false
+    var timer: Timer? = nil
+    var origImg_play = UIImage(named: "PlayFilled")!
+    var songNum = 0
+    var slider: UISlider? = UISlider(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     var isFirstTime = true
    var titles = [String]()
    var ids = [String]()
@@ -48,7 +52,7 @@ class ShahzamViewController: UIViewController,UISearchBarDelegate,UISearchContro
         let adRequest = GADRequest()
         adRequest.testDevices = [ kGADSimulatorID, "e2d7a1dd28234b89e87a57a0d38d36cd" ]
         adBannerView.load(GADRequest())
-        
+        slider?.translatesAutoresizingMaskIntoConstraints = false
         
         self.searchController.searchResultsUpdater = self
         self.searchController.delegate = self
@@ -62,12 +66,202 @@ class ShahzamViewController: UIViewController,UISearchBarDelegate,UISearchContro
         self.definesPresentationContext = true
         self.searchController.searchBar.placeholder = "Search for Audio"
         
-        
+        mediaControls_init()
         getDataFromApi()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if interstitial.isReady {
+            interstitial.present(fromRootViewController: self)
+        } else {
+            print("Ad wasn't ready")
+        }// Do any additional setup after loading the view.
     }
     
   
 }
+
+
+extension ShahzamViewController{
+    @objc func sliderChanged() {
+        
+        print("Slider Changed: \(slider!.value)")
+        
+        YouTubeViewController.musicPlayer.audioPlayer.seek(toTime: Double(slider!.value))
+    }
+    
+    func setupTimer() {
+        timer = Timer(timeInterval: 0.001, target: self, selector: #selector(self.tick), userInfo: nil, repeats: true)
+        
+        RunLoop.current.add(timer!, forMode: .common)
+    }
+    
+    func stopButtonPressed() {
+        YouTubeViewController.musicPlayer.audioPlayer.stop()
+    }
+    func playButtonPressed() {
+        //        if musicPlayer.audioPlayer {
+        //            return
+        //        }
+        
+        if YouTubeViewController.musicPlayer.audioPlayer.state == .paused {
+            YouTubeViewController.musicPlayer.audioPlayer.resume()
+        } else {
+            YouTubeViewController.musicPlayer.audioPlayer.pause()
+        }
+    }
+    
+    func formatTime(fromSeconds totalSeconds: Int) -> String? {
+        
+        let seconds = totalSeconds % 60
+        let minutes = (totalSeconds / 60) % 60
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+    @objc func tick() {
+        
+        
+        
+        if YouTubeViewController.musicPlayer.audioPlayer.duration != 0 {
+            slider!.minimumValue = 0
+            slider!.maximumValue = Float(YouTubeViewController.musicPlayer.audioPlayer.duration)
+            slider!.value = Float(YouTubeViewController.musicPlayer.audioPlayer.progress)
+            
+            //            label.text = "\(formatTime(fromSeconds: audioPlayer.progress)) - \(formatTime(fromSeconds: audioPlayer.duration))"
+        } else {
+            slider!.value = 0
+            slider!.minimumValue = 0
+            slider!.maximumValue = 0
+            
+            //  label.text = "Live stream \(formatTime(fromSeconds: audioPlayer.progress))"
+        }
+        
+        //statusLabel.text = audioPlayer.state == STKAudioPlayerStateBuffering ? "buffering" : ""
+        
+    }
+    
+    
+}
+
+extension ShahzamViewController{
+    
+    @objc func pressedPlay(button: UIButton) {
+        if YouTubeViewController.musicPlayer.audioPlayer.state == .paused {
+            //playMusic(indexPath: songNum)
+            origImg_play = UIImage(named: "PauseFilled")!
+            mediaControls_init()
+            
+        } else if YouTubeViewController.musicPlayer.audioPlayer.state == .playing {
+            YouTubeViewController.musicPlayer.audioPlayer.pause()
+            
+            origImg_play = UIImage(named: "PlayFilled")!
+            
+            mediaControls_init()
+        }
+    }
+    
+    @objc func pressedFastf(button: UIButton) {
+        songNum += 1
+        //playMusic(indexPath: songNum)
+        
+        if YouTubeViewController.musicPlayer.audioPlayer.state == .paused{
+            YouTubeViewController.musicPlayer.audioPlayer.pause()
+        } else if YouTubeViewController.musicPlayer.audioPlayer.state == .playing {
+            // musicPlayer.audioPlayer.play()
+        }
+        
+    }
+    
+    @objc func pressedRewind(button: UIButton) {
+        if songNum == 0 {
+            songNum += 1
+        }
+        else{
+            songNum -= 1
+        }
+        //playMusic(indexPath: songNum)
+        if YouTubeViewController.musicPlayer.audioPlayer.state == .paused{
+            YouTubeViewController.musicPlayer.audioPlayer.pause()
+        } else if YouTubeViewController.musicPlayer.audioPlayer.state == .playing {
+            // musicPlayer.audioPlayer.play()
+        }
+    }
+    
+    @objc func someAction(button: UIButton) {
+        print("some action")
+    }
+    
+    private func mediaControls_init() {
+        let tabbarHeight = tabBarController?.tabBar.frame.height
+        //Create a container for buttons
+        
+        let containerArea = UIView()
+        containerArea.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1.0)
+        containerArea.layer.borderWidth = 2
+        containerArea.layer.borderColor = UIColor.lightGray.cgColor
+        containerArea.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(containerArea)
+        
+        //Add Rewind, Play, Fast Forward
+        let origImg_rewind = UIImage(named: "Rewind Filled")!
+        let tintedImg_rewind = origImg_rewind.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        let rewindButton = UIButton()
+        
+        let tintedImg_play = origImg_play.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        let playButton = UIButton()
+        
+        let origImg_fastf = UIImage(named: "Fast Forward Filled")!
+        let tintedImg_fastf = origImg_fastf.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        let fastfButton = UIButton()
+        
+        //Set button specifications
+        let tinted_dict = [rewindButton: tintedImg_rewind, playButton: tintedImg_play, fastfButton: tintedImg_fastf]
+        
+        let button_ls = [rewindButton,playButton,fastfButton]
+        
+        for button in button_ls {
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: .horizontal)
+            button.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 751), for: .horizontal)
+            button.setImage(tinted_dict[button], for: .normal)
+            button.tintColor = UIColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 1)
+        }
+        
+        //Set button actions and add to subviews
+        rewindButton.addTarget(self, action: #selector(pressedRewind(button:)), for: .touchUpInside)
+        playButton.addTarget(self, action: #selector(pressedPlay(button:)), for: .touchUpInside)
+        fastfButton.addTarget(self, action: #selector(pressedFastf(button:)), for: .touchUpInside)
+        slider!.isContinuous = true
+        slider!.addTarget(self, action: #selector(self.sliderChanged), for: .valueChanged)
+        containerArea.addSubview(slider!)
+        containerArea.addSubview(playButton)
+        containerArea.addSubview(rewindButton)
+        containerArea.addSubview(fastfButton)
+        
+        //Add button constraints
+        let containerAreaConstraints: [NSLayoutConstraint] = [
+            containerArea.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            containerArea.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            containerArea.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -tabbarHeight!),
+            containerArea.heightAnchor.constraint(equalToConstant: 80),
+            
+            (slider?.leadingAnchor.constraint(equalTo: containerArea.leadingAnchor))!,
+            (slider?.trailingAnchor.constraint(equalTo: containerArea.trailingAnchor))!,
+            (slider?.bottomAnchor.constraint(equalTo: containerArea.topAnchor,constant: 28))!,
+            
+            rewindButton.trailingAnchor.constraint(equalTo: playButton.leadingAnchor, constant: -30),
+            playButton.centerXAnchor.constraint(equalTo: containerArea.centerXAnchor),
+            fastfButton.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 30),
+            
+            rewindButton.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor),
+            playButton.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor),
+            fastfButton.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor)
+        ]
+        
+        NSLayoutConstraint.activate(containerAreaConstraints)
+    }
+    
+}
+
 
 extension ShahzamViewController:UICollectionViewDelegate,UICollectionViewDataSource{
     
@@ -149,9 +343,10 @@ extension ShahzamViewController:UICollectionViewDelegate,UICollectionViewDataSou
             print("Ad wasn't ready")
         }
         YouTubeViewController.musicPlayer.audioPlayer.play(URL(string: ids[indexPath.row])!)
-        //SVProgressHUD.setSuccessImage(UIImage(named: "PlayFilled")!)
-        SVProgressHUD.showSuccess(withStatus: "Played")
-
+        DispatchQueue.main.async {
+            self.origImg_play = UIImage(named: "PauseFilled")!
+            self.mediaControls_init()
+        }
     }
     
 }

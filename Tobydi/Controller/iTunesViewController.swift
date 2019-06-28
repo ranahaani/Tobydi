@@ -69,7 +69,14 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
     }
   
   
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if interstitial.isReady {
+            interstitial.present(fromRootViewController: self)
+        } else {
+            print("Ad wasn't ready")
+        }// Do any additional setup after loading the view.
+    }
     
     func do_table_refresh()
     {
@@ -103,7 +110,7 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         SVProgressHUD.show(withStatus: "Playing...")
         let Url = "https://ranahaani.herokuapp.com/json?url=\(trackURL[indexPath.row])"
-        
+        print(Url)
         print(Url)
         let url = URL(string: Url)
         
