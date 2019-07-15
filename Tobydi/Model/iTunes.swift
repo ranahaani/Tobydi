@@ -1,5 +1,5 @@
 //
-//  iTunes
+//  soundclod
 //  Tobydi
 //
 //  Created by Muhammad Abdullah on 13/01/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct iTunes :Decodable{
+struct soundclod :Decodable{
     let data:[data]
 }
 struct data:Decodable {
@@ -23,7 +23,7 @@ struct pictures:Decodable {
 }
 
 
-struct getiTunesDownloadable:Decodable {
+struct getsoundclodDownloadable:Decodable {
     let formats:[formats]!
 }
 struct formats:Decodable {

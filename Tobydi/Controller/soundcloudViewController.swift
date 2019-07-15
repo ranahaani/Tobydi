@@ -1,5 +1,5 @@
 //
-//  iTunesViewController.swift
+//  soundclodViewController.swift
 //  Tobydi
 //
 //  Created by Muhammad Abdullah on 17/01/2019.
@@ -15,7 +15,7 @@ import AVFoundation
 import SVProgressHUD
 import Reachability
 import StreamingKit
-class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource ,UISearchBarDelegate,UISearchControllerDelegate{
+class soundcloudViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource ,UISearchBarDelegate,UISearchControllerDelegate{
     var isFirstTime = true
     var timer: Timer? = nil
     var origImg_play = UIImage(named: "PlayFilled")!
@@ -137,7 +137,7 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
             
             do {
                 
-                let downloadedFile = try JSONDecoder().decode(getiTunesDownloadable.self, from: data)
+                let downloadedFile = try JSONDecoder().decode(getsoundclodDownloadable.self, from: data)
                 if downloadedFile.formats.count > 0{
                     for mp3Song in downloadedFile.formats{
                         if let playLink = mp3Song.url{
@@ -183,7 +183,7 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
         }
         if isFirstTime{
              jsonUrlString =
-            "https://api.mixcloud.com/search/?q=\(searchString ?? "Justin")+Party&amp;type=cloudcast&limit=100"
+            "https://api.mixcloud.com/search/?q=\(searchString ?? "Bebe")+Rexha&amp;type=cloudcast&limit=100"
             isFirstTime = false
         }
         else{
@@ -198,7 +198,7 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
             
             do {
                 
-                let songs = try JSONDecoder().decode(iTunes.self, from: data)
+                let songs = try JSONDecoder().decode(soundclod.self, from: data)
                 for sng in songs.data {
                     self.trackURL.append(sng.url!)
                     self.trackName.append(sng.name!)
@@ -217,7 +217,7 @@ class iTunesViewController: UIViewController,UICollectionViewDelegate,UICollecti
 }
 
 
-extension iTunesViewController{
+extension soundcloudViewController{
     @objc func sliderChanged() {
         
         print("Slider Changed: \(slider!.value)")
@@ -277,7 +277,7 @@ extension iTunesViewController{
     
 }
 
-extension iTunesViewController{
+extension soundcloudViewController{
     
     @objc func pressedPlay(button: UIButton) {
         if YouTubeViewController.musicPlayer.audioPlayer.state == .paused {
@@ -401,7 +401,7 @@ extension iTunesViewController{
 
 
 
-extension iTunesViewController: UISearchResultsUpdating {
+extension soundcloudViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         collectionView.reloadData()
     }
@@ -438,7 +438,7 @@ extension iTunesViewController: UISearchResultsUpdating {
         return searchController.searchBar.text?.isEmpty ?? true
 }
 }
-extension iTunesViewController: GADBannerViewDelegate {
+extension soundcloudViewController: GADBannerViewDelegate {
     func createAndLoadInterstitial() -> GADInterstitial {
         let interstitial = GADInterstitial(adUnitID: "ca-app-pub-4401604271141178/8098469764")
         interstitial.load(GADRequest())

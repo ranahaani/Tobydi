@@ -158,6 +158,10 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
                     }
 
                 }
+                else{
+                    self.ShowAlert(title: "Error", message: "Sorry you can't play at this time")
+                    SVProgressHUD.dismiss()
+                }
                 
             } catch let jsonErr {
                 self.ShowAlert(title: "Error", message: jsonErr.localizedDescription)

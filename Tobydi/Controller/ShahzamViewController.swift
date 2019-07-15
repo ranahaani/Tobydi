@@ -298,11 +298,7 @@ extension ShahzamViewController:UICollectionViewDelegate,UICollectionViewDataSou
         }else{
             jsonUrlString = "https://api.audioboom.com/audio_clips?find[query]=\(searchString ?? "")"
         }
-        
-        
-        print(jsonUrlString)
         let url = URL(string: jsonUrlString)
-        print(url)
         Alamofire.request(url!, method: .get, parameters: nil, encoding: JSONEncoding.default)
             .responseJSON { response in
                 if let status = response.response?.statusCode {

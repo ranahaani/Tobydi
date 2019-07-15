@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -227,10 +228,10 @@
             </objects>
             <point key="canvasLocation" x="2304.8000000000002" y="-615.74212893553226"/>
         </scene>
-        <!--iTunes View Controller-->
+        <!--Soundcloud View Controller-->
         <scene sceneID="OLx-kC-4NG">
             <objects>
-                <viewController id="ud3-5w-uyD" customClass="iTunesViewController" customModule="Tobydi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ud3-5w-uyD" customClass="soundcloudViewController" customModule="Tobydi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o7g-IN-N6m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -362,11 +363,11 @@
             </objects>
             <point key="canvasLocation" x="1365.5999999999999" y="-615.74212893553226"/>
         </scene>
-        <!--iTunes-->
+        <!--Soundcloud-->
         <scene sceneID="LxF-NR-3xN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NuW-Hq-MH5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="iTunes" image="itunes" landscapeImage="itunes" id="e9v-fP-2VX"/>
+                    <tabBarItem key="tabBarItem" title="Soundcloud" image="soundcloud-40" landscapeImage="soundcloud-40" id="e9v-fP-2VX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XWR-KE-w7t">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -381,11 +382,11 @@
             </objects>
             <point key="canvasLocation" x="1076" y="871.21439280359823"/>
         </scene>
-        <!--iTunes-->
+        <!--soundclod-->
         <scene sceneID="3Bc-i8-7z3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5FU-6G-laQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="iTunes" image="itunes" landscapeImage="itunes" id="gxY-Vo-yyT"/>
+                    <tabBarItem key="tabBarItem" title="soundclod" image="soundclod" landscapeImage="soundclod" id="gxY-Vo-yyT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zNw-3F-780">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -397,10 +398,10 @@
             </objects>
             <point key="canvasLocation" x="1076" y="871.21439280359823"/>
         </scene>
-        <!--iTunes View Controller-->
+        <!--Soundcloud View Controller-->
         <scene sceneID="KOH-hm-ar0">
             <objects>
-                <viewController id="SPw-yf-7RT" customClass="iTunesViewController" customModule="Tobydi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SPw-yf-7RT" customClass="soundcloudViewController" customModule="Tobydi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pyn-U1-YKb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -515,8 +516,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="itunes" width="30" height="30"/>
         <image name="play-button" width="37.5" height="37.5"/>
         <image name="shazam" width="24" height="24"/>
+        <image name="soundclod" width="16" height="16"/>
+        <image name="soundcloud-40" width="40" height="40"/>
     </resources>
 </document>

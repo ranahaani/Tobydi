@@ -18,7 +18,7 @@
 		3549E62F21E8DFB600DBE9A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3549E62E21E8DFB600DBE9A0 /* Assets.xcassets */; };
 		3549E63221E8DFB600DBE9A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3549E63021E8DFB600DBE9A0 /* LaunchScreen.storyboard */; };
 		3549E63A21E8E52E00DBE9A0 /* PlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549E63921E8E52E00DBE9A0 /* PlayerCollectionViewCell.swift */; };
-		3566F35021F0B78C000F2BC1 /* iTunesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3566F34F21F0B78C000F2BC1 /* iTunesViewController.swift */; };
+		3566F35021F0B78C000F2BC1 /* soundcloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3566F34F21F0B78C000F2BC1 /* soundcloudViewController.swift */; };
 		3566F35221F0B80A000F2BC1 /* iTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3566F35121F0B80A000F2BC1 /* iTunes.swift */; };
 		35C9EBEE2220ED42006B4156 /* Shahzam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C9EBED2220ED42006B4156 /* Shahzam.swift */; };
 		EA28217522B8D19C00F91651 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA28217422B8D19C00F91651 /* String.swift */; };
@@ -42,7 +42,7 @@
 		3549E63121E8DFB600DBE9A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3549E63321E8DFB600DBE9A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3549E63921E8E52E00DBE9A0 /* PlayerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCollectionViewCell.swift; sourceTree = "<group>"; };
-		3566F34F21F0B78C000F2BC1 /* iTunesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesViewController.swift; sourceTree = "<group>"; };
+		3566F34F21F0B78C000F2BC1 /* soundcloudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = soundcloudViewController.swift; sourceTree = "<group>"; };
 		3566F35121F0B80A000F2BC1 /* iTunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunes.swift; sourceTree = "<group>"; };
 		35C9EBED2220ED42006B4156 /* Shahzam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shahzam.swift; sourceTree = "<group>"; };
 		67CB2790E8AB0707A760B169 /* Pods_Tobydi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tobydi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,7 +91,7 @@
 				3504FBD921EB23E4002CD476 /* MusicPlayerController.swift */,
 				3549E62621E8DFB300DBE9A0 /* YouTubeViewController.swift */,
 				EA28217A22B9271D00F91651 /* TabViewController.swift */,
-				3566F34F21F0B78C000F2BC1 /* iTunesViewController.swift */,
+				3566F34F21F0B78C000F2BC1 /* soundcloudViewController.swift */,
 				3504FBE021EB30EB002CD476 /* ShahzamViewController.swift */,
 			);
 			path = Controller;
@@ -288,7 +288,7 @@
 				3504FBE121EB30EB002CD476 /* ShahzamViewController.swift in Sources */,
 				EAE79EB622B6697600870846 /* Song.swift in Sources */,
 				EA28217522B8D19C00F91651 /* String.swift in Sources */,
-				3566F35021F0B78C000F2BC1 /* iTunesViewController.swift in Sources */,
+				3566F35021F0B78C000F2BC1 /* soundcloudViewController.swift in Sources */,
 				3549E62721E8DFB300DBE9A0 /* YouTubeViewController.swift in Sources */,
 				3504FBDA21EB23E4002CD476 /* MusicPlayerController.swift in Sources */,
 				35C9EBEE2220ED42006B4156 /* Shahzam.swift in Sources */,
@@ -441,13 +441,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 434JC6R7SW;
+				DEVELOPMENT_TEAM = J959Y78427;
 				INFOPLIST_FILE = Tobydi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = haani.Tobydi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tubidy.musicplayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -460,13 +461,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 434JC6R7SW;
+				DEVELOPMENT_TEAM = J959Y78427;
 				INFOPLIST_FILE = Tobydi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = haani.Tobydi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tubidy.musicplayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
