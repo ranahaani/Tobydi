@@ -21,10 +21,12 @@
 		3566F35021F0B78C000F2BC1 /* soundcloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3566F34F21F0B78C000F2BC1 /* soundcloudViewController.swift */; };
 		3566F35221F0B80A000F2BC1 /* iTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3566F35121F0B80A000F2BC1 /* iTunes.swift */; };
 		35C9EBEE2220ED42006B4156 /* Shahzam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C9EBED2220ED42006B4156 /* Shahzam.swift */; };
+		EA17EDA0230C170500C7B9A3 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17ED9F230C170500C7B9A3 /* FavouriteViewController.swift */; };
 		EA28217522B8D19C00F91651 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA28217422B8D19C00F91651 /* String.swift */; };
 		EA28217722B8D1D300F91651 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA28217622B8D1D300F91651 /* Color.swift */; };
 		EA28217922B9038C00F91651 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA28217822B9038C00F91651 /* View.swift */; };
 		EA28217B22B9271D00F91651 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA28217A22B9271D00F91651 /* TabViewController.swift */; };
+		EADF58AD230FF7EE0012D67D /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADF58AC230FF7EE0012D67D /* Favourites.swift */; };
 		EAE79EB622B6697600870846 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE79EB522B6697600870846 /* Song.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,10 +49,12 @@
 		35C9EBED2220ED42006B4156 /* Shahzam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shahzam.swift; sourceTree = "<group>"; };
 		67CB2790E8AB0707A760B169 /* Pods_Tobydi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tobydi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1960325532E6973E7D924C /* Pods-Tobydi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tobydi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tobydi/Pods-Tobydi.debug.xcconfig"; sourceTree = "<group>"; };
+		EA17ED9F230C170500C7B9A3 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		EA28217422B8D19C00F91651 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		EA28217622B8D1D300F91651 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		EA28217822B9038C00F91651 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		EA28217A22B9271D00F91651 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		EADF58AC230FF7EE0012D67D /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; };
 		EAE79EB522B6697600870846 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +95,7 @@
 				3504FBD921EB23E4002CD476 /* MusicPlayerController.swift */,
 				3549E62621E8DFB300DBE9A0 /* YouTubeViewController.swift */,
 				EA28217A22B9271D00F91651 /* TabViewController.swift */,
+				EA17ED9F230C170500C7B9A3 /* FavouriteViewController.swift */,
 				3566F34F21F0B78C000F2BC1 /* soundcloudViewController.swift */,
 				3504FBE021EB30EB002CD476 /* ShahzamViewController.swift */,
 			);
@@ -102,6 +107,7 @@
 			children = (
 				3504FBDE21EB2B24002CD476 /* YouTube.swift */,
 				EAE79EB522B6697600870846 /* Song.swift */,
+				EADF58AC230FF7EE0012D67D /* Favourites.swift */,
 				3566F35121F0B80A000F2BC1 /* iTunes.swift */,
 				35C9EBED2220ED42006B4156 /* Shahzam.swift */,
 			);
@@ -288,9 +294,11 @@
 				3504FBE121EB30EB002CD476 /* ShahzamViewController.swift in Sources */,
 				EAE79EB622B6697600870846 /* Song.swift in Sources */,
 				EA28217522B8D19C00F91651 /* String.swift in Sources */,
+				EADF58AD230FF7EE0012D67D /* Favourites.swift in Sources */,
 				3566F35021F0B78C000F2BC1 /* soundcloudViewController.swift in Sources */,
 				3549E62721E8DFB300DBE9A0 /* YouTubeViewController.swift in Sources */,
 				3504FBDA21EB23E4002CD476 /* MusicPlayerController.swift in Sources */,
+				EA17EDA0230C170500C7B9A3 /* FavouriteViewController.swift in Sources */,
 				35C9EBEE2220ED42006B4156 /* Shahzam.swift in Sources */,
 				EA28217922B9038C00F91651 /* View.swift in Sources */,
 				3549E62521E8DFB300DBE9A0 /* AppDelegate.swift in Sources */,

@@ -87,7 +87,7 @@ extension ShahzamViewController{
         
         print("Slider Changed: \(slider!.value)")
         
-        YouTubeViewController.musicPlayer.audioPlayer.seek(toTime: Double(slider!.value))
+        YouTubeViewController.musicPlayer.audioPlayer2.seek(toTime: Double(slider!.value))
     }
     
     func setupTimer() {
@@ -97,17 +97,17 @@ extension ShahzamViewController{
     }
     
     func stopButtonPressed() {
-        YouTubeViewController.musicPlayer.audioPlayer.stop()
+        YouTubeViewController.musicPlayer.audioPlayer2.stop()
     }
     func playButtonPressed() {
-        //        if musicPlayer.audioPlayer {
+        //        if musicPlayer.audioPlayer2 {
         //            return
         //        }
         
-        if YouTubeViewController.musicPlayer.audioPlayer.state == .paused {
-            YouTubeViewController.musicPlayer.audioPlayer.resume()
+        if YouTubeViewController.musicPlayer.audioPlayer2.state == .paused {
+            YouTubeViewController.musicPlayer.audioPlayer2.resume()
         } else {
-            YouTubeViewController.musicPlayer.audioPlayer.pause()
+            YouTubeViewController.musicPlayer.audioPlayer2.pause()
         }
     }
     
@@ -121,21 +121,21 @@ extension ShahzamViewController{
         
         
         
-        if YouTubeViewController.musicPlayer.audioPlayer.duration != 0 {
+        if YouTubeViewController.musicPlayer.audioPlayer2.duration != 0 {
             slider!.minimumValue = 0
-            slider!.maximumValue = Float(YouTubeViewController.musicPlayer.audioPlayer.duration)
-            slider!.value = Float(YouTubeViewController.musicPlayer.audioPlayer.progress)
+            slider!.maximumValue = Float(YouTubeViewController.musicPlayer.audioPlayer2.duration)
+            slider!.value = Float(YouTubeViewController.musicPlayer.audioPlayer2.progress)
             
-            //            label.text = "\(formatTime(fromSeconds: audioPlayer.progress)) - \(formatTime(fromSeconds: audioPlayer.duration))"
+            //            label.text = "\(formatTime(fromSeconds: audioPlayer2.progress)) - \(formatTime(fromSeconds: audioPlayer2.duration))"
         } else {
             slider!.value = 0
             slider!.minimumValue = 0
             slider!.maximumValue = 0
             
-            //  label.text = "Live stream \(formatTime(fromSeconds: audioPlayer.progress))"
+            //  label.text = "Live stream \(formatTime(fromSeconds: audioPlayer2.progress))"
         }
         
-        //statusLabel.text = audioPlayer.state == STKAudioPlayerStateBuffering ? "buffering" : ""
+        //statusLabel.text = audioPlayer2.state == STKaudioPlayer2StateBuffering ? "buffering" : ""
         
     }
     
@@ -145,13 +145,13 @@ extension ShahzamViewController{
 extension ShahzamViewController{
     
     @objc func pressedPlay(button: UIButton) {
-        if YouTubeViewController.musicPlayer.audioPlayer.state == .paused {
+        if YouTubeViewController.musicPlayer.audioPlayer2.state == .paused {
             //playMusic(indexPath: songNum)
             origImg_play = UIImage(named: "PauseFilled")!
             mediaControls_init()
             
-        } else if YouTubeViewController.musicPlayer.audioPlayer.state == .playing {
-            YouTubeViewController.musicPlayer.audioPlayer.pause()
+        } else if YouTubeViewController.musicPlayer.audioPlayer2.state == .playing {
+            YouTubeViewController.musicPlayer.audioPlayer2.pause()
             
             origImg_play = UIImage(named: "PlayFilled")!
             
@@ -163,10 +163,10 @@ extension ShahzamViewController{
         songNum += 1
         //playMusic(indexPath: songNum)
         
-        if YouTubeViewController.musicPlayer.audioPlayer.state == .paused{
-            YouTubeViewController.musicPlayer.audioPlayer.pause()
-        } else if YouTubeViewController.musicPlayer.audioPlayer.state == .playing {
-            // musicPlayer.audioPlayer.play()
+        if YouTubeViewController.musicPlayer.audioPlayer2.state == .paused{
+            YouTubeViewController.musicPlayer.audioPlayer2.pause()
+        } else if YouTubeViewController.musicPlayer.audioPlayer2.state == .playing {
+            // musicPlayer.audioPlayer2.play()
         }
         
     }
@@ -179,10 +179,10 @@ extension ShahzamViewController{
             songNum -= 1
         }
         //playMusic(indexPath: songNum)
-        if YouTubeViewController.musicPlayer.audioPlayer.state == .paused{
-            YouTubeViewController.musicPlayer.audioPlayer.pause()
-        } else if YouTubeViewController.musicPlayer.audioPlayer.state == .playing {
-            // musicPlayer.audioPlayer.play()
+        if YouTubeViewController.musicPlayer.audioPlayer2.state == .paused{
+            YouTubeViewController.musicPlayer.audioPlayer2.pause()
+        } else if YouTubeViewController.musicPlayer.audioPlayer2.state == .playing {
+            // musicPlayer.audioPlayer2.play()
         }
     }
     
@@ -338,7 +338,7 @@ extension ShahzamViewController:UICollectionViewDelegate,UICollectionViewDataSou
         } else {
             print("Ad wasn't ready")
         }
-        YouTubeViewController.musicPlayer.audioPlayer.play(URL(string: ids[indexPath.row])!)
+        YouTubeViewController.musicPlayer.audioPlayer2.play(URL(string: ids[indexPath.row])!)
         DispatchQueue.main.async {
             self.setupTimer()
             self.origImg_play = UIImage(named: "PauseFilled")!

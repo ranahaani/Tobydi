@@ -8,13 +8,17 @@ target 'Tobydi' do
   pod 'Kingfisher'
   pod 'StreamingKit'
   pod 'ReachabilitySwift'
+  #pod 'RealmSwift'
+  #pod 'SQLite.swift', '~> 0.11.0'
   pod 'SVProgressHUD'
   #pod 'YoutubeDirectLinkExtractor'
   #pod 'Soundcloud'
+  pod 'AudioIndicatorBars', '~> 0.0.2'
+
   pod 'Alamofire'
   #pod 'HCYoutubeParser'
   #pod 'MarqueeLabel/Swift'
-  #pod 'FRadioPlayer'
+  pod 'FRadioPlayer'
   pod 'Google-Mobile-Ads-SDK'
 
 

@@ -11,15 +11,50 @@ import AVFoundation
 import SVProgressHUD
 import GoogleMobileAds
 import Reachability
+import FRadioPlayer
+import CoreData
 import StreamingKit
-
+import AudioIndicatorBars
 class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UISearchControllerDelegate {
+    let defaults = UserDefaults.standard
+    var selectedIndex = 0 {
+        didSet {
+            defer {
+                playMusic(indexPath: selectedIndex)
+                //updateNowPlaying(with: track)
+            }
+            
+            guard 0..<video_arr.endIndex ~= selectedIndex else {
+                selectedIndex = selectedIndex < 0 ? video_arr.count - 1 : 0
+                return
+            }
+        }
+    }
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+    let indicator: AudioIndicatorBarsView =
+        AudioIndicatorBarsView(
+            CGRect(x: 10, y: 35, width: 25, height: 25),
+            4,
+            2,
+            #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    )
+    let indicator2: AudioIndicatorBarsView =
+        AudioIndicatorBarsView(
+            CGRect(x: 10, y: 300, width: 25, height: 25),
+            4,
+            2,
+            #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    )
+    
     var timer: Timer? = nil
     var origImg_play = UIImage(named: "PlayFilled")!
     var songNum = 0
     var slider: UISlider? = UISlider(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     struct musicPlayer{
-        static let audioPlayer = STKAudioPlayer()
+        static let audioPlayer2 = STKAudioPlayer()
+        static let audioPlayer = FRadioPlayer.shared
+
     }
     var bannerView: GADBannerView!
     var interstitial: GADInterstitial!
@@ -33,7 +68,7 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
         return adBannerView
     }()
     @IBOutlet weak var collectionView: UICollectionView!
-    
+
     var arr:[String]=[]
     var video_arr:[String]=[]
     var video_str=""
@@ -43,7 +78,8 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         slider?.translatesAutoresizingMaskIntoConstraints = false
-        
+        musicPlayer.audioPlayer.delegate = self
+
         interstitial = GADInterstitial(adUnitID: "ca-app-pub-4401604271141178/8098469764")
         let request = GADRequest()
         interstitial.load(request)
@@ -84,6 +120,10 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
         }// Do any additional setup after loading the view.
     }
 
+    @IBAction func addToFavouritePressed(_ sender: UIButton) {
+       // sender.imageView?.image = UIImage(named: "like")
+       // print("Clicked")
+    }
     
     func do_table_refresh()
     {
@@ -92,7 +132,6 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
         }
         SVProgressHUD.dismiss()
     }
-    
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -114,13 +153,33 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
         else{
             item.musicTitle.text = token[0]
         }
-        
-       item.musicArtist.text = "YouTube"
+        item.heartButtonPressed.tag = indexPath.row
+        item.heartButtonPressed.addTarget(self, action: #selector(heartButtonClicked(_:)), for: .touchUpInside)
+        item.musicArtist.text = "YouTube"
         item.musicImage.kf.setImage(with: URL(string: images[indexPath.row]))
         item.backgroundColor = (UIColor(rgb: 0x91dbed))
         return item
     }
-   
+    
+    @objc func heartButtonClicked(_ sender: UIButton){
+        sender.setImage(UIImage(named: "like"), for: .normal)
+        //let value = Favourite(title: arr[sender.tag], playID: video_arr[sender.tag], category: "youtube")
+        //defaults.setValue(value, forKey: "YT\(sender.tag)")
+        let context = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Fav", in: context)
+        let song = NSManagedObject(entity: entity!, insertInto: context)
+        song.setValue(arr[sender.tag], forKey: "name")
+        song.setValue(video_arr[sender.tag], forKey: "audioID")
+        song.setValue("YT", forKey: "cat")
+        song.setValue(images[sender.tag], forKey: "image")
+        song.setValue(sender.tag, forKey: "id")
+        do {
+            try context.save()
+        } catch {
+            print("Failed saving")
+        }
+        print(sender.tag)
+    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if interstitial.isReady {
             interstitial.present(fromRootViewController: self)
@@ -130,36 +189,29 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
         
         playMusic(indexPath: indexPath.row)
         
-        
-       
     }
     func playMusic(indexPath:Int){
-        let Url = "http://michaelbelgium.me/ytconverter/convert.php?youtubelink=https://www.youtube.com/watch?v=\(video_arr[indexPath])"
+        let Url = "https://warm-lake-76314.herokuapp.com/index/\(video_arr[indexPath])"
         print(Url)
         let url = URL(string: Url)
         SVProgressHUD.show(withStatus: "Playing...")
+        
 
         URLSession.shared.dataTask(with: url!) { (data, response, err) in
             guard let data = data else { return }
             
             do {
-                
-                let downloadedFile = try JSONDecoder().decode(getYouTubeDownloadLink.self, from: data)
-                if downloadedFile.file != nil{
-                    musicPlayer.audioPlayer.play(URL(string:downloadedFile.file)!)
-                    SVProgressHUD.dismiss()
-                    DispatchQueue.main.async{
-                    self.origImg_play = UIImage(named: "PauseFilled")!
-                        print("Playing....")
-                        self.setupTimer()
-                        self.mediaControls_init()
-                        self.tick()
-                        
-                    }
+                let str = String(decoding: data, as: UTF8.self)
+                print(str,str.count)
+                if  str.count != 0 && str.count < 1000{
+                    
+                  musicPlayer.audioPlayer.radioURL = URL(string: str)
+                    //musicPlayer.audioPlayer.play()
 
+                    
                 }
                 else{
-                    self.ShowAlert(title: "Error", message: "Sorry you can't play at this time")
+                    self.ShowAlert(title: "Error", message: "HTTP Error 429: Too Many Requests or 402")
                     SVProgressHUD.dismiss()
                 }
                 
@@ -171,12 +223,7 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
             }.resume()
         
     }
-    func ShowAlert(title:String,message:String){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: { (action) in alert.dismiss(animated: true, completion: nil)
-        }))
-        self.present(alert, animated: true, completion: nil)
-    }
+   
     func reload() {
         video_arr.removeAll()
         images.removeAll()
@@ -224,10 +271,10 @@ class YouTubeViewController: UIViewController,UISearchBarDelegate,UICollectionVi
 
 extension YouTubeViewController{
     @objc func sliderChanged() {
-        
+        slider!.maximumValue = Float(musicPlayer.audioPlayer.rate ?? 0)
         print("Slider Changed: \(slider!.value)")
-        
-        musicPlayer.audioPlayer.seek(toTime: Double(slider!.value))
+        //musicPlayer.audioPlaye
+        //musicPlayer.audioPlayer.rate(toTime: Double(slider!.value))
     }
     
     func setupTimer() {
@@ -240,15 +287,7 @@ extension YouTubeViewController{
         musicPlayer.audioPlayer.stop()
     }
     func playButtonPressed() {
-//        if musicPlayer.audioPlayer {
-//            return
-//        }
-        
-        if musicPlayer.audioPlayer.state == .paused {
-            musicPlayer.audioPlayer.resume()
-        } else {
-            musicPlayer.audioPlayer.pause()
-        }
+        musicPlayer.audioPlayer.togglePlaying()
     }
     
     func formatTime(fromSeconds totalSeconds: Int) -> String? {
@@ -259,12 +298,10 @@ extension YouTubeViewController{
     }
     @objc func tick() {
        
-        
-        
-        if musicPlayer.audioPlayer.duration != 0 {
+        if musicPlayer.audioPlayer.rate != 0 {
             slider!.minimumValue = 0
-            slider!.maximumValue = Float(musicPlayer.audioPlayer.duration)
-            slider!.value = Float(musicPlayer.audioPlayer.progress)
+            slider!.maximumValue = Float(musicPlayer.audioPlayer.rate ?? 0)
+            slider!.value = Float(musicPlayer.audioPlayer.hashValue)
             
 //            label.text = "\(formatTime(fromSeconds: audioPlayer.progress)) - \(formatTime(fromSeconds: audioPlayer.duration))"
         } else {
@@ -285,45 +322,29 @@ extension YouTubeViewController{
 extension YouTubeViewController{
     
     @objc func pressedPlay(button: UIButton) {
-        if musicPlayer.audioPlayer.state == .paused {
-            playMusic(indexPath: songNum)
-            origImg_play = UIImage(named: "PauseFilled")!
-            mediaControls_init()
-            
-        } else if musicPlayer.audioPlayer.state == .playing {
-            musicPlayer.audioPlayer.pause()
-            
-            origImg_play = UIImage(named: "PlayFilled")!
-            
-            mediaControls_init()
-        }
+//        if musicPlayer.audioPlayer.state == .loading {
+//            playMusic(indexPath: songNum)
+//            origImg_play = UIImage(named: "PauseFilled")!
+//            indicator.start()
+//            mediaControls_init()
+//
+//        } else if musicPlayer.audioPlayer.state == .readyToPlay {
+//            musicPlayer.audioPlayer.pause()
+//            indicator.stop()
+//            origImg_play = UIImage(named: "PlayFilled")!
+//
+//            mediaControls_init()
+//        }
+        musicPlayer.audioPlayer.togglePlaying()
+        mediaControls_init()
     }
     
     @objc func pressedFastf(button: UIButton) {
-        songNum += 1
-        playMusic(indexPath: songNum)
-        
-        if musicPlayer.audioPlayer.state == .paused{
-            musicPlayer.audioPlayer.pause()
-        } else if musicPlayer.audioPlayer.state == .playing {
-           // musicPlayer.audioPlayer.play()
-        }
-        
+        selectedIndex += 1
     }
     
     @objc func pressedRewind(button: UIButton) {
-        if songNum == 0 {
-            songNum += 1
-        }
-        else{
-            songNum -= 1
-        }
-       playMusic(indexPath: songNum)
-        if musicPlayer.audioPlayer.state == .paused{
-            musicPlayer.audioPlayer.pause()
-        } else if musicPlayer.audioPlayer.state == .playing {
-            // musicPlayer.audioPlayer.play()
-        }
+       selectedIndex -= 1
     }
     
     @objc func someAction(button: UIButton) {
@@ -365,18 +386,20 @@ extension YouTubeViewController{
             button.setImage(tinted_dict[button], for: .normal)
             button.tintColor = UIColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 1)
         }
-        
+        indicator2.translatesAutoresizingMaskIntoConstraints = false
+        indicator.translatesAutoresizingMaskIntoConstraints = false
         //Set button actions and add to subviews
         rewindButton.addTarget(self, action: #selector(pressedRewind(button:)), for: .touchUpInside)
         playButton.addTarget(self, action: #selector(pressedPlay(button:)), for: .touchUpInside)
         fastfButton.addTarget(self, action: #selector(pressedFastf(button:)), for: .touchUpInside)
         slider!.isContinuous = true
         slider!.addTarget(self, action: #selector(self.sliderChanged), for: .valueChanged)
-        containerArea.addSubview(slider!)
+        //containerArea.addSubview(slider!)
         containerArea.addSubview(playButton)
         containerArea.addSubview(rewindButton)
         containerArea.addSubview(fastfButton)
-        
+        containerArea.addSubview(indicator)
+        containerArea.addSubview(indicator2)
         //Add button constraints
         let containerAreaConstraints: [NSLayoutConstraint] = [
             containerArea.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -384,9 +407,9 @@ extension YouTubeViewController{
             containerArea.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -tabbarHeight!),
             containerArea.heightAnchor.constraint(equalToConstant: 80),
             
-            (slider?.leadingAnchor.constraint(equalTo: containerArea.leadingAnchor))!,
-            (slider?.trailingAnchor.constraint(equalTo: containerArea.trailingAnchor))!,
-            (slider?.bottomAnchor.constraint(equalTo: containerArea.topAnchor,constant: 28))!,
+            //(slider?.leadingAnchor.constraint(equalTo: containerArea.leadingAnchor))!,
+            //(slider?.trailingAnchor.constraint(equalTo: containerArea.trailingAnchor))!,
+            //(slider?.bottomAnchor.constraint(equalTo: containerArea.topAnchor,constant: 28))!,
             
             rewindButton.trailingAnchor.constraint(equalTo: playButton.leadingAnchor, constant: -30),
             playButton.centerXAnchor.constraint(equalTo: containerArea.centerXAnchor),
@@ -394,7 +417,17 @@ extension YouTubeViewController{
             
             rewindButton.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor),
             playButton.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor),
-            fastfButton.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor)
+            fastfButton.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor),
+            
+            indicator.widthAnchor.constraint(equalToConstant: 25.0),
+            indicator.heightAnchor.constraint(equalToConstant: 25.0),
+            indicator.trailingAnchor.constraint(equalTo: containerArea.trailingAnchor, constant: -20),
+            indicator.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor, constant: 0),
+            
+            indicator2.widthAnchor.constraint(equalToConstant: 25.0),
+            indicator2.heightAnchor.constraint(equalToConstant: 25.0),
+            indicator2.leadingAnchor.constraint(equalTo: containerArea.leadingAnchor, constant: 20),
+            indicator2.centerYAnchor.constraint(equalTo: containerArea.centerYAnchor, constant: 0)
         ]
         
         NSLayoutConstraint.activate(containerAreaConstraints)
@@ -402,6 +435,67 @@ extension YouTubeViewController{
     
 }
 
+
+extension YouTubeViewController: FRadioPlayerDelegate {
+
+    func radioPlayer(_ player: FRadioPlayer, playerStateDidChange state: FRadioPlayerState) {
+       // statusLabel.text = state.description
+    }
+    
+    func radioPlayer(_ player: FRadioPlayer, playbackStateDidChange state: FRadioPlaybackState) {
+        if state == .playing && musicPlayer.audioPlayer2.state != .playing {
+            SVProgressHUD.dismiss()
+            DispatchQueue.main.async{
+                self.origImg_play = UIImage(named: "PauseFilled")!
+                self.indicator.start()
+                self.indicator2.start()
+                print("Playing....")
+                //self.setupTimer()
+                self.mediaControls_init()
+                //self.tick()
+            }
+        }
+        else if state == .paused{
+            SVProgressHUD.dismiss()
+            DispatchQueue.main.async{
+                self.origImg_play = UIImage(named: "PlayFilled")!
+                self.indicator.stop()
+                self.indicator2.stop()
+                print("Paused....")
+                self.setupTimer()
+                self.mediaControls_init()
+                //self.tick()
+            }
+        }
+        else if state == .stopped{
+            //SVProgressHUD.dismiss()
+            DispatchQueue.main.async{
+                self.origImg_play = UIImage(named: "PlayFilled")!
+                self.indicator.stop()
+                self.indicator2.stop()
+                print("stopped....")
+                self.setupTimer()
+                self.mediaControls_init()
+                self.tick()
+            }
+        }
+        
+    }
+    
+    func radioPlayer(_ player: FRadioPlayer, metadataDidChange artistName: String?, trackName: String?) {
+        //track = Track(artist: artistName, name: trackName)
+    }
+    
+    func radioPlayer(_ player: FRadioPlayer, itemDidChange url: URL?) {
+        //track = nil
+    }
+    
+    func radioPlayer(_ player: FRadioPlayer, metadataDidChange rawValue: String?) {
+       // infoContainer.isHidden = (rawValue == nil)
+    }
+    
+   
+}
 
 extension YouTubeViewController: GADBannerViewDelegate {
     
@@ -417,13 +511,13 @@ extension YouTubeViewController: GADBannerViewDelegate {
     
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         print("Banner loaded successfully")
-        collectionView.addSubview(bannerView)
-        collectionView.contentInset.top = 100
-        
         bannerView.frame = CGRect(x: 0,
                                   y: -80,
                                   width: collectionView.frame.size.width,
                                   height: 80)
+        view.addSubview(bannerView)
+        collectionView.contentInset.top = 100
+        
     }
     
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
@@ -472,3 +566,11 @@ extension YouTubeViewController: UISearchResultsUpdating {
     }
 }
 
+extension UIViewController{
+    func ShowAlert(title:String,message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+}

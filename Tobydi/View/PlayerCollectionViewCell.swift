@@ -12,6 +12,7 @@ class PlayerCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var musicTitle: UILabel!
     
+    @IBOutlet weak var heartButtonPressed: UIButton!
     @IBOutlet weak var musicArtist: UILabel!
        
     
